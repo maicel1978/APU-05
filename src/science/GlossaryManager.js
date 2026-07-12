@@ -1,4 +1,5 @@
 import db from '../core/Database.js';
+import { normalizeGlossaryImport } from './GlossaryFormat.js';
 
 /**
  * GlossaryManager (v8.5.0) - Capa de Conocimiento Vivo
@@ -92,12 +93,10 @@ export class GlossaryManager {
      * Portabilidad: Ingesta masiva desde JSON.
      */
     async importFromJSON(data) {
-        if (data.custom_glossary && Array.isArray(data.custom_glossary)) {
-            for (const item of data.custom_glossary) {
-                await this.addTerm(item.term, item.category);
-            }
-            return data.custom_glossary.length;
+        const entries = normalizeGlossaryImport(data);
+        for (const item of entries) {
+            await this.addTerm(item.term, item.category);
         }
-        throw new Error("Formato de glosario no compatible.");
+        return entries.length;
     }
 }

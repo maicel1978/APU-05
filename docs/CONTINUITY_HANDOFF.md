@@ -43,8 +43,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - **Fase 1A aceptada por el investigador:** runner Node, caracterización del Parser y auditoría R10.
 - Prueba manual MT-001 aprobada: apertura con Live Server y carga de `entrevista01.json` en Individual.
 - MT-002 aprobada en `26518a5`: Transcripción Original y Reporte funcionan sin topología nula.
-- `npm test`: 10 pruebas Node aprobadas, 0 fallidas; incluye 13 casos compartidos del Parser.
-- Único cambio productivo posterior a la línea base: conexión autorizada y validada diseño → topología en `App.js`.
+- `npm test`: 15 pruebas Node aprobadas, 0 fallidas; incluye 13 casos compartidos del Parser.
+- Cambio validado: conexión diseño → topología en `App.js`.
+- MT-003 reprodujo incompatibilidad de glosario v7.7/v8.5; adaptador y manejo de error listos para validación.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

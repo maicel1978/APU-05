@@ -179,12 +179,20 @@ export const GlossaryModule = {
 
         container.querySelector('#gs-btn-import').onclick = () => container.querySelector('#gs-file-import').click();
         container.querySelector('#gs-file-import').onchange = async (e) => {
-            if (e.target.files[0]) {
-                const text = await e.target.files[0].text();
-                const data = JSON.parse(text);
+            const file = e.target.files[0];
+            if (!file) return;
+            try {
+                const data = JSON.parse(await file.text());
                 const count = await this.manager.importFromJSON(data);
-                Renderer.showToast(`Importación exitosa: ${count} términos`, "success");
+                const message = count === 0
+                    ? 'Biblioteca compatible: no contiene términos.'
+                    : `Importación exitosa: ${count} términos`;
+                Renderer.showToast(message, "success");
                 this._renderManage(container, state);
+            } catch (error) {
+                Renderer.showToast(error.message || 'No se pudo importar el glosario.', "error");
+            } finally {
+                e.target.value = '';
             }
         };
     }

@@ -57,3 +57,26 @@ Chrome informó `favicon.ico 404`. Es cosmética y no causó los fallos funciona
 ### Resultado posterior a la corrección
 
 El investigador confirmó que todo el escenario funciona correctamente en `26518a5`. Transcripción Original y Reporte muestran contenido y los errores de topología nula desaparecieron.
+
+---
+
+## MT-003 — La plantilla histórica de glosario es rechazada
+
+**Estado:** fallo reproducido; corrección pendiente de validación
+**Fecha:** 2026-07-12
+**Commit observado:** `246efc2`
+**Entorno:** Visual Studio Code + Live Server + consola de Chrome
+
+### Escenario
+
+1. Abrir Glosario.
+2. Seleccionar Portabilidad.
+3. Cargar `assets/test_data/APU05_Glosario_Maestro_1783541182585.json`.
+
+### Resultado observado
+
+El gestor lanzó `Formato de glosario no compatible` porque la plantilla v7.7 usa `terms`, mientras el formato actual usa `custom_glossary`.
+
+### Validación pendiente
+
+La misma plantilla debe ser reconocida como biblioteca compatible vacía, sin excepción no controlada.

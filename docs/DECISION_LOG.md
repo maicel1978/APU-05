@@ -180,6 +180,17 @@ El error de favicon se mantiene como incidencia separada.
 
 ---
 
+## D-015 — Compatibilidad explícita de glosarios v7.7 y v8.5
+
+**Estado:** implementado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+La plantilla integrada usa `terms` (v7.7), mientras el gestor actual usa `custom_glossary` (v8.5). Se normalizan ambos envoltorios antes de escribir en IndexedDB.
+
+No se aceptan archivos ajenos que solo tengan una propiedad `terms`, y toda entrada no vacía debe declarar `term` y `category`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
