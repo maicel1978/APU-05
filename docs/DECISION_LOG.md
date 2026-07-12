@@ -307,7 +307,8 @@ Ver `TRACEABILITY_UI_DESIGN.md`.
 
 ## D-027 — Activar el store audit sin migración
 
-**Estado:** implementado; pendiente de validación manual
+**Estado:** implementado y validado manualmente
+**Commit validado:** `27af8d5`
 **Fecha:** 2026-07-12
 
 El store `audit` ya existía en la bóveda. Se incorpora a la transacción de cada sesión y conserva los registros forenses completos. Los metadatos raíz se guardan en `sessions.traceability`; el resumen compacto permanece por compatibilidad.

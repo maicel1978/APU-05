@@ -160,8 +160,9 @@ El investigador confirmó 18/18 en navegador, rechazo 4.0, carga de barreras 5.0
 
 ## MT-007 — Trazabilidad opcional y persistencia forense
 
-**Estado:** pendiente de validación manual
+**Estado:** aprobada por el investigador
 **Fecha de preparación:** 2026-07-12
+**Commit validado:** `27af8d5`
 
 ### Escenarios
 
@@ -171,6 +172,6 @@ El investigador confirmó 18/18 en navegador, rechazo 4.0, carga de barreras 5.0
 - Exploratorio con los cuatro JSON de corpus y trazabilidad.
 - Verificación del store IndexedDB `audit`.
 
-### Criterio
+### Resultado
 
-El lector debe diferenciar revisados, cambios y anomalías. No deben perderse `originalText`, `modificationsLog` ni hash de procedencia en IndexedDB.
+El investigador confirmó que todos los escenarios pasaron: carga con/sin trazabilidad, nueve registros en `audit`, rechazo de par incorrecto, cohorte completa y consola sin errores.
