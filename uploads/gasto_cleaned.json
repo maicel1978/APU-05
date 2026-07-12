@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "cleaned-text",
+  "sourceSession": "qa-gasto-bolsillo-speakers-v3",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Dr. Monzón",
+      "covariates": {}
+    },
+    {
+      "id": "spk-2",
+      "label": "Sra. Carmen",
+      "covariates": {}
+    }
+  ],
+  "covariateProject": {
+    "name": "Evaluación de Gasto de Bolsillo y Toxicidad Financiera en Geriatría",
+    "specialty": "Geriatría y Bioestadística",
+    "date": "2026-07-09"
+  },
+  "covariateSchema": [
+    {
+      "name": "edad",
+      "type": "Cuantitativa Continua",
+      "description": "Edad biológica del paciente",
+      "label": "Edad del paciente",
+      "categories": [],
+      "unit": "años",
+      "range": {
+        "min": "65",
+        "max": "120"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "sexo",
+      "type": "Nominal Dicotómica",
+      "description": "Sexo biológico del paciente",
+      "label": "Sexo biológico del paciente",
+      "categories": [
+        {
+          "label": "masculino",
+          "synonyms": []
+        },
+        {
+          "label": "femenino",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {}
+    },
+    {
+      "name": "nivel_ingresos",
+      "type": "Ordinal",
+      "description": "Percepción del nivel de ingresos para cubrir necesidades básicas",
+      "label": "Nivel de ingresos",
+      "categories": [
+        {
+          "label": "insuficiente",
+          "synonyms": [
+            "no alcanza",
+            "pobreza"
+          ]
+        },
+        {
+          "label": "justo",
+          "synonyms": [
+            "alcanza exacto",
+            "sin ahorros"
+          ]
+        },
+        {
+          "label": "suficiente",
+          "synonyms": [
+            "holgado",
+            "con ahorros"
+          ]
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {}
+    },
+    {
+      "name": "proporcion_gasto_salud",
+      "type": "Cuantitativa Continua",
+      "description": "Porcentaje estimado de los ingresos mensuales destinados a salud",
+      "label": "% de Gasto de Bolsillo en Salud",
+      "categories": [],
+      "unit": "%",
+      "range": {
+        "min": "0",
+        "max": "100"
+      },
+      "metadata": {}
+    }
+  ],
+  "finalizedByHuman": true,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "start": 0,
+      "end": 22.5,
+      "cleanedText": "Buenos días. Para comenzar esta evaluación a profundidad sobre el impacto económico que tiene su salud en su día a día, ¿podría describirme detalladamente cómo está compuesta su familia actual, con quién convive y cuáles son sus principales fuentes de ingreso mensuales?",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-002",
+      "speakerId": "spk-2",
+      "speaker": "Sra. Carmen",
+      "start": 25,
+      "end": 98,
+      "cleanedText": "Buenos días, doctor Monzón. Bueno, le cuento, yo vivo sola desde que mi esposo falleció hace ya seis años. Mi familia... pues tengo una hija, pero ella vive al otro lado de la ciudad con su esposo y mis dos nietos. Ella hace lo que puede por mí, pero tiene sus propios gastos con los niños en la escuela y no le sobra el dinero. Así que mi única fuente de ingreso real y segura es la pensión de viudez que me quedó de mi esposo, que apenas llega al salario mínimo. Con la inflación de estos últimos meses, ese dinero se vuelve agua en las manos. A veces mi hija me transfiere un poco a mediados de mes para comprar comida, pero me da mucha vergüenza tener que ser una carga para ella. Así que, en resumen, vivo sola y dependo casi totalmente de una pensión mínima.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-003",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "start": 105,
+      "end": 125,
+      "cleanedText": "Entiendo perfectamente la fragilidad de esa situación. Hablemos entonces de sus gastos médicos directos. De esa pensión que recibe, ¿qué proporción aproximada destina mensualmente a la compra de medicamentos, insumos médicos como las tirillas para la diabetes, o copagos de consultas y exámenes que el sistema público no le cubre a tiempo?",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-004",
+      "speakerId": "spk-2",
+      "speaker": "Sra. Carmen",
+      "start": 128.5,
+      "end": 225,
+      "cleanedText": "Ay, doctor, esa es la parte más difícil. Yo diría que fácil se me va la mitad de la pensión, un cincuenta por ciento o más, solo en las farmacias. El sistema público me debería dar la metformina y el losartán, pero usted sabe cómo está eso, voy a la farmacia del policlínico y casi nunca hay. Entonces me toca cruzando la calle ir a la farmacia privada y comprar los originales o los genéricos que estén más caros. Las tirillas reactivas para medirme la glucosa son un lujo, una cajita me cuesta muchísimo y el seguro no me las cubre. Además, el mes pasado tuve que pagar un ecocardiograma particular porque si esperaba el turno por el hospital público, me lo daban para dentro de siete meses, y yo me sentía con mucha fatiga. Todo eso sale de mi bolsillo, nadie me lo reembolsa. Es un desangre constante mensual.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-005",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "start": 235,
+      "end": 255.5,
+      "cleanedText": "Es un costo de bolsillo catastrófico, sin duda. Ahora bien, más allá de las medicinas en sí, el cuidado integral de la salud implica otros gastos a veces invisibles. ¿Cómo le afecta económicamente el costo de transporte para asistir a sus múltiples citas, o la necesidad de comprar los alimentos específicos recomendados para su dieta de paciente diabética e hipertensa?",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-006",
+      "speakerId": "spk-2",
+      "speaker": "Sra. Carmen",
+      "start": 259,
+      "end": 375,
+      "cleanedText": "Mire, el transporte es un dolor de cabeza grandísimo. Por mi artrosis severa en las rodillas, yo ya no puedo subir los escalones del ómnibus público. Es físicamente imposible y me da miedo caerme. Así que cada vez que tengo cita con usted, con el cardiólogo o para hacerme laboratorios, tengo que pagar un taxi de ida y vuelta. A veces trato de coordinar varias consultas el mismo día para pagar un solo viaje, pero no siempre se puede. Y sobre la alimentación... doctor, yo sé lo que usted me manda a comer. Sé que debo comer proteínas limpias, pescado, pollo a la plancha, vegetales frescos, aceite de oliva. Pero la realidad es que cuando voy al mercado, veo los precios del pescado o de los vegetales buenos, y termino comprando arroz, pan y algo de mortadela porque es lo único que me alcanza para llenar el estómago. Termino comiendo puros carbohidratos, que sé que me suben el azúcar, pero comer sano hoy en día es un privilegio de ricos.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-007",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "start": 385,
+      "end": 405,
+      "cleanedText": "Esta asfixia financiera es muy preocupante porque anula los esfuerzos clínicos. Le pregunto directamente: ¿le ha obligado esta situación económica alguna vez a racionar o saltarse dosis de sus medicamentos, a posponer consultas médicas importantes, o a recortar drásticamente los gastos en necesidades básicas de su hogar como luz o agua para poder costear su salud?",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-008",
+      "speakerId": "spk-2",
+      "speaker": "Sra. Carmen",
+      "start": 408.5,
+      "end": 525,
+      "cleanedText": "Me da un poco de pena admitirlo, doctor, pero sí. Muchas veces. La pastilla de la presión, cuando veo que me quedan pocas y no tengo dinero para comprar la caja nueva, la pico por la mitad para que me dure el doble de días. Yo sé que usted me dijo que no lo hiciera, pero es eso o no tomar nada. También dejé de ir al dentista. Hace meses que tengo una muela que me molesta, pero ir al estomatólogo privado me costaría lo mismo que como en dos semanas, así que me aguanto el dolor con un poco de paracetamol. Y en la casa... pues trato de no encender luces, veo la televisión muy poco para ahorrar electricidad, y a veces me salto la cena. Tomo un poco de café con leche y pan por la noche, y así me acuesto, para estirar el dinero y poder comprar la insulina. Uno termina sacrificando todo lo demás solo para seguir respirando.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-009",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "start": 540,
+      "end": 565,
+      "cleanedText": "Agradezco profundamente su sinceridad; es fundamental saber esto para ajustar su esquema terapéutico a su realidad. Finalmente, en cuanto a la necesidad de cuidados físicos en el hogar debido a su movilidad reducida, ¿ha tenido que pagar de su bolsillo a cuidadores informales, o su hija ha tenido que ausentarse del trabajo para cuidarle, afectando indirectamente los ingresos de su familia?",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-010",
+      "speakerId": "spk-2",
+      "speaker": "Sra. Carmen",
+      "start": 568,
+      "end": 690,
+      "cleanedText": "Las dos cosas, doctor. Yo no puedo agacharme para limpiar el piso ni lavar cosas pesadas, así que tuve que llegar a un acuerdo con una vecina más joven. Le pago una cantidad semanal para que venga dos veces a ayudarme con la limpieza pesada y a veces a traerme los mandados grandes. Es dinero en negro, informal, pero sale de mi pensión. Y respecto a mi hija, es lo que más me duele. Cuando tuve la crisis de azúcar el año pasado y estuve ingresada cuatro días, ella tuvo que pedir permiso en su trabajo. Como ella trabaja por horas en un comercio, esos cuatro días no se los pagaron. Perdió casi la mitad de su quincena por estar conmigo en el hospital. Y eso crea tensiones, sabe, porque el esposo le reclama que descuidó la casa. La enfermedad de uno no solo le vacía los bolsillos a uno, sino que también empobrece y estresa a los hijos. Es una cadena de la que no nos podemos quitar.",
+      "confidence": null
+    }
+  ]
+}
