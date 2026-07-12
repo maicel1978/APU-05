@@ -85,3 +85,33 @@ La plantilla fue reconocida como biblioteca compatible vacía y la consola no mo
 ### Límite de esta prueba
 
 El fixture contiene `terms: []`. La prueba valida compatibilidad del envoltorio histórico, pero no valida importación real, categorías, persistencia ni efecto analítico. Ver `GLOSSARY_SCOPE.md`.
+
+---
+
+## MT-004 — Flujo Individual con salida APU-04 5.0.0
+
+**Estado:** aprobada por el investigador
+**Fecha:** 2026-07-12
+**Commit validado:** `afb6a2b`
+**Entorno:** Visual Studio Code + Live Server + consola de Chrome
+
+### Archivo
+
+```text
+uploads/speakers-5_cleaned (1).json
+```
+
+### Características relevantes
+
+- `schemaVersion: 5.0.0`.
+- `finalizedByHuman: true`.
+- 49 segmentos.
+- Incluye un segmento heredado con `start === end`.
+
+### Resultado confirmado
+
+El investigador confirmó que el flujo completo indicado funcionó correctamente y que la consola quedó sin errores. El segmento de duración cero no bloqueó la carga ni los módulos analíticos.
+
+### Alcance
+
+Esta prueba certifica el comportamiento actual del flujo Individual con el fixture 5.0.0. Todavía no certifica carga conjunta de trazabilidad, exactitud matemática de métricas ni validez científica de las interpretaciones.

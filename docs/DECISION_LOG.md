@@ -205,6 +205,18 @@ La interoperabilidad obligatoria APU-04 → APU-05 corresponde al corpus y su pr
 
 ---
 
+## D-017 — Línea base Individual compatible con APU-04 5.0.0
+
+**Estado:** validada manualmente
+**Fecha:** 2026-07-12
+**Commit validado:** `afb6a2b`
+
+El fixture actual de APU-04 carga y recorre el flujo Individual sin errores, incluido un segmento con duración cero. Esta conducta se protegerá al endurecer el Parser.
+
+La validación funcional no certifica todavía la exactitud estadística ni la carga complementaria de trazabilidad.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
