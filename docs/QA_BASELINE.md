@@ -92,7 +92,7 @@ No se modifica todavía:
 
 ## 7. Resultado automático
 
-Ejecución del 2026-07-12:
+Ejecución inicial del 2026-07-12:
 
 ```text
 npm test
@@ -100,7 +100,15 @@ npm test
 0 fallidas
 ```
 
-La suite compartida del Parser ejecuta internamente 13 casos de caracterización. Las 7 pruebas Node incluyen esa suite, fixtures reales y auditoría estática.
+Después de añadir la regresión autorizada para topología nula:
+
+```text
+npm test
+10 pruebas aprobadas
+0 fallidas
+```
+
+La suite compartida del Parser ejecuta internamente 13 casos de caracterización. Las pruebas Node incluyen esa suite, fixtures reales, auditoría estática y conexión diseño → topología.
 
 ## 8. Próxima puerta
 

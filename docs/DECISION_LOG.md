@@ -166,6 +166,19 @@ La estrategia, el protocolo de interacción, la guía local y el mecanismo de co
 
 ---
 
+## D-014 — Corregir topología nula en el punto de selección
+
+**Estado:** autorizado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+Los fallos de Transcripción Original y Reporte comparten una causa: seleccionar un diseño no actualizaba `State.topology`.
+
+Se autorizó un cambio mínimo en el archivo protegido `App.js`: traducir el módulo seleccionado a su topología mediante una función pura probada. No se aplican valores de reserva independientes en los consumidores porque ocultarían la desconexión de estado.
+
+El error de favicon se mantiene como incidencia separada.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
