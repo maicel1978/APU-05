@@ -74,7 +74,17 @@ El identificador mostrado debe coincidir con el commit informado por el agente.
 
 ## 4. Ejecutar la aplicación
 
-### Opción Windows sencilla
+### Opción acordada para las pruebas: Live Server
+
+Con la carpeta completa abierta en Visual Studio Code:
+
+1. Hacer clic derecho sobre `index.html`.
+2. Elegir **Open with Live Server**.
+3. Esperar que se abra el navegador, normalmente en `http://127.0.0.1:5500/`.
+
+Usar siempre el mismo método y puerto durante una serie de pruebas. IndexedDB separa sus datos por origen: `127.0.0.1:5500` y `localhost:8000` tienen bóvedas diferentes. Cambiar entre ambos puede hacer que una sesión parezca ausente, aunque siga almacenada en el otro origen.
+
+### Opción Windows alternativa
 
 Hacer doble clic en:
 
@@ -82,7 +92,7 @@ Hacer doble clic en:
 INICIAME.bat
 ```
 
-### Opción terminal
+### Opción terminal alternativa
 
 ```bash
 python serve.py

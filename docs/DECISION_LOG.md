@@ -146,6 +146,26 @@ La rama compartida es `arena/019f5692-apu-05`. Las instrucciones operativas vive
 
 ---
 
+## D-012 — Live Server como entorno principal de prueba manual
+
+**Estado:** aceptada y validada
+**Fecha:** 2026-07-12
+
+El investigador confirmó que APU-05 abre mediante **Open with Live Server** y que `assets/test_data/entrevista01.json` carga en el módulo Individual.
+
+Durante una serie de pruebas se mantendrá el mismo origen y puerto para no confundir bóvedas IndexedDB distintas. Ver `MANUAL_TEST_LOG.md`.
+
+---
+
+## D-013 — Fase 0 aceptada
+
+**Estado:** aceptada por el investigador
+**Fecha:** 2026-07-12
+
+La estrategia, el protocolo de interacción, la guía local y el mecanismo de continuidad quedan establecidos. El siguiente trabajo autorizado por la hoja de ruta es preparar QA confiable sin cambiar todavía el comportamiento productivo.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?

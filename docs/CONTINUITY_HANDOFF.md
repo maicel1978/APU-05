@@ -37,8 +37,10 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - `src/core/export-package.js`
 - pruebas relacionadas con el contrato afectado.
 
-## 3. Estado al crear este handoff
+## 3. Estado actual
 
+- **Fase 0 aceptada por el investigador.**
+- Prueba manual MT-001 aprobada: apertura con Live Server y carga de `entrevista01.json` en Individual.
 - No se modificó código de producción.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
