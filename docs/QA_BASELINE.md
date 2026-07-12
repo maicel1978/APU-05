@@ -1,7 +1,7 @@
 # Línea base de QA de APU-05
 
-**Fase:** 1A — caracterización sin cambio productivo  
-**Estado:** listo para prueba manual
+**Fase:** 1A — caracterización y primera regresión controlada
+**Estado:** aceptada por el investigador
 
 ## 1. Propósito
 
@@ -110,10 +110,13 @@ npm test
 
 La suite compartida del Parser ejecuta internamente 13 casos de caracterización. Las pruebas Node incluyen esa suite, fixtures reales, auditoría estática y conexión diseño → topología.
 
-## 8. Próxima puerta
+## 8. Validación manual
 
-Fase 1A queda aceptada cuando:
+El investigador confirmó en el commit `26518a5` que el escenario funciona correctamente:
 
-- el investigador abre `tests/runner.html` mediante Live Server y no observa fallos del Parser;
-- el flujo Individual continúa abriendo y cargando `entrevista01.json`;
-- el investigador confirma que el prototipo conserva su comportamiento.
+- el flujo Individual abre y carga `entrevista01.json`;
+- Transcripción Original muestra el corpus;
+- Reporte genera su vista previa;
+- desaparecieron los errores causados por `State.topology === null`.
+
+La Fase 1A queda aceptada. Las brechas del Parser continúan documentadas y no se consideran resueltas.

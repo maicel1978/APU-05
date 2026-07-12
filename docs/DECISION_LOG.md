@@ -168,8 +168,9 @@ La estrategia, el protocolo de interacción, la guía local y el mecanismo de co
 
 ## D-014 — Corregir topología nula en el punto de selección
 
-**Estado:** autorizado; pendiente de validación manual
+**Estado:** implementado y aceptado
 **Fecha:** 2026-07-12
+**Commit validado:** `26518a5`
 
 Los fallos de Transcripción Original y Reporte comparten una causa: seleccionar un diseño no actualizaba `State.topology`.
 

@@ -32,9 +32,10 @@ Investigador principal, confirmación durante la sesión de recuperación.
 
 ## MT-002 — Herramientas fallan por topología nula
 
-**Estado:** fallo reproducido; corrección pendiente de validación
-**Fecha:** 2026-07-12
-**Commit observado:** `663054f`
+**Estado:** corregida y aprobada por el investigador
+**Fecha de detección:** 2026-07-12
+**Commit con fallo:** `663054f`
+**Commit validado:** `26518a5`
 **Entorno:** Visual Studio Code + Live Server + consola de Chrome
 
 ### Escenario
@@ -53,6 +54,6 @@ Investigador principal, confirmación durante la sesión de recuperación.
 
 Chrome informó `favicon.ico 404`. Es cosmética y no causó los fallos funcionales.
 
-### Validación pendiente
+### Resultado posterior a la corrección
 
-Repetir el escenario después de la corrección y confirmar que Transcripción Original y Reporte muestran contenido sin los dos errores.
+El investigador confirmó que todo el escenario funciona correctamente en `26518a5`. Transcripción Original y Reporte muestran contenido y los errores de topología nula desaparecieron.
