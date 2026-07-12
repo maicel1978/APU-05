@@ -23,9 +23,11 @@ No responde:
 - si existe un efecto clínico;
 - si las menciones son observaciones independientes.
 
-## 3. Selección soberana
+## 3. Operación opcional dentro de Transversal
 
-El investigador elegirá explícitamente:
+G² no es requisito para utilizar el módulo Transversal. Se activa solo cuando la pregunta requiere comparar dos corpus léxicos.
+
+Al ejecutar esta operación, el investigador elegirá explícitamente:
 
 1. covariable heredada de Clinical VarOps/APU-03;
 2. valor de Grupo A;

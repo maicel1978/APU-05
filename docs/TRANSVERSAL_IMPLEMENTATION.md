@@ -2,14 +2,16 @@
 
 **Estado:** conectado con datos simulados; pendiente de prueba manual y validación humana final
 
-## Flujo
+## Capacidad opcional G²
 
-1. Cargar varios corpus 5.x.
-2. Descubrir covariables observadas en todas las sesiones.
-3. Elegir variable del protocolo.
-4. Elegir explícitamente Grupo A y Grupo B.
-5. Calcular keyness exploratoria.
-6. Mostrar participantes, tokens, segmentos incluidos/excluidos, G² y PMW.
+El módulo Transversal puede utilizarse sin ejecutar G². Si el investigador elige esta capacidad:
+
+1. carga varios corpus 5.x;
+2. se descubren covariables observadas en todas las sesiones;
+3. elige una variable del protocolo;
+4. elige explícitamente Grupo A y Grupo B;
+5. calcula keyness exploratoria;
+6. muestra participantes, tokens, segmentos incluidos/excluidos, G² y PMW.
 
 ## Fuentes de metadatos
 

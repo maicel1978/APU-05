@@ -27,6 +27,7 @@ test('la UI no denomina significancia estadística al contraste', async () => {
     const source = await readSource('../../src/modules/TransversalModule.js');
 
     assert.doesNotMatch(source, /Significancia Estadística/i);
+    assert.match(source, /CONTRASTE LÉXICO \(OPCIONAL\)/);
     assert.match(source, /Contraste Léxico Exploratorio/);
     assert.match(source, /No demuestra efecto clínico/);
 });

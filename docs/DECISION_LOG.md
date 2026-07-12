@@ -343,12 +343,12 @@ G² medirá keyness entre corpus y no se presentará como efecto clínico ni sig
 
 ---
 
-## D-031 — Grupos seleccionados explícitamente
+## D-031 — Grupos explícitos solo para la operación G²
 
-**Estado:** aceptada
+**Estado:** aceptada y aclarada
 **Fecha:** 2026-07-12
 
-El investigador elegirá covariable, Grupo A y Grupo B. No habrá selección automática ni comparación implícita contra “el resto”.
+Cuando el investigador decide ejecutar G², elige covariable, Grupo A y Grupo B. Esto no obliga al módulo Transversal completo a utilizar comparación binaria ni G².
 
 ---
 
@@ -379,12 +379,21 @@ El `.clinical` contiene `project` y `variables`, no observaciones. APU-03 normal
 
 ---
 
-## D-035 — UI G² conectada solo como demostración provisional
+## D-035 — UI G² opcional conectada solo como demostración provisional
 
 **Estado:** implementado; pendiente de validación manual
 **Fecha:** 2026-07-12
 
 Transversal permite elegir covariable y dos valores explícitos. Muestra G², PMW, dirección, participantes y segmentos excluidos. Los fixtures actuales son provisionales y no certifican evidencia clínica.
+
+---
+
+## D-036 — Módulos como familias, capacidades como operaciones opcionales
+
+**Estado:** principio arquitectónico aceptado
+**Fecha:** 2026-07-12
+
+Individual, Exploratorio, Transversal y Longitudinal representan familias metodológicas. Cada técnica declara requisitos propios y puede desactivarse sin bloquear el resto del módulo. Ver `METHODOLOGICAL_ROUTING.md`.
 
 ---
 

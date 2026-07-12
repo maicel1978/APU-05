@@ -60,7 +60,8 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - Límites abiertos: transacción por caso (no cohorte global) y covariables Transversal consultadas solo en la última sesión.
 - Contrato G² aprobado como keyness exploratoria A vs B; motor y adaptador de grupos implementados.
 - Herencia Clinical VarOps confirmada contra `oper` y APU-03; fixtures alineados.
-- UI Transversal G² conectada como demostración provisional; suite total: 77 pruebas Node.
+- UI Transversal G² conectada como capacidad opcional y demostración provisional.
+- Enrutamiento metodológico documentado: módulos=familias, técnicas=capacidades no obligatorias.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.

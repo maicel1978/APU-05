@@ -21,7 +21,7 @@ export const TransversalModule = {
         { id: 1, label: 'INGESTA' },
         { id: 2, label: 'PERFIL MUESTRA' },
         { id: 3, label: 'DISPARIDAD' },
-        { id: 4, label: 'CONTRASTE LÉXICO' }
+        { id: 4, label: 'CONTRASTE LÉXICO (OPCIONAL)' }
     ],
 
     async renderStep(stepId, container, state) {
