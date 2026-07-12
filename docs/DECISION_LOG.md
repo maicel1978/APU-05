@@ -295,6 +295,15 @@ Ver `TRACEABILITY_UI_DESIGN.md`.
 
 ---
 
+## D-026 — Clasificador de paquetes implementado sin UI
+
+**Estado:** implementado y probado
+**Fecha:** 2026-07-12
+
+`InputPackage.js` agrupa corpus y trazabilidad por contenido y rechaza selecciones ambiguas antes de persistir. Permanece desconectado de los módulos hasta aprobar manualmente Fase 2A y resolver la persistencia forense.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?

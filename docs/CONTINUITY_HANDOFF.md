@@ -54,7 +54,8 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - **Fase 2A lista para prueba manual:** Parser estricto 5.x y señalización provisional.
 - QA automática: 24 pruebas Node aprobadas antes de la validación manual.
 - Los casos sirven para Individual, Exploratorio y trazabilidad; no para Transversal porque no contienen valores de covariables por hablante.
-- Fase 2B pendiente: selector de trazabilidad opcional en la interfaz.
+- Fase 2B preparatoria: clasificador puro de paquetes implementado y 33 pruebas Node aprobadas.
+- Pendiente: selector UI y persistencia forense; no se conectan hasta validar manualmente Fase 2A.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.
