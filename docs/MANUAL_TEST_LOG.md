@@ -115,3 +115,23 @@ El investigador confirmó que el flujo completo indicado funcionó correctamente
 ### Alcance
 
 Esta prueba certifica el comportamiento actual del flujo Individual con el fixture 5.0.0. Todavía no certifica carga conjunta de trazabilidad, exactitud matemática de métricas ni validez científica de las interpretaciones.
+
+---
+
+## MT-005 — Creación manual de cohorte QA 5.0.0
+
+**Estado:** aprobada
+**Fecha:** 2026-07-12
+**Commits de carga:** `0c13354`, `90a8e8f`, `0a87cac`
+
+### Procedimiento
+
+El investigador cargó dos entradas APU-03 sintéticas en APU-04, revisó los segmentos, finalizó ambos casos y exportó sus paquetes completos.
+
+### Resultado
+
+Los paquetes de gasto de bolsillo y barreras geriátricas superaron controles de contrato, integridad referencial, emparejamiento por `segmentId`, calidad y procedencia criptográfica.
+
+### Hallazgo
+
+Los registros distinguen interacción humana de cambio textual real. Ver `V5_BENCHMARK_AUDIT.md`.

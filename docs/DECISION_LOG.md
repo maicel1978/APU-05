@@ -253,6 +253,26 @@ Se preparan dos entradas sintéticas con contrato APU-03. El investigador las re
 
 ---
 
+## D-022 — Cohorte QA 5.0.0 aceptada
+
+**Estado:** validada
+**Fecha:** 2026-07-12
+
+Los casos gasto de bolsillo y barreras geriátricas fueron procesados y finalizados manualmente en APU-04. Sus paquetes completos superaron la auditoría descrita en `V5_BENCHMARK_AUDIT.md`.
+
+El bloqueo previo para implementar el Parser estricto queda levantado.
+
+---
+
+## D-023 — Revisión humana no equivale a modificación textual
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+`editedByHuman` registra interacción/revisión. Una modificación real requiere `before !== after` en la bitácora. APU-05 no mezclará ambas métricas.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
