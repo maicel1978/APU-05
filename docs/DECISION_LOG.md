@@ -336,7 +336,7 @@ Los IDs de hablante son locales al caso. APU-05 usa internamente `sessionId::spe
 
 ## D-030 — G² como contraste léxico exploratorio
 
-**Estado:** aceptada
+**Estado:** metodología aceptada y motor puro implementado
 **Fecha:** 2026-07-12
 
 G² medirá keyness entre corpus y no se presentará como efecto clínico ni significancia entre participantes. No se generarán p-valores en el prototipo. Ver `G2_METHODOLOGY.md`.

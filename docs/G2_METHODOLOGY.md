@@ -1,6 +1,6 @@
 # Contraste léxico G² — contrato metodológico
 
-**Estado:** decisiones aprobadas; motor pendiente
+**Estado:** metodología aprobada; motor puro implementado. Ver `G2_ENGINE.md`.
 
 ## 1. Nombre correcto
 
