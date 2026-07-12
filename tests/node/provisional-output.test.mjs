@@ -43,6 +43,7 @@ test('todos los módulos de ingesta exigen decisión antes de persistir un provi
         const persistenceIndex = source.indexOf('SessionManager.createSession');
         assert.ok(confirmationIndex >= 0, `${relativePath} no pide confirmación`);
         assert.ok(persistenceIndex > confirmationIndex, `${relativePath} persiste antes de confirmar`);
+        assert.match(source, /e\.target\.value\s*=\s*['"]{2}/, `${relativePath} no permite reintentar el mismo archivo tras cancelar`);
         assert.match(source, /State\.isProvisional\s*=/);
     }
 });

@@ -65,6 +65,7 @@ export const IndividualModule = {
                     const json = JSON.parse(text);
                     const validation = await APUParser.validate(json, 'individual');
                     if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                        e.target.value = '';
                         Renderer.showToast('Carga provisional cancelada.', 'info');
                         return;
                     }

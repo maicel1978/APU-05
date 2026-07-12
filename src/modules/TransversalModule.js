@@ -65,6 +65,7 @@ export const TransversalModule = {
                     const json = JSON.parse(await file.text());
                     const validation = await APUParser.validate(json, 'comparative');
                     if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                        e.target.value = '';
                         Renderer.showToast('Carga transversal cancelada.', 'info');
                         return;
                     }

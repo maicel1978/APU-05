@@ -64,6 +64,7 @@ export const ExploratoryModule = {
                         const json = JSON.parse(await file.text());
                         const validation = await APUParser.validate(json, 'exploratory');
                         if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                            e.target.value = '';
                             Renderer.showToast('Carga de cohorte cancelada.', 'info');
                             return;
                         }
