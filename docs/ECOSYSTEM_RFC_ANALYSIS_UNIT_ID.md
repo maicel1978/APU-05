@@ -51,16 +51,32 @@ Cambio mínimo propuesto:
 
 ## 5. APU-04
 
+APU-04 no debe interpretar la identidad longitudinal. Su responsabilidad es arrastrar el metadato recibido.
+
 Cambio mínimo propuesto:
 
-- `ingest-adapter.mapSpeaker()` debe preservar `analysisUnitId`;
-- `buildCleanedPackage()` ya copia `speakers`, por lo que viajará a APU-05;
+- `ingest-adapter.mapSpeaker()` debe hacer passthrough defensivo de los campos del speaker, en vez de reconstruirlo solo con `id`, `label` y `covariates`;
+- normalizar únicamente `covariates` cuando falte;
+- excluir solo campos internos conocidos, si existieran;
+- `buildCleanedPackage()` ya copia `speakers`, por lo que los metadatos viajarán a APU-05;
 - el campo no participa en limpieza, PII ni normalización;
-- pruebas de passthrough deben verificarlo.
+- pruebas de passthrough deben comprobar campos opcionales desconocidos.
 
-Observación: la documentación actual dice “speakers passthrough intacto”, pero el adaptador reconstruye cada speaker con solo `id`, `label` y `covariates`. El RFC corrige esa discrepancia para este campo explícito.
+Patrón conceptual:
+
+```js
+// Los metadatos del hablante pertenecen al protocolo y deben viajar intactos.
+return {
+  ...speaker,
+  covariates: speaker.covariates ?? {}
+};
+```
+
+Observación: la documentación actual ya promete “speakers passthrough intacto”, pero el adaptador reconstruye cada speaker con solo tres campos. El cambio alinea código y contrato sin añadir lógica metodológica.
 
 ## 6. APU-05
+
+APU-05 ya persiste speakers mediante spread y no necesita una lista rígida de campos permitidos. Cuando el metadato llegue desde APU-04 podrá usarlo sin migrar la bóveda.
 
 Uso:
 

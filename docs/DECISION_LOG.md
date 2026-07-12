@@ -416,6 +416,15 @@ La identidad longitudinal será un campo pseudónimo general de la unidad analí
 
 ---
 
+## D-039 — APU-04 arrastra metadatos, no los interpreta
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+Los metadatos opcionales del speaker deben viajar por passthrough genérico, con comentarios intuitivos. APU-04 no incorpora reglas longitudinales; APU-05 activa capacidades según el módulo.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

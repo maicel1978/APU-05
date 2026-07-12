@@ -49,6 +49,14 @@ test('StatsEngine agrupa participación por identidad compuesta', async () => {
     assert.doesNotMatch(source, /speakerStats\[s\.speakerId\]/);
 });
 
+test('SessionManager conserva metadatos opcionales del speaker por passthrough', async () => {
+    const source = await readFile(new URL('../../src/core/Session.js', import.meta.url), 'utf8');
+
+    assert.match(source, /const \{ _pk, \.\.\.rest \} = s/);
+    assert.match(source, /return \{ \.\.\.rest, sessionId, covariates:/);
+    assert.match(source, /analysisUnitId opcional/);
+});
+
 test('las cohortes guardan todas las sesiones y construyen un mapa conjunto', async () => {
     for (const relativePath of [
         '../../src/modules/ExploratoryModule.js',

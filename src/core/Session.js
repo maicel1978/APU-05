@@ -20,9 +20,10 @@ export class SessionManager {
                 traceability: buildTraceabilityMetadata(trazabilidadData)
             });
 
-            // Speakers
+            // Los metadatos del speaker vienen del protocolo y viajan intactos
+            // (incluido un analysisUnitId opcional); solo _pk es interno.
             const speakers = (data.speakers || []).map(s => {
-                const { _pk, ...rest } = s; 
+                const { _pk, ...rest } = s;
                 return { ...rest, sessionId, covariates: s.covariates || {} };
             });
             await db.speakers.bulkAdd(speakers);
