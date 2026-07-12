@@ -144,7 +144,7 @@ Una modificación de G² no debe alterar Individual, Exploratorio o Longitudinal
 
 ## 11. Identificadores
 
-Algunas operaciones futuras requieren IDs estables de participante, caso o grupo. Si el ecosistema previo no los entrega de forma suficiente, se propondrán cambios mínimos y compatibles en la unidad responsable. APU-05 no inventará identidades silenciosamente.
+Las capacidades longitudinales pareadas usarán `speakers[].analysisUnitId`, pseudónimo y opcional. Si falta, la capacidad se desactiva sin bloquear otros análisis. APU-05 no inventará identidades silenciosamente ni convertirá una covariable clínica en identificador.
 
 ## 12. Regla final
 

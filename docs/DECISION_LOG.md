@@ -407,6 +407,15 @@ Las saliencias usan referencia leave-one-out, umbrales explícitos y evidencia. 
 
 ---
 
+## D-038 — `analysisUnitId` opcional a nivel de speaker
+
+**Estado:** aprobado; RFC pendiente en APU-03/APU-04
+**Fecha:** 2026-07-12
+
+La identidad longitudinal será un campo pseudónimo general de la unidad analítica, no una covariable VarOps. Vive opcionalmente en speaker y es estable entre sesiones. Ver `ECOSYSTEM_RFC_ANALYSIS_UNIT_ID.md`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

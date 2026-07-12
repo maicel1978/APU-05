@@ -63,6 +63,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - UI Transversal G² conectada como capacidad opcional y demostración provisional.
 - Enrutamiento metodológico documentado: módulos=familias, técnicas=capacidades no obligatorias.
 - ENA leave-one-out validado manualmente en `ddb0341`; prueba nula y consola en verde.
+- Longitudinal: `analysisUnitId` opcional en speaker aprobado; RFC de passthrough APU-03/APU-04 documentado.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.

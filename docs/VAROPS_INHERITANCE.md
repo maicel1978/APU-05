@@ -71,6 +71,10 @@ Define `grupo_estudio` con categorías Control e Intervención. Los cuatro archi
 
 Los valores concretos viven en el participante `spk-2` de cada caso; el entrevistador no tiene grupo y debe excluirse del contraste.
 
-## 7. Regla futura
+## 7. Identidad longitudinal
+
+Los identificadores de unidades no pertenecen al diccionario de variables. La propuesta coordinada usa `speakers[].analysisUnitId`, pseudónimo y opcional. Ver `ECOSYSTEM_RFC_ANALYSIS_UNIT_ID.md`.
+
+## 8. Regla futura
 
 APU-05 podría permitir cargar el `.clinical` como referencia metodológica adicional, pero no debe reemplazar el esquema heredado ni crear observaciones ausentes. Si ambos existen, cualquier discrepancia debe mostrarse antes del análisis.
