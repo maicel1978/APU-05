@@ -425,6 +425,15 @@ Los metadatos opcionales del speaker deben viajar por passthrough genérico, con
 
 ---
 
+## D-040 — Publicación como Beta / Release Candidate
+
+**Estado:** aprobada; preparación en curso
+**Fecha:** 2026-07-12
+
+La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview y checklist documentan capacidades operativas y módulos pendientes. No se anunciará como versión científica final.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
