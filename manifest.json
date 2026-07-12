@@ -1,0 +1,25 @@
+{
+  "project": "APU-05: Analysis & Protocol Utilities",
+  "version": "5.8.8",
+  "metodology": "PRISMA+ v5.3",
+  "architecture": "Micro-Kernel / Plugin-Based",
+  "database_schema": 5,
+  "engines": {
+    "ner": "Hybrid Lexical/Pattern",
+    "stats": "Dunning G2 Log-Likelihood",
+    "sentiment": "ABSA (Aspect-Based Sentiment Analysis)",
+    "ia": "Transformers.js (all-MiniLM-L6-v2)"
+  },
+  "modules": [
+    "Config",
+    "Individual (5 Steps)",
+    "Exploratory (EDA)",
+    "Transversal (Corte)",
+    "Longitudinal (Evolution)",
+    "Foundation (Report)",
+    "Integrity (Health)",
+    "Reader (Format)"
+  ],
+  "handover_status": "Ready for GitHub / Next Agent",
+  "benchmark_data": "speakers-5_cleaned.json"
+}

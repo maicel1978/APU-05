@@ -1,0 +1,97 @@
+La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,.
+
+Tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,.
+
+Que está ceñido a la diagonal de la recta de calibración,.
+
+Cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para.
+
+El conjunto de proveer.
+
+A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de.
+
+La regresión logística binaria múltiple, a la cual se nombró como Covid-Sense, que.
+
+Utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la.
+
+Frecuencia respiratoria, la presión de la arteria media y la suma de.
+
+Comos habilidades como predictores, todos estos predictores vamos a ver cómo.
+
+Son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los.
+
+Preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el.
+
+Supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy.
+
+Bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como.
+
+Les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto.
+
+En las múltiples pruebas que se hicieron para la variación interna, como las realizaciones.
+
+Que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas.
+
+Y vamos a ver los valores del área bajo la curva,.
+
+O de la discriminación, que es superior al 90%.
+
+Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice.
+
+De Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente.
+
+De bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de.
+
+El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos.
+
+COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos.
+
+De la práctica es la manera en que simplemente se considera que el empleo de los nomogramas.
+
+Como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción.
+
+Y digamos que para un paciente que tiene más de tres comorbilidades.
+
+Que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir.
+
+De la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por.
+
+Otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono.
+
+Móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez.
+
+Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,.
+
+Conjunto de herramientas que fueron utilizadas para la programación.
+
+El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que.
+
+Se dispone en modelos predictivos para la estimación.
+
+Y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,.
+
+Responde al problema científico del estudio.
+
+Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes.
+
+Atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo.
+
+De muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el.
+
+Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos.
+
+Para gestionar la transición de la severidad.
+
+Y optimizar los recursos sanitarios.
+
+En el contexto de los servicios de atención médica,.
+
+Capacitar al personal del sistema nacional de la Luz,.
+
+El empleo de los modelos de árbol de bajo riesgo,.
+
+Árbol de alto riesgo y Calacobicense.
+
+Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.
+
+Esto, como la investigación, alguna pregunta. pregunta.

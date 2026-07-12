@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>APU-05 | Analysis & Protocol Utilities</title>
+    <link rel="stylesheet" href="src/styles/pencil.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #entry-gate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff; z-index: 1000; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            padding: 2rem; font-family: sans-serif;
+        }
+        .gate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem; width: 100%; max-width: 1100px; margin-top: 2rem;
+        }
+        .design-card {
+            border: 2px solid #000; padding: 2rem 1.5rem; cursor: pointer;
+            background: #fff; position: relative; transition: all 0.2s ease;
+            display: flex; flex-direction: column; min-height: 150px;
+        }
+        .design-card:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 #000; background: #f4f4f5; }
+        .card-tag { font-family: monospace; font-size: 0.6rem; font-weight: bold; color: #71717a; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .design-card h3 { font-family: monospace; font-size: 1rem; margin: 0.5rem 0; }
+        .design-card p { font-size: 0.75rem; color: #71717a; line-height: 1.4; }
+        #main-app { display: none; height: 100vh; flex-direction: column; }
+    </style>
+</head>
+<body>
+    <div id="entry-gate">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-family: monospace; font-size: 2.5rem; letter-spacing: -2px; border-bottom: 5px solid #000; display: inline-block; padding-bottom: 0.5rem;">APU-05</h1>
+            <p style="font-family: monospace; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #71717a; margin-top: 0.5rem;">Analysis & Protocol Utilities</p>
+        </div>
+        <div id="gate-grid" class="gate-grid"></div>
+    </div>
+
+    <div id="main-app">
+        <header class="wb-header">
+            <div class="logo">APU-05 <span style="opacity:0.3; margin:0 0.5rem;">//</span> <span id="display-design">DISEÑO</span></div>
+            <div class="controls"><button id="btn-reset" class="btn-core" style="border-color:red; color:red;">Cerrar Proyecto</button></div>
+        </header>
+        <main class="wb-main">
+            <aside class="wb-sidebar">
+                <div class="nav-group"><div class="nav-label">Secuencia</div><div id="workflow-nav"></div></div>
+                <div class="nav-group"><div class="nav-label">Herramientas</div><div id="tools-nav"></div></div>
+            </aside>
+            <section class="wb-canvas" id="workbench-canvas">
+                <div id="module-display" class="view-container"></div>
+                <div id="corpus-viewer" style="display:none; max-width:80ch; margin:0 auto; padding: 2rem;"></div>
+            </section>
+        </main>
+        <footer class="status-bar">
+            <div id="status-text">LISTO</div>
+            <div id="session-info">CORE v9.1.0</div>
+        </footer>
+    </div>
+    <script type="module" src="src/ui/App.js?v=9.1.0"></script>
+</body>
+</html>

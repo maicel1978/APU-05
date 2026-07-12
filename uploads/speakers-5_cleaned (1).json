@@ -1,0 +1,681 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "cleaned-text",
+  "sourceSession": "speakers-5",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Participante",
+      "covariates": {}
+    }
+  ],
+  "covariateProject": {
+    "name": "",
+    "specialty": "",
+    "date": "2026-06-29"
+  },
+  "covariateSchema": [
+    {
+      "name": "edad",
+      "type": "Cuantitativa Continua",
+      "description": "Edad biológica del paciente",
+      "label": "Edad del paciente",
+      "categories": [],
+      "unit": "años",
+      "range": {
+        "min": "0",
+        "max": "120"
+      },
+      "metadata": {
+        "question": "Edad del paciente",
+        "unit": "años",
+        "range": {
+          "min": "0",
+          "max": "120"
+        },
+        "categories": []
+      }
+    },
+    {
+      "name": "sexo",
+      "type": "Nominal Dicotómica",
+      "description": "Sexo biológico del paciente",
+      "label": "Sexo biológico del paciente",
+      "categories": [
+        {
+          "label": "masculino",
+          "synonyms": []
+        },
+        {
+          "label": "femenino",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "masculino",
+            "synonyms": []
+          },
+          {
+            "label": "femenino",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "grupo",
+      "type": "Nominal Dicotómica",
+      "description": "grupo",
+      "label": "grupo",
+      "categories": [
+        {
+          "label": "control",
+          "synonyms": []
+        },
+        {
+          "label": "caso",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "control",
+            "synonyms": []
+          },
+          {
+            "label": "caso",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "color_de_la_piel",
+      "type": "Nominal Politómica",
+      "description": "color de la piel",
+      "label": "color de la piel",
+      "categories": [
+        {
+          "label": "blanco",
+          "synonyms": []
+        },
+        {
+          "label": "negro",
+          "synonyms": []
+        },
+        {
+          "label": "amarillo",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "blanco",
+            "synonyms": []
+          },
+          {
+            "label": "negro",
+            "synonyms": []
+          },
+          {
+            "label": "amarillo",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "app",
+      "type": "Nominal Dicotómica",
+      "description": "Antecedentes patológicos personales",
+      "label": "Antecedentes patológicos personales",
+      "categories": [
+        {
+          "label": "si",
+          "synonyms": []
+        },
+        {
+          "label": "no",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "si",
+            "synonyms": []
+          },
+          {
+            "label": "no",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "apf",
+      "type": "Nominal Dicotómica",
+      "description": "antecedentes patológicos familiares",
+      "label": "antecedentes patológicos familiares",
+      "categories": [
+        {
+          "label": "si",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "si",
+            "synonyms": []
+          }
+        ]
+      }
+    }
+  ],
+  "finalizedByHuman": true,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 0,
+      "end": 8,
+      "cleanedText": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-002",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 8,
+      "end": 13,
+      "cleanedText": "Tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-003",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 13,
+      "end": 20,
+      "cleanedText": "Que está ceñido a la diagonal de la recta de calibración,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-004",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 20,
+      "end": 25.92,
+      "cleanedText": "Cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-005",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 25.92,
+      "end": 26.92,
+      "cleanedText": "El conjunto de proveer.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-006",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 26.92,
+      "end": 32.88,
+      "cleanedText": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-007",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 32.88,
+      "end": 40.24,
+      "cleanedText": "La regresión logística binaria múltiple, a la cual se nombró como Covid-Sense, que.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-008",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 40.24,
+      "end": 46.06,
+      "cleanedText": "Utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-009",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 46.06,
+      "end": 50.24,
+      "cleanedText": "Frecuencia respiratoria, la presión de la arteria media y la suma de.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-010",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 50.24,
+      "end": 56.7,
+      "cleanedText": "Comos habilidades como predictores, todos estos predictores vamos a ver cómo.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-011",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 56.7,
+      "end": 67.2,
+      "cleanedText": "Son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-012",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 67.2,
+      "end": 74.56,
+      "cleanedText": "Preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-013",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 74.56,
+      "end": 89.44,
+      "cleanedText": "Supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-014",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 89.44,
+      "end": 97.6,
+      "cleanedText": "Bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-015",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 97.6,
+      "end": 108.08,
+      "cleanedText": "Les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-016",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 108.08,
+      "end": 118.12,
+      "cleanedText": "En las múltiples pruebas que se hicieron para la variación interna, como las realizaciones.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-017",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 118.12,
+      "end": 125.4,
+      "cleanedText": "Que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-018",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 126.9,
+      "end": 132.8,
+      "cleanedText": "Y vamos a ver los valores del área bajo la curva,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-019",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 133,
+      "end": 138.3,
+      "cleanedText": "O de la discriminación, que es superior al 90%.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-020",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 139.8,
+      "end": 149.44,
+      "cleanedText": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-021",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 149.44,
+      "end": 156.64,
+      "cleanedText": "De Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-022",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 156.64,
+      "end": 171.04,
+      "cleanedText": "De bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-023",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 171.04,
+      "end": 177.16,
+      "cleanedText": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-024",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 177.16,
+      "end": 189.22,
+      "cleanedText": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-025",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 189.22,
+      "end": 196.42,
+      "cleanedText": "De la práctica es la manera en que simplemente se considera que el empleo de los nomogramas.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-026",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 196.42,
+      "end": 205.52,
+      "cleanedText": "Como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-027",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 205.52,
+      "end": 214.32,
+      "cleanedText": "Y digamos que para un paciente que tiene más de tres comorbilidades.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-028",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 214.32,
+      "end": 230.4,
+      "cleanedText": "Que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-029",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 230.4,
+      "end": 239.76,
+      "cleanedText": "De la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-030",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 239.76,
+      "end": 245.04,
+      "cleanedText": "Otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-031",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 245.04,
+      "end": 252.42,
+      "cleanedText": "Móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-032",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 252.42,
+      "end": 270,
+      "cleanedText": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-033",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 270,
+      "end": 274.72,
+      "cleanedText": "Conjunto de herramientas que fueron utilizadas para la programación.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-034",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 274.72,
+      "end": 283.08,
+      "cleanedText": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-035",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 283.08,
+      "end": 285.34,
+      "cleanedText": "Se dispone en modelos predictivos para la estimación.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-036",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 285.34,
+      "end": 291.28,
+      "cleanedText": "Y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-037",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 291.28,
+      "end": 298.16,
+      "cleanedText": "Responde al problema científico del estudio.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-038",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 298.16,
+      "end": 302.6,
+      "cleanedText": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-039",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 302.6,
+      "end": 308.72,
+      "cleanedText": "Atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-040",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 308.72,
+      "end": 314.3,
+      "cleanedText": "De muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-041",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 314.3,
+      "end": 327.36,
+      "cleanedText": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-042",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 327.36,
+      "end": 330,
+      "cleanedText": "Para gestionar la transición de la severidad.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-043",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 330,
+      "end": 332.72,
+      "cleanedText": "Y optimizar los recursos sanitarios.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-044",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 332.72,
+      "end": 335.2,
+      "cleanedText": "En el contexto de los servicios de atención médica,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-045",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 335.2,
+      "end": 338.12,
+      "cleanedText": "Capacitar al personal del sistema nacional de la Luz,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-046",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 338.12,
+      "end": 341.64,
+      "cleanedText": "El empleo de los modelos de árbol de bajo riesgo,.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-047",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 341.64,
+      "end": 344.76,
+      "cleanedText": "Árbol de alto riesgo y Calacobicense.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-048",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 353.4,
+      "end": 355.4,
+      "cleanedText": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.",
+      "confidence": null
+    },
+    {
+      "segmentId": "seg-049",
+      "speakerId": "spk-1",
+      "speaker": "spk_unknown",
+      "start": 355.4,
+      "end": 355.4,
+      "cleanedText": "Esto, como la investigación, alguna pregunta. pregunta.",
+      "confidence": null
+    }
+  ]
+}

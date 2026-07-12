@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "trazabilidad",
+  "sourceSession": "speakers-5",
+  "source_hash": "3074d326b4b0834a7632e0c45a6d4ef4619d4a447c02a90a6a1d094d3a0e2151",
+  "sourceRefs": {
+    "sourceAudioFileName": null,
+    "sourceManifestRef": null,
+    "sourceManifestHash": null,
+    "sourceTranscriptRef": null,
+    "sourceTranscriptHash": null
+  },
+  "auditLog": {
+    "version": "0.4",
+    "lastModified": "2026-07-05T16:27:23.564Z",
+    "termsCorrectedCount": 2,
+    "finalizedByHuman": true,
+    "nerOptInActive": false
+  },
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "originalText": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,",
+      "wpm": 120,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.263Z",
+          "type": "punctuation",
+          "before": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,",
+          "after": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:08.419Z",
+          "type": "human",
+          "before": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,.",
+          "after": "La aspecta de calibración, un modelo que se ajuste muy bien al que discrimine el resultado,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-002",
+      "originalText": "tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,",
+      "wpm": 180,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.266Z",
+          "type": "punctuation",
+          "before": "tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,",
+          "after": "Tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:33.044Z",
+          "type": "human",
+          "before": "Tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,.",
+          "after": "Tiene un dato a los de la Couparro y que tenga precisión en sus estimaciones,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-003",
+      "originalText": "que está ceñido a la diagonal de la recta de calibración,",
+      "wpm": 94.28571428571428,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.266Z",
+          "type": "punctuation",
+          "before": "que está ceñido a la diagonal de la recta de calibración,",
+          "after": "Que está ceñido a la diagonal de la recta de calibración,."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:33.844Z",
+          "type": "human",
+          "before": "Que está ceñido a la diagonal de la recta de calibración,.",
+          "after": "Que está ceñido a la diagonal de la recta de calibración,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-004",
+      "originalText": "cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para",
+      "wpm": 141.89189189189185,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "punctuation",
+          "before": "cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para",
+          "after": "Cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:34.572Z",
+          "type": "human",
+          "before": "Cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para.",
+          "after": "Cómo se muestra en esta ilustración, tanto para el conjunto de entrenamientos como para."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-005",
+      "originalText": "el conjunto de proveer.",
+      "wpm": 240,
+      "anomalous": true,
+      "anomalyReason": "Ritmo de habla inusualmente alto (posible error de transcripción o superposición de hablantes).",
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "punctuation",
+          "before": "el conjunto de proveer.",
+          "after": "El conjunto de proveer."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:45.300Z",
+          "type": "human",
+          "before": "El conjunto de proveer.",
+          "after": "El conjunto de proveer."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:48.027Z",
+          "type": "human",
+          "before": "El conjunto de proveer.",
+          "after": "El conjunto de proveer."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:02.435Z",
+          "type": "human",
+          "before": "El conjunto de proveer.",
+          "after": "El conjunto de proveer."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:15.891Z",
+          "type": "human",
+          "before": "El conjunto de proveer.",
+          "after": "El conjunto de proveer."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-006",
+      "originalText": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de",
+      "wpm": 151.00671140939596,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "punctuation",
+          "before": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de",
+          "after": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:48.868Z",
+          "type": "human",
+          "before": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de.",
+          "after": "A continuación, se muestra otro moderno, en este caso, un nuevo ajustado a partir de."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-007",
+      "originalText": "la redacción logística binaria múltiple, a la cual se nombró como Covid-Sense, que",
+      "wpm": 105.97826086956523,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "punctuation",
+          "before": "la redacción logística binaria múltiple, a la cual se nombró como Covid-Sense, que",
+          "after": "La redacción logística binaria múltiple, a la cual se nombró como Covid-Sense, que."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "glossary",
+          "before": "redacción logística",
+          "after": "regresión logística"
+        },
+        {
+          "timestamp": "2026-07-05T16:25:49.940Z",
+          "type": "human",
+          "before": "La regresión logística binaria múltiple, a la cual se nombró como Covid-Sense, que.",
+          "after": "La regresión logística binaria múltiple, a la cual se nombró como Covid-Sense, que."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-008",
+      "originalText": "utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la",
+      "wpm": 123.71134020618555,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.267Z",
+          "type": "punctuation",
+          "before": "utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la",
+          "after": "Utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:51.572Z",
+          "type": "human",
+          "before": "Utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la.",
+          "after": "Utiliza la edad, el índice neutroffeo de los infocitos, las plaquetas, la."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-009",
+      "originalText": "frecuencia respiratoria, la presión de la arteria media y la suma de",
+      "wpm": 172.2488038277512,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.268Z",
+          "type": "punctuation",
+          "before": "frecuencia respiratoria, la presión de la arteria media y la suma de",
+          "after": "Frecuencia respiratoria, la presión de la arteria media y la suma de."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:53.228Z",
+          "type": "human",
+          "before": "Frecuencia respiratoria, la presión de la arteria media y la suma de.",
+          "after": "Frecuencia respiratoria, la presión de la arteria media y la suma de."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-010",
+      "originalText": "comos habilidades como predictores, todos estos predictores vamos a ver cómo",
+      "wpm": 102.16718266253868,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.268Z",
+          "type": "punctuation",
+          "before": "comos habilidades como predictores, todos estos predictores vamos a ver cómo",
+          "after": "Comos habilidades como predictores, todos estos predictores vamos a ver cómo."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:54.700Z",
+          "type": "human",
+          "before": "Comos habilidades como predictores, todos estos predictores vamos a ver cómo.",
+          "after": "Comos habilidades como predictores, todos estos predictores vamos a ver cómo."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-011",
+      "originalText": "son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los",
+      "wpm": 102.85714285714285,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.268Z",
+          "type": "punctuation",
+          "before": "son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los",
+          "after": "Son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:57.244Z",
+          "type": "human",
+          "before": "Son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los.",
+          "after": "Son significativos para la perevisión de la muerte. Noten que hay como especie de un apóstorfer en los."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-012",
+      "originalText": "preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el",
+      "wpm": 122.28260869565217,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.269Z",
+          "type": "punctuation",
+          "before": "preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el",
+          "after": "Preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:58.907Z",
+          "type": "human",
+          "before": "Preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el.",
+          "after": "Preditores. Esto significa el uso de price cubico, que es un recurso para deslajar el."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-013",
+      "originalText": "supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy",
+      "wpm": 100.80645161290326,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.269Z",
+          "type": "punctuation",
+          "before": "supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy",
+          "after": "Supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:00.540Z",
+          "type": "human",
+          "before": "Supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy.",
+          "after": "Supuesto de normalidad, o sea, el supuesto de no-linialidad entre la variable dependiente y la variable dependiente. El desempeño de la escala pobícense es muy."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-014",
+      "originalText": "bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como",
+      "wpm": 102.94117647058829,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.269Z",
+          "type": "punctuation",
+          "before": "bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como",
+          "after": "Bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:01.235Z",
+          "type": "human",
+          "before": "Bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como.",
+          "after": "Bueno, es muy bueno. Note que los gráficos, las precisiones, que las precisiones como."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-015",
+      "originalText": "les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto",
+      "wpm": 114.50381679389308,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.269Z",
+          "type": "punctuation",
+          "before": "les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto",
+          "after": "Les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:02.428Z",
+          "type": "human",
+          "before": "Les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto.",
+          "after": "Les había comentado del modelo, se ajustan a la diagonal, esto significa que el modelo generaliza bien sus datos, tanto."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-016",
+      "originalText": "en las múltiples pruebas que se hicieron para la variación interna, como las realizaciones",
+      "wpm": 83.66533864541827,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.270Z",
+          "type": "punctuation",
+          "before": "en las múltiples pruebas que se hicieron para la variación interna, como las realizaciones",
+          "after": "En las múltiples pruebas que se hicieron para la variación interna, como las realizaciones."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:04.211Z",
+          "type": "human",
+          "before": "En las múltiples pruebas que se hicieron para la variación interna, como las realizaciones.",
+          "after": "En las múltiples pruebas que se hicieron para la variación interna, como las realizaciones."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-017",
+      "originalText": "que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas.",
+      "wpm": 123.6263736263736,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.270Z",
+          "type": "punctuation",
+          "before": "que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas.",
+          "after": "Que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:05.916Z",
+          "type": "human",
+          "before": "Que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas.",
+          "after": "Que se hicieron en una población diferente, que se enotecajate caso, el conjunto de programas."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-018",
+      "originalText": "Y vamos a ver los valores del área bajo la curva,",
+      "wpm": 111.86440677966091,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.270Z",
+          "type": "punctuation",
+          "before": "Y vamos a ver los valores del área bajo la curva,",
+          "after": "Y vamos a ver los valores del área bajo la curva,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:08.787Z",
+          "type": "human",
+          "before": "Y vamos a ver los valores del área bajo la curva,.",
+          "after": "Y vamos a ver los valores del área bajo la curva,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-019",
+      "originalText": "o de la discriminación, que es superior al 90%",
+      "wpm": 101.88679245282997,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.271Z",
+          "type": "punctuation",
+          "before": "o de la discriminación, que es superior al 90%",
+          "after": "O de la discriminación, que es superior al 90%."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:10.827Z",
+          "type": "human",
+          "before": "O de la discriminación, que es superior al 90%.",
+          "after": "O de la discriminación, que es superior al 90%."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-020",
+      "originalText": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice",
+      "wpm": 99.58506224066404,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.271Z",
+          "type": "punctuation",
+          "before": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice",
+          "after": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:14.019Z",
+          "type": "human",
+          "before": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice.",
+          "after": "Este punto que ustedes notan en el gráfico inferior a la izquierda es el máximo índice."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-021",
+      "originalText": "de Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente",
+      "wpm": 133.33333333333354,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.271Z",
+          "type": "punctuation",
+          "before": "de Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente",
+          "after": "De Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:17.955Z",
+          "type": "human",
+          "before": "De Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente.",
+          "after": "De Yodin que se utilizó como junto de corte para establecer el riesgo entre un paciente."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-022",
+      "originalText": "de bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de",
+      "wpm": 95.8333333333333,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.271Z",
+          "type": "punctuation",
+          "before": "de bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de",
+          "after": "De bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:19.460Z",
+          "type": "human",
+          "before": "De bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de.",
+          "after": "De bajo riesgo y paciente de alto tierra. Una comparación de este modelo que se propone con los cinco modelos más importantes de."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-023",
+      "originalText": "el que habla la literatura muestra que para pacientes cubanos el desempeño de modelos",
+      "wpm": 137.2549019607842,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.271Z",
+          "type": "punctuation",
+          "before": "el que habla la literatura muestra que para pacientes cubanos el desempeño de modelos",
+          "after": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:20.259Z",
+          "type": "human",
+          "before": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos.",
+          "after": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:21.723Z",
+          "type": "human",
+          "before": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos.",
+          "after": "El que habla la literatura muestra que para pacientes cubanos el desempeño de modelos."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-024",
+      "originalText": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos",
+      "wpm": 104.47761194029849,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.272Z",
+          "type": "punctuation",
+          "before": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos",
+          "after": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:06.827Z",
+          "type": "human",
+          "before": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos.",
+          "after": "COVID-19 en C es superior. Un elemento importante, o sea, yo diría que una limitación para el uso de los modelos."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-025",
+      "originalText": "de la práctica es la manera en que simplemente se considera que el empleo de los nomogramas",
+      "wpm": 141.66666666666688,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.272Z",
+          "type": "punctuation",
+          "before": "de la práctica es la manera en que simplemente se considera que el empleo de los nomogramas",
+          "after": "De la práctica es la manera en que simplemente se considera que el empleo de los nomogramas."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:22.603Z",
+          "type": "human",
+          "before": "De la práctica es la manera en que simplemente se considera que el empleo de los nomogramas.",
+          "after": "De la práctica es la manera en que simplemente se considera que el empleo de los nomogramas."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-026",
+      "originalText": "como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción",
+      "wpm": 164.83516483516445,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.272Z",
+          "type": "punctuation",
+          "before": "como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción",
+          "after": "Como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:23.380Z",
+          "type": "human",
+          "before": "Como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción.",
+          "after": "Como el que se presenta, el cual el médico a partir de las, para cada una de las variables, tiene un conjunto de puntos oción."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-027",
+      "originalText": "y digamos que para un paciente que tiene más de tres comodidades",
+      "wpm": 81.81818181818197,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "punctuation",
+          "before": "y digamos que para un paciente que tiene más de tres comodidades",
+          "after": "Y digamos que para un paciente que tiene más de tres comodidades."
+        },
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "glossary",
+          "before": "comodidades",
+          "after": "comorbilidades"
+        },
+        {
+          "timestamp": "2026-07-05T16:26:24.235Z",
+          "type": "human",
+          "before": "Y digamos que para un paciente que tiene más de tres comorbilidades.",
+          "after": "Y digamos que para un paciente que tiene más de tres comorbilidades."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-028",
+      "originalText": "que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir",
+      "wpm": 82.08955223880591,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "punctuation",
+          "before": "que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir",
+          "after": "Que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:26.587Z",
+          "type": "human",
+          "before": "Que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir.",
+          "after": "Que tendría 20 puntos o algo así, y esto a partir de esto se puede obtener una estimación del riesgo a partir."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-029",
+      "originalText": "de la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por",
+      "wpm": 115.38461538461556,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "punctuation",
+          "before": "de la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por",
+          "after": "De la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:25.859Z",
+          "type": "human",
+          "before": "De la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por.",
+          "after": "De la escala COVID-19. Y a partir de esto, a lo largo, se puede ser con entomática. Por."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-030",
+      "originalText": "otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono",
+      "wpm": 193.18181818181813,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "punctuation",
+          "before": "otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono",
+          "after": "Otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:27.483Z",
+          "type": "human",
+          "before": "Otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono.",
+          "after": "Otra parte, está este modelo también se le hubo como acabo partir de una aplicación o teléfono."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-031",
+      "originalText": "móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez",
+      "wpm": 130.0813008130082,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.273Z",
+          "type": "punctuation",
+          "before": "móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez",
+          "after": "Móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:28.683Z",
+          "type": "human",
+          "before": "Móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez.",
+          "after": "Móvil que el médico puede interlar en su teléfono y puntuar al paciente a otra vez."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-032",
+      "originalText": "estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,",
+      "wpm": 102.38907849829344,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.274Z",
+          "type": "punctuation",
+          "before": "estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,",
+          "after": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:29.523Z",
+          "type": "human",
+          "before": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,.",
+          "after": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:31.972Z",
+          "type": "human",
+          "before": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,.",
+          "after": "Estos valores y también se produce una esquema de ciudad donde le riega. Esta herramienta programada por este autor, se realizó en lenguaje AVECRI y se utilizó HMN5, en fin,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-033",
+      "originalText": "conjunto de herramientas que fueron utilizadas para la programación.",
+      "wpm": 114.40677966101629,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.274Z",
+          "type": "punctuation",
+          "before": "conjunto de herramientas que fueron utilizadas para la programación.",
+          "after": "Conjunto de herramientas que fueron utilizadas para la programación."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:31.075Z",
+          "type": "human",
+          "before": "Conjunto de herramientas que fueron utilizadas para la programación.",
+          "after": "Conjunto de herramientas que fueron utilizadas para la programación."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-034",
+      "originalText": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que",
+      "wpm": 100.47846889952206,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.274Z",
+          "type": "punctuation",
+          "before": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que",
+          "after": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:33.091Z",
+          "type": "human",
+          "before": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que.",
+          "after": "El resultado fundamental de esta investigación que engloba todo el trabajo realizado es que."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-035",
+      "originalText": "se dispone en modelos predictivos para la estimación",
+      "wpm": 212.3893805309743,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.274Z",
+          "type": "punctuation",
+          "before": "se dispone en modelos predictivos para la estimación",
+          "after": "Se dispone en modelos predictivos para la estimación."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:33.699Z",
+          "type": "human",
+          "before": "Se dispone en modelos predictivos para la estimación.",
+          "after": "Se dispone en modelos predictivos para la estimación."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-036",
+      "originalText": "y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,",
+      "wpm": 151.5151515151516,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.274Z",
+          "type": "punctuation",
+          "before": "y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,",
+          "after": "Y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:34.699Z",
+          "type": "human",
+          "before": "Y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,.",
+          "after": "Y la gratificación del riesgo por COVID-19 específico para el reo del cobre del toro,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-037",
+      "originalText": "responde al problema científico del estudio.",
+      "wpm": 52.325581395348436,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "responde al problema científico del estudio.",
+          "after": "Responde al problema científico del estudio."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:36.148Z",
+          "type": "human",
+          "before": "Responde al problema científico del estudio.",
+          "after": "Responde al problema científico del estudio."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-038",
+      "originalText": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes",
+      "wpm": 162.16216216216225,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes",
+          "after": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:37.147Z",
+          "type": "human",
+          "before": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes.",
+          "after": "Las conclusiones es que se desarrollaron modelos predictivos de muerte para pacientes."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-039",
+      "originalText": "atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo",
+      "wpm": 196.0784313725489,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo",
+          "after": "Atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:38.403Z",
+          "type": "human",
+          "before": "Atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo.",
+          "after": "Atendidos en la comunidad ingresados en los hospitales, los modelos propuestos de mutar o ser válidos para predecir el riesgo."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-040",
+      "originalText": "de muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el",
+      "wpm": 161.29032258064564,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "de muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el",
+          "after": "De muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:39.044Z",
+          "type": "human",
+          "before": "De muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el.",
+          "after": "De muerte por la altanidad, se diseñó un homograma y una aplicación móvil con el."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-041",
+      "originalText": "modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos",
+      "wpm": 82.69525267993873,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos",
+          "after": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:40.667Z",
+          "type": "human",
+          "before": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos.",
+          "after": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:43.043Z",
+          "type": "human",
+          "before": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos.",
+          "after": "Modelo COVID-C para pacientes hospitalizados, se implementar los modelos, las recomendaciones, en este caso, implementar los modelos propuestos."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-042",
+      "originalText": "para gestionar la transición de la severidad",
+      "wpm": 159.09090909090992,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.275Z",
+          "type": "punctuation",
+          "before": "para gestionar la transición de la severidad",
+          "after": "Para gestionar la transición de la severidad."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:42.355Z",
+          "type": "human",
+          "before": "Para gestionar la transición de la severidad.",
+          "after": "Para gestionar la transición de la severidad."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-043",
+      "originalText": "y optimizar los recursos sanitarios",
+      "wpm": 110.29411764705772,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "y optimizar los recursos sanitarios",
+          "after": "Y optimizar los recursos sanitarios."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:44.259Z",
+          "type": "human",
+          "before": "Y optimizar los recursos sanitarios.",
+          "after": "Y optimizar los recursos sanitarios."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-044",
+      "originalText": "en el contexto de los servicios de atención médica,",
+      "wpm": 217.74193548387439,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "en el contexto de los servicios de atención médica,",
+          "after": "En el contexto de los servicios de atención médica,."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:09.859Z",
+          "type": "human",
+          "before": "En el contexto de los servicios de atención médica,.",
+          "after": "En el contexto de los servicios de atención médica,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-045",
+      "originalText": "capacitar al personal del sistema nacional de la Luz,",
+      "wpm": 184.93150684931405,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "capacitar al personal del sistema nacional de la Luz,",
+          "after": "Capacitar al personal del sistema nacional de la Luz,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:45.107Z",
+          "type": "human",
+          "before": "Capacitar al personal del sistema nacional de la Luz,.",
+          "after": "Capacitar al personal del sistema nacional de la Luz,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-046",
+      "originalText": "el empleo de los modelos de árbol de bajo riesgo,",
+      "wpm": 170.45454545454632,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "el empleo de los modelos de árbol de bajo riesgo,",
+          "after": "El empleo de los modelos de árbol de bajo riesgo,."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:46.635Z",
+          "type": "human",
+          "before": "El empleo de los modelos de árbol de bajo riesgo,.",
+          "after": "El empleo de los modelos de árbol de bajo riesgo,."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-047",
+      "originalText": "árbol de alto riesgo y Calacobicense.",
+      "wpm": 115.38461538461522,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "árbol de alto riesgo y Calacobicense.",
+          "after": "Árbol de alto riesgo y Calacobicense."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:47.531Z",
+          "type": "human",
+          "before": "Árbol de alto riesgo y Calacobicense.",
+          "after": "Árbol de alto riesgo y Calacobicense."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-048",
+      "originalText": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.",
+      "wpm": 750,
+      "anomalous": true,
+      "anomalyReason": "Ritmo de habla inusualmente alto (posible error de transcripción o superposición de hablantes). Pausa larga respecto al segmento anterior (más de 5 segundos).",
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:26:49.195Z",
+          "type": "human",
+          "before": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.",
+          "after": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:58.211Z",
+          "type": "human",
+          "before": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.",
+          "after": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:19.531Z",
+          "type": "human",
+          "before": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes.",
+          "after": "Y estimar el costo social económico arraba por el aumento de la eficaz de los servicios de saludos y resultados del uso de los poderes."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-049",
+      "originalText": "Esto, como la investigación, alguna pregunta. pregunta",
+      "wpm": 0,
+      "anomalous": true,
+      "anomalyReason": "El inicio y el final de este segmento son iguales, así que no se pudo calcular el ritmo de habla. Esto es normal en el último segmento: el programa que transcribió el audio no siempre detecta bien dónde termina la última parte.",
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-05T16:25:25.276Z",
+          "type": "punctuation",
+          "before": "Esto, como la investigación, alguna pregunta. pregunta",
+          "after": "Esto, como la investigación, alguna pregunta. pregunta."
+        },
+        {
+          "timestamp": "2026-07-05T16:26:51.483Z",
+          "type": "human",
+          "before": "Esto, como la investigación, alguna pregunta. pregunta.",
+          "after": "Esto, como la investigación, alguna pregunta. pregunta."
+        },
+        {
+          "timestamp": "2026-07-05T16:27:21.136Z",
+          "type": "human",
+          "before": "Esto, como la investigación, alguna pregunta. pregunta.",
+          "after": "Esto, como la investigación, alguna pregunta. pregunta."
+        }
+      ]
+    }
+  ]
+}
