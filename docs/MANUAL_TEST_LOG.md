@@ -180,18 +180,14 @@ El investigador confirmó que todos los escenarios pasaron: carga con/sin trazab
 
 ## MT-008 — Identidad compuesta de hablantes
 
-**Estado:** pendiente de validación manual
+**Estado:** aprobada por el investigador
 **Fecha de preparación:** 2026-07-12
+**Commit validado:** `d5bc648`
 
 ### Escenario
 
 Cargar en Exploratorio los corpus y trazabilidades de barreras y gasto. Revisar Caracterización y Transcripción Original.
 
-### Criterio
+### Resultado
 
-- 4 participantes separados, aunque los IDs locales se repitan.
-- Sr. González solo en barreras.
-- Sra. Carmen solo en gasto.
-- Etiquetas acompañadas por entrevista.
-- Participación no fusionada por `spk-1/spk-2`.
-- Consola limpia.
+El investigador confirmó que todo funciona: identidades separadas, etiquetas correctas, trazabilidad conservada y consola sin errores.

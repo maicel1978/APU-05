@@ -326,7 +326,8 @@ La transacción es atómica por caso, no por cohorte completa. Además, `speaker
 
 ## D-029 — Identidad compuesta de hablantes
 
-**Estado:** implementado; pendiente de validación manual
+**Estado:** implementado y validado manualmente
+**Commit validado:** `d5bc648`
 **Fecha:** 2026-07-12
 
 Los IDs de hablante son locales al caso. APU-05 usa internamente `sessionId::speakerId` para lectura y participación, sin modificar el contrato externo. Ver `SPEAKER_IDENTITY.md`.
