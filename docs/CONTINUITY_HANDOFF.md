@@ -45,7 +45,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - MT-002 aprobada en `26518a5`: Transcripción Original y Reporte funcionan sin topología nula.
 - `npm test`: 15 pruebas Node aprobadas, 0 fallidas; incluye 13 casos compartidos del Parser.
 - Cambio validado: conexión diseño → topología en `App.js`.
-- MT-003 reprodujo incompatibilidad de glosario v7.7/v8.5; adaptador y manejo de error listos para validación.
+- MT-003 aprobada en `5e1dbf8`: la plantilla v7.7 vacía se reconoce sin errores.
+- La portabilidad real del glosario sigue sin certificar porque el fixture contiene `terms: []`.
+- `GLOSSARY_SCOPE.md` separa el diccionario de corrección APU-04 del glosario analítico APU-05.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

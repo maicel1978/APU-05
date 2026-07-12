@@ -62,9 +62,10 @@ El investigador confirmó que todo el escenario funciona correctamente en `26518
 
 ## MT-003 — La plantilla histórica de glosario es rechazada
 
-**Estado:** fallo reproducido; corrección pendiente de validación
+**Estado:** corrección aprobada con alcance limitado
 **Fecha:** 2026-07-12
-**Commit observado:** `246efc2`
+**Commit con fallo:** `246efc2`
+**Commit validado:** `5e1dbf8`
 **Entorno:** Visual Studio Code + Live Server + consola de Chrome
 
 ### Escenario
@@ -77,6 +78,10 @@ El investigador confirmó que todo el escenario funciona correctamente en `26518
 
 El gestor lanzó `Formato de glosario no compatible` porque la plantilla v7.7 usa `terms`, mientras el formato actual usa `custom_glossary`.
 
-### Validación pendiente
+### Resultado posterior a la corrección
 
-La misma plantilla debe ser reconocida como biblioteca compatible vacía, sin excepción no controlada.
+La plantilla fue reconocida como biblioteca compatible vacía y la consola no mostró errores.
+
+### Límite de esta prueba
+
+El fixture contiene `terms: []`. La prueba valida compatibilidad del envoltorio histórico, pero no valida importación real, categorías, persistencia ni efecto analítico. Ver `GLOSSARY_SCOPE.md`.

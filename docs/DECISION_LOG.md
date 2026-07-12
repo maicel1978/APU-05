@@ -182,12 +182,26 @@ El error de favicon se mantiene como incidencia separada.
 
 ## D-015 — Compatibilidad explícita de glosarios v7.7 y v8.5
 
-**Estado:** implementado; pendiente de validación manual
+**Estado:** implementado y validado para biblioteca vacía
 **Fecha:** 2026-07-12
+**Commit validado:** `5e1dbf8`
 
 La plantilla integrada usa `terms` (v7.7), mientras el gestor actual usa `custom_glossary` (v8.5). Se normalizan ambos envoltorios antes de escribir en IndexedDB.
 
 No se aceptan archivos ajenos que solo tengan una propiedad `terms`, y toda entrada no vacía debe declarar `term` y `category`.
+
+La prueba manual actual solo certifica el envoltorio vacío. La portabilidad con términos reales requiere un fixture sintético no vacío.
+
+---
+
+## D-016 — Separar glosario de limpieza y glosario analítico
+
+**Estado:** aceptado como regla provisional de arquitectura
+**Fecha:** 2026-07-12
+
+El glosario APU-04 (`wrong/correct`) corrige el corpus y deja trazabilidad. El glosario APU-05 (`term/category`) clasifica conceptos sin modificar el corpus. No son automáticamente intercambiables.
+
+La interoperabilidad obligatoria APU-04 → APU-05 corresponde al corpus y su procedencia, no a convertir silenciosamente diccionarios con semánticas distintas. Ver `GLOSSARY_SCOPE.md`.
 
 ---
 
