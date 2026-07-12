@@ -65,7 +65,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - ENA leave-one-out validado manualmente en `ddb0341`; prueba nula y consola en verde.
 - Longitudinal: `analysisUnitId` opcional en speaker aprobado; RFC de passthrough APU-03/APU-04 documentado.
 - PR #1 Beta/RC listo para revisión y mergeable; Deploy Preview Netlify en verde.
-- CI multi-Node está en `docs/templates/apu05-ci.yml`, pendiente de instalación manual por falta de permiso workflows en Arena.
+- CI instalado manualmente por el investigador: Node 18, 20 y 22 en verde.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.

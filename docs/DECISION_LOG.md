@@ -427,7 +427,7 @@ Los metadatos opcionales del speaker deben viajar por passthrough genérico, con
 
 ## D-040 — Publicación como Beta / Release Candidate
 
-**Estado:** aprobada; preparación en curso
+**Estado:** RC listo para revisión; CI y Deploy Preview verdes
 **Fecha:** 2026-07-12
 
 La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview y checklist documentan capacidades operativas y módulos pendientes. No se anunciará como versión científica final.

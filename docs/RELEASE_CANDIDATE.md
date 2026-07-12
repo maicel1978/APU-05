@@ -36,7 +36,7 @@
 
 ## QA requerida antes del merge
 
-- [ ] CI verde en Node 18, 20 y 22. Plantilla lista en `docs/templates/apu05-ci.yml`; requiere permiso workflows para instalar.
+- [x] CI verde en Node 18, 20 y 22.
 - [x] Deploy preview Netlify operativo.
 - [ ] Consola limpia en Chrome/Edge.
 - [ ] Individual finalizado y provisional.
