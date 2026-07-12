@@ -4,7 +4,11 @@ import test from 'node:test';
 
 const fixturePaths = [
     '../../assets/test_data/apu04_inputs/qa-geriatria-barreras-speakers-v3.json',
-    '../../assets/test_data/apu04_inputs/qa-gasto-bolsillo-speakers-v3.json'
+    '../../assets/test_data/apu04_inputs/qa-gasto-bolsillo-speakers-v3.json',
+    '../../assets/test_data/apu04_inputs/transversal/qa-transversal-control-01-speakers-v3.json',
+    '../../assets/test_data/apu04_inputs/transversal/qa-transversal-control-02-speakers-v3.json',
+    '../../assets/test_data/apu04_inputs/transversal/qa-transversal-intervencion-01-speakers-v3.json',
+    '../../assets/test_data/apu04_inputs/transversal/qa-transversal-intervencion-02-speakers-v3.json'
 ];
 
 const readJson = async (relativePath) => JSON.parse(

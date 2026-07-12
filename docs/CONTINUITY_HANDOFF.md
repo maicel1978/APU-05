@@ -58,6 +58,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - MT-007 confirmó carga con/sin traza, rechazo cruzado, cohorte y consola limpia.
 - Identidad `sessionId::speakerId` validada manualmente en MT-008; etiquetas y participación de cohorte correctas.
 - Límites abiertos: transacción por caso (no cohorte global) y covariables Transversal consultadas solo en la última sesión.
+- Contrato G² aprobado como keyness exploratoria A vs B; cuatro entradas Transversales esperan revisión en APU-04.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

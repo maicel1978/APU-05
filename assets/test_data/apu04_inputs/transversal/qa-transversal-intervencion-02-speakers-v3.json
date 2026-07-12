@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "3.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-03",
+  "stage": "speaker-refinement",
+  "sourceSession": "qa-transversal-intervencion-02",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Entrevistador",
+      "covariates": {}
+    },
+    {
+      "id": "spk-2",
+      "label": "Participante 02",
+      "covariates": {
+        "grupo_estudio": "Intervención"
+      }
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg-001",
+      "start": 0,
+      "end": 5,
+      "text": "Cuénteme cómo fue su experiencia para gestionar la consulta.",
+      "speakerId": "spk-1",
+      "speaker": "Entrevistador",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-002",
+      "start": 5.5,
+      "end": 14,
+      "text": "Los recordatorios y el acompañamiento facilitaron el acceso a mi consulta.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 02",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-003",
+      "start": 14.5,
+      "end": 23,
+      "text": "La orientadora llamó, explicó el proceso y pude completar el turno sin dificultad.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 02",
+      "confidence": null,
+      "edited": false
+    }
+  ],
+  "covariateProject": {
+    "projectId": "QA-TRANSVERSAL-001",
+    "projectName": "QA sintético de acceso digital en salud"
+  },
+  "covariateSchema": [
+    {
+      "name": "grupo_estudio",
+      "key": "grupo_estudio",
+      "type": "Nominal Dicotómica",
+      "description": "Grupo sintético para probar contraste léxico",
+      "label": "Grupo de estudio",
+      "categories": [
+        {
+          "label": "Intervención",
+          "synonyms": []
+        },
+        {
+          "label": "Control",
+          "synonyms": []
+        }
+      ],
+      "metadata": {
+        "question": "Asignación sintética para QA; no representa efecto clínico"
+      }
+    }
+  ]
+}

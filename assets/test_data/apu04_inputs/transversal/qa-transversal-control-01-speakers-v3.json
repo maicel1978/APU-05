@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "3.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-03",
+  "stage": "speaker-refinement",
+  "sourceSession": "qa-transversal-control-01",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Entrevistador",
+      "covariates": {}
+    },
+    {
+      "id": "spk-2",
+      "label": "Participante 01",
+      "covariates": {
+        "grupo_estudio": "Control"
+      }
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg-001",
+      "start": 0,
+      "end": 5,
+      "text": "Cuénteme cómo fue su experiencia para gestionar la consulta.",
+      "speakerId": "spk-1",
+      "speaker": "Entrevistador",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-002",
+      "start": 5.5,
+      "end": 14,
+      "text": "La contraseña falló varias veces y la conexión lenta me dejó fuera de la aplicación.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 01",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-003",
+      "start": 14.5,
+      "end": 23,
+      "text": "No tuve ayuda, no pude confirmar el turno y abandoné el trámite digital.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 01",
+      "confidence": null,
+      "edited": false
+    }
+  ],
+  "covariateProject": {
+    "projectId": "QA-TRANSVERSAL-001",
+    "projectName": "QA sintético de acceso digital en salud"
+  },
+  "covariateSchema": [
+    {
+      "name": "grupo_estudio",
+      "key": "grupo_estudio",
+      "type": "Nominal Dicotómica",
+      "description": "Grupo sintético para probar contraste léxico",
+      "label": "Grupo de estudio",
+      "categories": [
+        {
+          "label": "Intervención",
+          "synonyms": []
+        },
+        {
+          "label": "Control",
+          "synonyms": []
+        }
+      ],
+      "metadata": {
+        "question": "Asignación sintética para QA; no representa efecto clínico"
+      }
+    }
+  ]
+}

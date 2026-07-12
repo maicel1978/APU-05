@@ -334,8 +334,34 @@ Los IDs de hablante son locales al caso. APU-05 usa internamente `sessionId::spe
 
 ---
 
+## D-030 — G² como contraste léxico exploratorio
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+G² medirá keyness entre corpus y no se presentará como efecto clínico ni significancia entre participantes. No se generarán p-valores en el prototipo. Ver `G2_METHODOLOGY.md`.
+
+---
+
+## D-031 — Grupos seleccionados explícitamente
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+El investigador elegirá covariable, Grupo A y Grupo B. No habrá selección automática ni comparación implícita contra “el resto”.
+
+---
+
+## D-032 — Cuatro benchmarks Transversales revisados
+
+**Estado:** entradas preparadas; pendiente de revisión APU-04
+**Fecha:** 2026-07-12
+
+Dos casos Control y dos Intervención serán finalizados manualmente en APU-04 antes de conectar G² a la interfaz.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
 2. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
-3. ¿Cómo se mostrará visualmente una sesión provisional en todos los módulos y reportes?
