@@ -1,0 +1,12 @@
+{
+  "name": "apu-05-analysis-protocol-utilities",
+  "version": "0.1.0-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/node/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

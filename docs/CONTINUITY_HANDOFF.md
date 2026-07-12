@@ -40,7 +40,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 ## 3. Estado actual
 
 - **Fase 0 aceptada por el investigador.**
+- **Fase 1A lista para prueba manual:** runner Node, caracterización del Parser y auditoría R10.
 - Prueba manual MT-001 aprobada: apertura con Live Server y carga de `entrevista01.json` en Individual.
+- `npm test`: 7 pruebas Node aprobadas, 0 fallidas; incluye 13 casos compartidos del Parser.
 - No se modificó código de producción.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
