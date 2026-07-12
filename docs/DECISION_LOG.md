@@ -1,0 +1,144 @@
+# Registro de decisiones de recuperación
+
+Este documento conserva decisiones que no deben depender de la memoria del chat.
+
+## Formato
+
+Cada decisión incluye estado, motivo, consecuencias y evidencia. Una decisión puede ser sustituida, pero no se borra: se marca como reemplazada.
+
+---
+
+## D-001 — Conservar una línea base descargable
+
+**Estado:** aceptada  
+**Fecha:** 2026-07-12
+
+Se conserva el estado original del commit `a2fb799` como referencia funcional.
+
+Archivo generado fuera del repositorio:
+
+```text
+APU-05-baseline-a2fb799-2026-07-12.zip
+```
+
+SHA-256:
+
+```text
+468f35eeda6127bcff9fb74bda159700641e8ee1a59072f37964ed6c9e8229b5
+```
+
+Consecuencia: toda fase estable tendrá una copia descargable y verificable.
+
+---
+
+## D-002 — Preservar datos existentes por defecto
+
+**Estado:** aceptada
+
+No sabemos si existen bóvedas `APU05_Vault_Final_v8` con datos importantes. Se asume preservación obligatoria.
+
+Consecuencias:
+
+- no ejecutar reset como estrategia de migración;
+- no cambiar esquema Dexie sin preflight, copia y reversión;
+- no imponer índices únicos antes de detectar duplicados existentes.
+
+---
+
+## D-003 — APU-05 es laboratorio modular y capa analítica
+
+**Estado:** confirmada por el investigador
+
+No se hará una reescritura general para convertir el prototipo en producto final. Se conservará su capacidad de conectar y desconectar módulos mientras se certifican alternativas.
+
+---
+
+## D-004 — Prioridad de fuentes
+
+**Estado:** aceptada
+
+Las pruebas actuales, el código ejecutado y las decisiones del productor tienen prioridad sobre documentación histórica o supuestos del agente. Ver `RECOVERY_STRATEGY.md`.
+
+---
+
+## D-005 — Duración cero no invalida todo el archivo
+
+**Estado:** confirmada
+
+`start === end` es un caso heredado conocido. El segmento se conserva y se señala; APU-05 no corrige timestamps ni divide por cero.
+
+Pendiente: pruebas de ingesta y métricas que definan el comportamiento exacto.
+
+---
+
+## D-006 — Longitudinal será un MVP real
+
+**Estado:** aceptada
+
+Se implementará comparación temporal descriptiva, con identidad de sujeto, orden temporal, evidencia y pruebas. No se presentará causalidad ni efecto terapéutico.
+
+---
+
+## D-007 — Cambios en App.js requieren puerta de control
+
+**Estado:** autorizada con condiciones
+
+Se permiten cambios pequeños en `src/ui/App.js` únicamente después de presentar:
+
+1. fallo reproducible;
+2. pruebas previas;
+3. diff mínimo;
+4. impacto esperado;
+5. plan de reversión.
+
+`index.html` requiere autorización independiente.
+
+---
+
+## D-008 — APU-04 no se modifica desde esta fase
+
+**Estado:** aceptada provisionalmente
+
+APU-04 se usa como productor y referencia. Si se descubre un defecto que debe corregirse allí:
+
+- se documentará como incidencia de interoperabilidad;
+- se preparará un caso mínimo reproducible;
+- no se compensará silenciosamente alterando el significado en APU-05;
+- su implementación se coordinará como trabajo separado.
+
+---
+
+## D-009 — Lenguaje del producto
+
+**Estado:** confirmada por el investigador
+
+Principio:
+
+> Rigor por dentro, intuitiva por fuera.
+
+La UI y las explicaciones se dirigen a investigadores clínicos y epidemiólogos, no exclusivamente a programadores. Los términos técnicos deben acompañarse de una explicación útil.
+
+---
+
+## D-010 — Primera intervención solo documental
+
+**Estado:** ejecutada
+
+Antes de cambiar comportamiento se crean:
+
+- `RECOVERY_STRATEGY.md`
+- `ECOSYSTEM_INHERITANCE.md`
+- `DECISION_LOG.md`
+- `CONTINUITY_HANDOFF.md`
+
+No se modifica código de producción en esta intervención.
+
+---
+
+## Decisiones pendientes
+
+1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
+2. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
+3. ¿Qué versiones históricas 4.x deben seguir siendo compatibles?
+4. ¿La trazabilidad será cargada automáticamente en pareja o mediante acción opcional?
+5. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
