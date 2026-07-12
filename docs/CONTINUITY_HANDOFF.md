@@ -49,7 +49,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - La portabilidad real del glosario sigue sin certificar porque el fixture contiene `terms: []`.
 - `GLOSSARY_SCOPE.md` separa el diccionario de corrección APU-04 del glosario analítico APU-05.
 - **Fase 1B aceptada:** MT-004 confirmó el flujo Individual con APU-04 5.0.0, 49 segmentos y duración cero sin errores de consola.
-- Próxima fase: acordar reglas del Parser antes de modificar la ingesta.
+- Política de Parser acordada en `PARSER_POLICY.md`: bloquear 4.0.0, confirmar 5.x no finalizado y trazabilidad opcional.
+- La implementación estricta queda bloqueada hasta disponer de dos benchmarks 5.0.0 revisados.
+- Dos entradas APU-03 válidas están listas en `assets/test_data/apu04_inputs/` para revisión manual mediante APU-04.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

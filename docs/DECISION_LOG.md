@@ -217,10 +217,44 @@ La validación funcional no certifica todavía la exactitud estadística ni la c
 
 ---
 
+## D-018 — Confirmación para corpus 5.x no finalizado
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+Si `finalizedByHuman` es falso, el sistema preguntará al investigador. Continuar producirá una sesión provisional; no se fingirá que el archivo quedó finalizado ni que el reporte es consolidado.
+
+---
+
+## D-019 — Bloquear corpus histórico 4.0.0
+
+**Estado:** aceptada; implementación condicionada al nuevo banco 5.0.0
+**Fecha:** 2026-07-12
+
+Los corpus 4.0.0 se rechazarán con explicación. Se conservan como pruebas históricas de rechazo. Antes de activar esta regla se crearán al menos dos salidas 5.0.0 mediante revisión real en APU-04.
+
+---
+
+## D-020 — Trazabilidad complementaria opcional
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+`_cleaned.json` es suficiente para el análisis ordinario. `_trazabilidad.json` añade auditoría y calidad cuando se carga y empareja correctamente por caso y `segmentId`.
+
+---
+
+## D-021 — Benchmarks 5.0.0 deben finalizarse en APU-04
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+Se preparan dos entradas sintéticas con contrato APU-03. El investigador las revisará y finalizará mediante APU-04; APU-05 no falsificará `finalizedByHuman: true`.
+
+---
+
 ## Decisiones pendientes
 
-1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
-2. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
-3. ¿Qué versiones históricas 4.x deben seguir siendo compatibles?
-4. ¿La trazabilidad será cargada automáticamente en pareja o mediante acción opcional?
-5. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
+1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
+2. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
+3. ¿Cómo se mostrará visualmente una sesión provisional en todos los módulos y reportes?
