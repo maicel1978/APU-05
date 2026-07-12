@@ -58,7 +58,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - MT-007 confirmó carga con/sin traza, rechazo cruzado, cohorte y consola limpia.
 - Identidad `sessionId::speakerId` validada manualmente en MT-008; etiquetas y participación de cohorte correctas.
 - Límites abiertos: transacción por caso (no cohorte global) y covariables Transversal consultadas solo en la última sesión.
-- Contrato G² aprobado como keyness exploratoria A vs B; motor puro implementado con 64 pruebas Node totales.
+- Contrato G² aprobado como keyness exploratoria A vs B; motor y adaptador de grupos implementados con 69 pruebas Node totales.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.

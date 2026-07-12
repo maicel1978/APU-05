@@ -361,6 +361,15 @@ Dos casos Control y dos Intervención serán finalizados manualmente en APU-04 a
 
 ---
 
+## D-033 — Adaptador G² excluye hablantes sin grupo
+
+**Estado:** implementado y probado
+**Fecha:** 2026-07-12
+
+Los segmentos se asignan mediante la covariable del hablante y su identidad compuesta. Entrevistadores u otros hablantes sin Grupo A/B quedan excluidos y se reportan; no se asignan por inferencia.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

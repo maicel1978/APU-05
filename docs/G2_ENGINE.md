@@ -1,6 +1,6 @@
 # Motor puro de contraste léxico G²
 
-**Estado:** implementado y probado; no conectado a UI
+**Estado:** motor y adaptador de grupos implementados; no conectados a UI
 
 ## Capacidades
 
@@ -42,11 +42,22 @@ logRatio
 
 No genera p-valores ni usa la palabra “significativo”.
 
+## Adaptador de grupos
+
+`KeynessGroups.js` ya:
+
+- descubre valores de una covariable;
+- une segmentos con hablantes mediante identidad compuesta;
+- exige Grupo A y Grupo B diferentes;
+- excluye y cuenta segmentos de hablantes sin esos valores;
+- cuenta participantes por grupo;
+- pasa corpus explícitos al motor G².
+
+Las pruebas con las cuatro entradas QA producen 2 participantes por grupo, 8 segmentos incluidos y 4 segmentos de entrevistador excluidos.
+
 ## Pendiente para conectar
 
 - recibir los cuatro paquetes 5.0.0 revisados en APU-04;
-- construir el adaptador segmentos + hablantes + covariable;
-- excluir hablantes sin grupo y reportarlos;
 - reemplazar la UI de selección única por covariable + Grupo A + Grupo B;
 - mostrar tablas interpretables en vez de una nube de tamaño;
 - mantener evidencia textual por término.
