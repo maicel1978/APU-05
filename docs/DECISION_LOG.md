@@ -399,7 +399,8 @@ Individual, Exploratorio, Transversal y Longitudinal representan familias metodo
 
 ## D-037 — ENA no obliga a producir hallazgos
 
-**Estado:** implementado; pendiente de validación manual
+**Estado:** implementado y validado manualmente
+**Commit validado:** `ddb0341`
 **Fecha:** 2026-07-12
 
 Las saliencias usan referencia leave-one-out, umbrales explícitos y evidencia. Se requieren al menos tres entrevistas. Distribuciones idénticas/proporcionales y menciones aisladas no generan hallazgos. Ver `ENA_SALIENCE.md`.

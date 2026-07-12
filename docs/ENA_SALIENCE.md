@@ -1,6 +1,6 @@
 # ENA — Saliencias narrativas exploratorias
 
-**Estado:** motor y UI implementados; pendiente de validación manual
+**Estado:** motor y UI implementados y validados manualmente
 
 ## Problema corregido
 

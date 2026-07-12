@@ -218,8 +218,9 @@ Cargar los cuatro corpus de `transversal_simulated_v5`, aceptar su estado provis
 
 ## MT-010 — ENA leave-one-out sin falsos hallazgos obligatorios
 
-**Estado:** pendiente de validación manual
+**Estado:** aprobado por el investigador
 **Fecha de preparación:** 2026-07-12
+**Commit validado:** `ddb0341`
 
 ### Escenario A
 
@@ -236,3 +237,7 @@ Cargar los cuatro corpus de `transversal_simulated_v5` en Exploratorio, aceptar 
 - evidencia textual visible si existen resultados;
 - posibilidad de cero resultados;
 - consola limpia.
+
+### Resultado
+
+El investigador confirmó que todo quedó en verde.
