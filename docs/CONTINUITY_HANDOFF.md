@@ -17,12 +17,17 @@ No realizar una reescritura general. APU-05 es un laboratorio modular destinado 
 ## 2. Orden obligatorio de lectura
 
 1. `docs/RECOVERY_STRATEGY.md`
-2. `docs/ECOSYSTEM_INHERITANCE.md`
-3. `docs/DECISION_LOG.md`
-4. `docs/AI_RIGOR_SHIELD.md`
-5. `docs/AUDIT_DOUBT_MANIFEST.md`
-6. `docs/CURRENT-STATUS.md`
-7. `docs/METHODOLOGY_ROADMAP.md`
+2. `docs/INTERACTION_PROTOCOL.md`
+3. `docs/ECOSYSTEM_INHERITANCE.md`
+4. `docs/DECISION_LOG.md`
+5. `docs/AI_RIGOR_SHIELD.md`
+6. `docs/AUDIT_DOUBT_MANIFEST.md`
+7. `docs/CURRENT-STATUS.md`
+8. `docs/METHODOLOGY_ROADMAP.md`
+
+Para descargar, actualizar y probar la rama en local:
+
+- `docs/LOCAL_TESTING_GUIDE.md`
 
 Para cambios de ingesta, consultar también el repositorio productor APU-04:
 

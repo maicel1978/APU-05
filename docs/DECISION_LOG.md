@@ -135,6 +135,17 @@ No se modifica código de producción en esta intervención.
 
 ---
 
+## D-011 — Ciclo agente implementa, investigador valida
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+Cada intervención termina en un commit y una copia descargable. El agente ejecuta QA técnico y el investigador prueba el flujo real en local antes de aceptar la fase.
+
+La rama compartida es `arena/019f5692-apu-05`. Las instrucciones operativas viven en `INTERACTION_PROTOCOL.md` y `LOCAL_TESTING_GUIDE.md`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Bloqueo absoluto o modo de laboratorio para `finalizedByHuman: false`?
