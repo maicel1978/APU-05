@@ -140,8 +140,9 @@ Los registros distinguen interacción humana de cambio textual real. Ver `V5_BEN
 
 ## MT-006 — Parser estricto y estado provisional
 
-**Estado:** pendiente de validación manual
+**Estado:** aprobado por el investigador
 **Fecha de preparación:** 2026-07-12
+**Commit validado:** `a6991d0`
 
 ### Escenarios
 
@@ -151,6 +152,6 @@ Los registros distinguen interacción humana de cambio textual real. Ver `V5_BEN
 - Mostrar banner y reporte provisional.
 - Aceptar `speakers-5_cleaned (1).json` con duración cero.
 
-### Criterio
+### Resultado
 
-No deben crearse sesiones al cancelar o rechazar. Los casos finalizados no muestran advertencia provisional.
+El investigador confirmó que los escenarios funcionaron y que se puede avanzar sin problemas. No se reportaron errores de consola.

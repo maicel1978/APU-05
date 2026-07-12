@@ -51,8 +51,8 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - **Fase 1B aceptada:** MT-004 confirmó el flujo Individual con APU-04 5.0.0, 49 segmentos y duración cero sin errores de consola.
 - Política de Parser acordada en `PARSER_POLICY.md`: bloquear 4.0.0, confirmar 5.x no finalizado y trazabilidad opcional.
 - Dos benchmarks APU-04 5.0.0 fueron revisados y aceptados; ver `V5_BENCHMARK_AUDIT.md`.
-- **Fase 2A lista para prueba manual:** Parser estricto 5.x y señalización provisional.
-- QA automática: 24 pruebas Node aprobadas antes de la validación manual.
+- **Fase 2A aprobada manualmente:** Parser estricto 5.x y señalización provisional.
+- MT-006 confirmada sin errores de consola.
 - Los casos sirven para Individual, Exploratorio y trazabilidad; no para Transversal porque no contienen valores de covariables por hablante.
 - Fase 2B preparatoria: clasificador puro de paquetes implementado y 33 pruebas Node aprobadas.
 - Pendiente: selector UI y persistencia forense; no se conectan hasta validar manualmente Fase 2A.

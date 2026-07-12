@@ -273,10 +273,11 @@ El bloqueo previo para implementar el Parser estricto queda levantado.
 
 ---
 
-## D-024 — Parser estricto 5.x listo para validación manual
+## D-024 — Parser estricto 5.x validado
 
-**Estado:** implementado; pendiente de prueba local
+**Estado:** implementado y aprobado
 **Fecha:** 2026-07-12
+**Commit validado:** `a6991d0`
 
 Se aplicaron las políticas D-018 a D-020: rechazo 4.x, confirmación provisional, contrato estructural, duración cero no fatal y validación pura de trazabilidad opcional.
 
