@@ -324,8 +324,17 @@ La transacción es atómica por caso, no por cohorte completa. Además, `speaker
 
 ---
 
+## D-029 — Identidad compuesta de hablantes
+
+**Estado:** implementado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+Los IDs de hablante son locales al caso. APU-05 usa internamente `sessionId::speakerId` para lectura y participación, sin modificar el contrato externo. Ver `SPEAKER_IDENTITY.md`.
+
+---
+
 ## Decisiones pendientes
 
-1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
+1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
 2. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
 3. ¿Cómo se mostrará visualmente una sesión provisional en todos los módulos y reportes?

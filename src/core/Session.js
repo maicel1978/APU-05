@@ -1,4 +1,5 @@
 import db from './Database.js';
+import { buildSpeakerMap } from './SpeakerIdentity.js';
 import {
     buildAuditRecords,
     buildCompactAuditMap,
@@ -52,8 +53,14 @@ export class SessionManager {
     }
 
     static async getSpeakerMap(sessionId) {
-        const speakers = await db.speakers.where('sessionId').equals(sessionId).toArray();
-        return new Map(speakers.map(s => [s.id, s.label]));
+        return await this.getSpeakerMapForSessions([sessionId]);
+    }
+
+    static async getSpeakerMapForSessions(sessionIds) {
+        const ids = [...new Set((sessionIds || []).filter((id) => id !== null && id !== undefined))];
+        if (ids.length === 0) return new Map();
+        const speakers = await db.speakers.where('sessionId').anyOf(ids).toArray();
+        return buildSpeakerMap(speakers, ids.length > 1);
     }
 
     static async getAudit(sessionId) {

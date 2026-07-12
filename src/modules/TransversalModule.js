@@ -80,15 +80,18 @@ export const TransversalModule = {
 
                 let allSegments = [];
                 let lastSid = null;
+                const sessionIds = [];
                 for (const validation of validated) {
                     const sid = await SessionManager.createSession(validation.data, validation.traceability);
                     lastSid = sid;
+                    sessionIds.push(sid);
                     allSegments.push(...(await SessionManager.getSegments(sid)));
                 }
                 State.isProvisional = validated.some((item) => item.requiresConfirmation);
                 State.validationWarnings = validated.flatMap((item) => item.warnings);
                 State.auditSummary = summarizeTraceabilities(validated.map((item) => item.traceability));
-                State.speakerMap = await SessionManager.getSpeakerMap(lastSid);
+                State.sessionIds = sessionIds;
+                State.speakerMap = await SessionManager.getSpeakerMapForSessions(sessionIds);
                 State.segments = allSegments;
                 State.sessionId = lastSid;
                 State.covariateKeys = await this.stats.getAvailableCovariates(lastSid);

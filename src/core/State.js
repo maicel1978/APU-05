@@ -4,6 +4,7 @@
 export const State = new Proxy({
     version: '8.0.0',
     sessionId: null,
+    sessionIds: [],
     topology: null,
     segments: [],
     speakerMap: new Map(),

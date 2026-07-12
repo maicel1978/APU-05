@@ -56,7 +56,8 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - Los casos sirven para Individual, Exploratorio y trazabilidad; no para Transversal porque no contienen valores de covariables por hablante.
 - **Fase 2B aprobada manualmente:** selector de pares, store `audit` y persistencia forense completa.
 - MT-007 confirmó carga con/sin traza, rechazo cruzado, cohorte y consola limpia.
-- Límites abiertos: transacción por caso (no cohorte global) y colisión de `speakerMap` con IDs repetidos.
+- Colisión de `speakerMap` corregida mediante identidad `sessionId::speakerId`; 50 pruebas Node aprobadas.
+- Límites abiertos: transacción por caso (no cohorte global) y covariables Transversal consultadas solo en la última sesión.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

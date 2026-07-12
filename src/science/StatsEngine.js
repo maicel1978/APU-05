@@ -1,5 +1,6 @@
 import db from '../core/Database.js';
 import { SessionManager } from '../core/Session.js';
+import { speakerKey } from '../core/SpeakerIdentity.js';
 
 /**
  * Motor Estadístico APU-05 (Unified v9.0.0)
@@ -21,9 +22,10 @@ export class StatsEngine {
             });
             const duration = (s.end - s.start);
             stats.durationTotal += duration > 0 ? duration : 0;
-            if (!stats.speakerStats[s.speakerId]) stats.speakerStats[s.speakerId] = { words: 0, segments: 0 };
-            stats.speakerStats[s.speakerId].words += tokens.length;
-            stats.speakerStats[s.speakerId].segments += 1;
+            const participantId = speakerKey(s.sessionId, s.speakerId);
+            if (!stats.speakerStats[participantId]) stats.speakerStats[participantId] = { words: 0, segments: 0 };
+            stats.speakerStats[participantId].words += tokens.length;
+            stats.speakerStats[participantId].segments += 1;
         });
 
         const nerModule = await import('./NER.js');
