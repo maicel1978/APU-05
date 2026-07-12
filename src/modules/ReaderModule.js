@@ -78,7 +78,11 @@ export const ReaderModule = {
 
         // 3. Actualizar estadísticas
         if (statsEl) {
-            statsEl.innerHTML = `VISTO: ${visibleSegments.length} / TOTAL: ${fullList.length}<br>DISEÑO: ${state.topology.toUpperCase()}`;
+            const audit = state.auditSummary;
+            const auditLine = audit?.traceabilityCases > 0
+                ? `<br>TRAZABILIDAD: ${audit.reviewed}/${audit.total} REVISADOS · ${audit.changed} CAMBIOS · ${audit.anomalous} ANÓMALOS`
+                : '<br>TRAZABILIDAD: NO CARGADA';
+            statsEl.innerHTML = `VISTO: ${visibleSegments.length} / TOTAL: ${fullList.length}<br>DISEÑO: ${state.topology.toUpperCase()}${auditLine}`;
         }
     }
 };

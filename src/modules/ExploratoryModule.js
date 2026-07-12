@@ -2,6 +2,8 @@ import { Renderer } from '../ui/Renderer.js';
 import { APUParser } from '../core/Parser.js';
 import { SessionManager } from '../core/Session.js';
 import { State } from '../core/State.js';
+import { readInputPackages } from '../core/InputPackage.js';
+import { summarizeTraceabilities } from '../core/Traceability.js';
 import { StatsEngine } from '../science/StatsEngine.js';
 
 /**
@@ -52,18 +54,22 @@ export const ExploratoryModule = {
             container.innerHTML += `
                 <div class="wb-card" style="text-align:center; padding:4rem;">
                     <input type="file" id="cohort-upload" accept=".json" multiple style="display:none;">
-                    <button class="btn-core" onclick="document.getElementById('cohort-upload').click()">📂 SELECCIONAR ARCHIVOS</button>
+                    <button class="btn-core" onclick="document.getElementById('cohort-upload').click()">📂 SELECCIONAR CORPUS + TRAZABILIDADES OPCIONALES</button>
                 </div>`;
             container.querySelector('#cohort-upload').onchange = async (e) => {
                 const files = Array.from(e.target.files);
                 if (files.length === 0) return;
                 Renderer.setLoading(true, "Procesando Cohorte...");
                 try {
+                    const packages = await readInputPackages(files);
                     const validated = [];
-                    for (const file of files) {
-                        const json = JSON.parse(await file.text());
-                        const validation = await APUParser.validate(json, 'exploratory');
-                        if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                    for (const input of packages) {
+                        const validation = await APUParser.validate(
+                            input.cleaned,
+                            'exploratory',
+                            input.traceability
+                        );
+                        if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, input.cleanedFileName)) {
                             e.target.value = '';
                             Renderer.showToast('Carga de cohorte cancelada.', 'info');
                             return;
@@ -74,16 +80,17 @@ export const ExploratoryModule = {
                     let allSegments = [];
                     let lastSid = null;
                     for (const validation of validated) {
-                        const sid = await SessionManager.createSession(validation.data);
+                        const sid = await SessionManager.createSession(validation.data, validation.traceability);
                         lastSid = sid;
                         allSegments.push(...(await SessionManager.getSegments(sid)));
                     }
                     State.isProvisional = validated.some((item) => item.requiresConfirmation);
                     State.validationWarnings = validated.flatMap((item) => item.warnings);
+                    State.auditSummary = summarizeTraceabilities(validated.map((item) => item.traceability));
                     State.speakerMap = await SessionManager.getSpeakerMap(lastSid);
                     State.segments = allSegments;
                     State.sessionId = lastSid;
-                    Renderer.showToast("Cohorte integrada", "success");
+                    Renderer.showToast(`Cohorte integrada: ${packages.length} casos, ${State.auditSummary.traceabilityCases} con trazabilidad.`, "success");
                 } catch (err) { alert(err.message); } finally { Renderer.setLoading(false); }
             };
         } else {

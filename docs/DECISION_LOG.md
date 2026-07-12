@@ -287,7 +287,7 @@ La interfaz de selección conjunta de trazabilidad queda explícitamente para Fa
 
 ## D-025 — Fase 2B no descartará información forense
 
-**Estado:** diseño preparado; pendiente de Fase 2A
+**Estado:** implementado; pendiente de validación manual
 **Fecha:** 2026-07-12
 
 La UI emparejará corpus y trazabilidad por `stage` + `sourceSession`, no por nombre. Antes de conectar la carga se resolverá la persistencia completa, porque el `SessionManager` actual solo conserva tres banderas compactas y deja sin uso el store `audit`.
@@ -296,12 +296,30 @@ Ver `TRACEABILITY_UI_DESIGN.md`.
 
 ---
 
-## D-026 — Clasificador de paquetes implementado sin UI
+## D-026 — Clasificador de paquetes conectado a la UI
 
 **Estado:** implementado y probado
 **Fecha:** 2026-07-12
 
-`InputPackage.js` agrupa corpus y trazabilidad por contenido y rechaza selecciones ambiguas antes de persistir. Permanece desconectado de los módulos hasta aprobar manualmente Fase 2A y resolver la persistencia forense.
+`InputPackage.js` agrupa corpus y trazabilidad por contenido y rechaza selecciones ambiguas antes de persistir. Tras aprobar Fase 2A se conectó a Individual, Exploratorio y Transversal.
+
+---
+
+## D-027 — Activar el store audit sin migración
+
+**Estado:** implementado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+El store `audit` ya existía en la bóveda. Se incorpora a la transacción de cada sesión y conserva los registros forenses completos. Los metadatos raíz se guardan en `sessions.traceability`; el resumen compacto permanece por compatibilidad.
+
+---
+
+## D-028 — No ocultar límites de cohorte
+
+**Estado:** aceptada
+**Fecha:** 2026-07-12
+
+La transacción es atómica por caso, no por cohorte completa. Además, `speakerMap` aún colisiona con IDs repetidos entre casos. Ambos límites deben resolverse antes de certificar cohortes como producto final.
 
 ---
 

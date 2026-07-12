@@ -2,6 +2,8 @@ import { Renderer } from '../ui/Renderer.js';
 import { APUParser } from '../core/Parser.js';
 import { SessionManager } from '../core/Session.js';
 import { State } from '../core/State.js';
+import { readInputPackages } from '../core/InputPackage.js';
+import { summarizeTraceabilities } from '../core/Traceability.js';
 import { StatsEngine } from '../science/StatsEngine.js';
 import { Charts } from '../ui/Charts.js';
 import db from '../core/Database.js';
@@ -52,7 +54,7 @@ export const TransversalModule = {
             <div class="wb-card" style="text-align:center; padding:4rem;">
                 <p style="margin-bottom:2rem; font-size:0.85rem; color:#666;">Seleccione los archivos del estudio. Se validará la existencia de variables de grupo.</p>
                 <input type="file" id="transversal-upload" accept=".json" multiple style="display:none;">
-                <button class="btn-core" onclick="document.getElementById('transversal-upload').click()">📂 SELECCIONAR ARCHIVOS</button>
+                <button class="btn-core" onclick="document.getElementById('transversal-upload').click()">📂 SELECCIONAR CORPUS + TRAZABILIDADES OPCIONALES</button>
             </div>`;
 
         container.querySelector('#transversal-upload').onchange = async (e) => {
@@ -60,11 +62,15 @@ export const TransversalModule = {
             if (files.length === 0) return;
             Renderer.setLoading(true, "Cruzando Microdatos...");
             try {
+                const packages = await readInputPackages(files);
                 const validated = [];
-                for (const file of files) {
-                    const json = JSON.parse(await file.text());
-                    const validation = await APUParser.validate(json, 'comparative');
-                    if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                for (const input of packages) {
+                    const validation = await APUParser.validate(
+                        input.cleaned,
+                        'comparative',
+                        input.traceability
+                    );
+                    if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, input.cleanedFileName)) {
                         e.target.value = '';
                         Renderer.showToast('Carga transversal cancelada.', 'info');
                         return;
@@ -75,17 +81,18 @@ export const TransversalModule = {
                 let allSegments = [];
                 let lastSid = null;
                 for (const validation of validated) {
-                    const sid = await SessionManager.createSession(validation.data);
+                    const sid = await SessionManager.createSession(validation.data, validation.traceability);
                     lastSid = sid;
                     allSegments.push(...(await SessionManager.getSegments(sid)));
                 }
                 State.isProvisional = validated.some((item) => item.requiresConfirmation);
                 State.validationWarnings = validated.flatMap((item) => item.warnings);
+                State.auditSummary = summarizeTraceabilities(validated.map((item) => item.traceability));
                 State.speakerMap = await SessionManager.getSpeakerMap(lastSid);
                 State.segments = allSegments;
                 State.sessionId = lastSid;
                 State.covariateKeys = await this.stats.getAvailableCovariates(lastSid);
-                Renderer.showToast("Carga exitosa", "success");
+                Renderer.showToast(`Carga exitosa: ${packages.length} casos, ${State.auditSummary.traceabilityCases} con trazabilidad.`, "success");
             } catch (err) { alert(err.message); } finally { Renderer.setLoading(false); }
         };
     },

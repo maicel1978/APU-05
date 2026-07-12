@@ -10,7 +10,14 @@ export const State = new Proxy({
     covariateKeys: [],
     isProvisional: false,
     validationWarnings: [],
-    auditSummary: { total: 0, edited: 0, anomalous: 0 }
+    auditSummary: {
+        total: 0,
+        edited: 0,
+        reviewed: 0,
+        changed: 0,
+        anomalous: 0,
+        traceabilityCases: 0
+    }
 }, {
     set(target, property, value) {
         target[property] = value;

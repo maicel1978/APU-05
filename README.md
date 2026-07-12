@@ -21,7 +21,7 @@ Para mantener la integridad del proyecto, cualquier intervención debe respetar:
 1. Ejecute `INICIAME.bat` o `python serve.py`.
 2. Abra `http://localhost:8000`.
 3. Seleccione un diseño metodológico.
-4. Cargue un archivo `_cleaned.json` 5.x finalizado por APU-04. La carga complementaria de `_trazabilidad.json` está validada en el Parser y se conectará a la interfaz en la Fase 2B.
+4. Cargue un archivo `_cleaned.json` 5.x finalizado por APU-04 y, opcionalmente, su `_trazabilidad.json`. Puede seleccionar ambos a la vez; se emparejan por contenido.
 5. Para pruebas actuales use `uploads/barreras_cleaned.json` o `uploads/gasto_cleaned.json`; consulte `docs/TEST_DATA_BENCHMARKS.md`.
 
 ---

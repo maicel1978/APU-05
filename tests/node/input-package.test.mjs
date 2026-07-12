@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-import { buildInputPackages } from '../../src/core/InputPackage.js';
+import { buildInputPackages, readInputPackages } from '../../src/core/InputPackage.js';
 
 const readJson = async (relativePath) => JSON.parse(
     await readFile(new URL(relativePath, import.meta.url), 'utf8')
@@ -98,4 +98,26 @@ test('no modifica los documentos recibidos', async () => {
 
     buildInputPackages(documents);
     assert.equal(JSON.stringify(documents), before);
+});
+
+test('lee archivos del navegador antes de clasificarlos', async () => {
+    const cleaned = await readJson('../../uploads/gasto_cleaned.json');
+    const packages = await readInputPackages([{
+        name: 'gasto.json',
+        async text() { return JSON.stringify(cleaned); }
+    }]);
+
+    assert.equal(packages.length, 1);
+    assert.equal(packages[0].sourceSession, cleaned.sourceSession);
+    assert.equal(packages[0].cleanedFileName, 'gasto.json');
+});
+
+test('informa qué archivo no contiene JSON válido', async () => {
+    await assert.rejects(
+        () => readInputPackages([{
+            name: 'dañado.json',
+            async text() { return '{'; }
+        }]),
+        /dañado\.json.*JSON válido/
+    );
 });

@@ -1,6 +1,19 @@
+/** Lee archivos JSON del navegador y delega su clasificación. */
+export async function readInputPackages(files) {
+    const documents = [];
+    for (const file of files || []) {
+        try {
+            documents.push({ name: file.name, data: JSON.parse(await file.text()) });
+        } catch (error) {
+            throw new Error(`${file?.name || 'Archivo'}: no se pudo leer como JSON válido.`);
+        }
+    }
+    return buildInputPackages(documents);
+}
+
 /**
  * Clasifica documentos APU-04 seleccionados por el usuario.
- * Función pura: no lee archivos, no persiste y no modifica los documentos.
+ * Función pura: no persiste y no modifica los documentos.
  */
 export function buildInputPackages(documents) {
     if (!Array.isArray(documents) || documents.length === 0) {

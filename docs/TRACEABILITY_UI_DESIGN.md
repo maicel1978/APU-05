@@ -1,6 +1,6 @@
 # Diseño Fase 2B — carga opcional de trazabilidad
 
-**Estado:** clasificador puro implementado; conexión UI bloqueada hasta validar Fase 2A
+**Estado:** implementado en Fase 2B; pendiente de validación manual. Ver `TRACEABILITY_IMPLEMENTATION.md`.
 
 ## 1. Objetivo de usuario
 

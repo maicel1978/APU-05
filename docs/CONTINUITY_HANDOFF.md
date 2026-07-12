@@ -54,8 +54,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - **Fase 2A aprobada manualmente:** Parser estricto 5.x y señalización provisional.
 - MT-006 confirmada sin errores de consola.
 - Los casos sirven para Individual, Exploratorio y trazabilidad; no para Transversal porque no contienen valores de covariables por hablante.
-- Fase 2B preparatoria: clasificador puro de paquetes implementado y 33 pruebas Node aprobadas.
-- Pendiente: selector UI y persistencia forense; no se conectan hasta validar manualmente Fase 2A.
+- **Fase 2B lista para prueba manual:** selector de pares y persistencia forense completa.
+- QA automática: 44 pruebas Node aprobadas.
+- Límites abiertos: transacción por caso (no cohorte global) y colisión de `speakerMap` con IDs repetidos.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
 - El motor actual de “Sorpresa” puede presentar distribuciones idénticas como hallazgos.

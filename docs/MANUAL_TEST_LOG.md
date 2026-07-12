@@ -154,4 +154,23 @@ Los registros distinguen interacción humana de cambio textual real. Ver `V5_BEN
 
 ### Resultado
 
-El investigador confirmó que los escenarios funcionaron y que se puede avanzar sin problemas. No se reportaron errores de consola.
+El investigador confirmó 18/18 en navegador, rechazo 4.0, carga de barreras 5.0, comportamiento provisional y consola limpia. Se autorizó avanzar.
+
+---
+
+## MT-007 — Trazabilidad opcional y persistencia forense
+
+**Estado:** pendiente de validación manual
+**Fecha de preparación:** 2026-07-12
+
+### Escenarios
+
+- Individual con `barreras_cleaned` + `barreras_trazabilidad`.
+- Individual solo con `gasto_cleaned`.
+- Rechazo de un par cruzado barreras/gasto.
+- Exploratorio con los cuatro JSON de corpus y trazabilidad.
+- Verificación del store IndexedDB `audit`.
+
+### Criterio
+
+El lector debe diferenciar revisados, cambios y anomalías. No deben perderse `originalText`, `modificationsLog` ni hash de procedencia en IndexedDB.
