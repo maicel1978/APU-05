@@ -191,3 +191,25 @@ Cargar en Exploratorio los corpus y trazabilidades de barreras y gasto. Revisar 
 ### Resultado
 
 El investigador confirmó que todo funciona: identidades separadas, etiquetas correctas, trazabilidad conservada y consola sin errores.
+
+---
+
+## MT-009 — Transversal G² con simulación VarOps
+
+**Estado:** pendiente de validación manual
+**Fecha de preparación:** 2026-07-12
+
+### Escenario
+
+Cargar los cuatro corpus de `transversal_simulated_v5`, aceptar su estado provisional y abrir Contraste Léxico.
+
+### Criterio
+
+- Covariable `grupo_estudio` disponible.
+- Valores Control e Intervención.
+- Selección A/B obligatoria y diferente.
+- 2 participantes por grupo.
+- 8 segmentos incluidos y 4 excluidos.
+- “acompañamiento” orientado a Intervención y “contraseña” a Control.
+- G²/PMW visibles; sin lenguaje de efecto clínico.
+- Consola limpia.

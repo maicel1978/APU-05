@@ -105,6 +105,15 @@ Es una plantilla v7.7 vacía. Solo prueba compatibilidad del envoltorio, no tér
 3. Repetir y aceptar.
 4. Confirmar banner y reporte provisional.
 
-## 6. Limitación transversal
+## 6. Simulación Transversal
 
-Los benchmarks gasto y barreras conservan `covariateSchema`, pero sus hablantes tienen `covariates: {}`. No deben usarse para certificar comparación de grupos.
+```text
+assets/test_data/qa-transversal.clinical
+assets/test_data/transversal_simulated_v5/
+```
+
+Los cuatro corpus simulados contienen dos participantes Control y dos Intervención. Tienen `finalizedByHuman:false`; solo sirven para probar confirmación provisional, selección dinámica de grupos y UI G².
+
+## 7. Limitación transversal
+
+Los benchmarks gasto y barreras conservan `covariateSchema`, pero sus hablantes tienen `covariates: {}`. No deben usarse para certificar comparación de grupos. La simulación Transversal tampoco sustituye la revisión humana final en APU-04.

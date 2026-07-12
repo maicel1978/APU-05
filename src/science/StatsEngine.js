@@ -1,6 +1,7 @@
 import db from '../core/Database.js';
 import { SessionManager } from '../core/Session.js';
 import { speakerKey } from '../core/SpeakerIdentity.js';
+import { getCovariateValues, prepareKeynessComparison } from './KeynessGroups.js';
 
 /**
  * Motor Estadístico APU-05 (Unified v9.0.0)
@@ -122,10 +123,38 @@ export class StatsEngine {
     }
 
     async getAvailableCovariates(sessionId) {
-        const speakers = await db.speakers.where('sessionId').equals(sessionId).toArray();
+        return await this.getAvailableCovariatesForSessions([sessionId]);
+    }
+
+    async getAvailableCovariatesForSessions(sessionIds) {
+        const speakers = await this._getSpeakersForSessions(sessionIds);
         const keys = new Set();
         speakers.forEach(s => { if (s.covariates) Object.keys(s.covariates).forEach(k => keys.add(k)); });
-        return Array.from(keys);
+        return Array.from(keys).sort((a, b) => a.localeCompare(b, 'es'));
+    }
+
+    async getCovariateValuesForSessions(sessionIds, covariateKey) {
+        return getCovariateValues(await this._getSpeakersForSessions(sessionIds), covariateKey);
+    }
+
+    async calculateKeyness(sessionIds, covariateKey, groupA, groupB, options = {}) {
+        const ids = this._normalizeSessionIds(sessionIds);
+        const [speakers, segments] = await Promise.all([
+            this._getSpeakersForSessions(ids),
+            db.segments.where('sessionId').anyOf(ids).toArray()
+        ]);
+        return prepareKeynessComparison({ segments, speakers, covariateKey, groupA, groupB }, options);
+    }
+
+    async _getSpeakersForSessions(sessionIds) {
+        const ids = this._normalizeSessionIds(sessionIds);
+        if (ids.length === 0) return [];
+        return await db.speakers.where('sessionId').anyOf(ids).toArray();
+    }
+
+    _normalizeSessionIds(sessionIds) {
+        const list = Array.isArray(sessionIds) ? sessionIds : [sessionIds];
+        return [...new Set(list.filter((id) => id !== null && id !== undefined))];
     }
 
     /**

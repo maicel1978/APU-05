@@ -78,6 +78,21 @@ test('rechaza usar trazabilidad como corpus principal', async () => {
     );
 });
 
+test('los cuatro corpus Transversales simulados requieren confirmación', async () => {
+    const names = [
+        'qa-transversal-control-01-simulated-v5.json',
+        'qa-transversal-control-02-simulated-v5.json',
+        'qa-transversal-intervencion-01-simulated-v5.json',
+        'qa-transversal-intervencion-02-simulated-v5.json'
+    ];
+    for (const name of names) {
+        const fixture = await readJson(`../../assets/test_data/transversal_simulated_v5/${name}`);
+        const result = await APUParser.validate(fixture, 'comparative');
+        assert.equal(result.requiresConfirmation, true);
+        assert.equal(fixture.speakers[1].covariates.grupo_estudio.length > 0, true);
+    }
+});
+
 test('un corpus no finalizado requiere decisión sin ser mutado', async () => {
     const fixture = await readJson('../../assets/test_data/provisional_v5.json');
     const before = JSON.stringify(fixture);

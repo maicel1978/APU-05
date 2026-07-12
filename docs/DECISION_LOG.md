@@ -379,6 +379,15 @@ El `.clinical` contiene `project` y `variables`, no observaciones. APU-03 normal
 
 ---
 
+## D-035 — UI G² conectada solo como demostración provisional
+
+**Estado:** implementado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+Transversal permite elegir covariable y dos valores explícitos. Muestra G², PMW, dirección, participantes y segmentos excluidos. Los fixtures actuales son provisionales y no certifican evidencia clínica.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

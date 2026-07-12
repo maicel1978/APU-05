@@ -1,6 +1,6 @@
 # Motor puro de contraste léxico G²
 
-**Estado:** motor y adaptador de grupos implementados; no conectados a UI
+**Estado:** motor, adaptador y UI conectados; validación provisional pendiente
 
 ## Capacidades
 
@@ -55,9 +55,8 @@ No genera p-valores ni usa la palabra “significativo”.
 
 Las pruebas con las cuatro entradas QA producen 2 participantes por grupo, 8 segmentos incluidos y 4 segmentos de entrevistador excluidos.
 
-## Pendiente para conectar
+## Pendiente para certificar
 
 - recibir los cuatro paquetes 5.0.0 revisados en APU-04;
-- reemplazar la UI de selección única por covariable + Grupo A + Grupo B;
-- mostrar tablas interpretables en vez de una nube de tamaño;
-- mantener evidencia textual por término.
+- validar manualmente la UI con simulaciones provisionales;
+- añadir evidencia textual navegable por término.

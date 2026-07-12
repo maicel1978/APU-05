@@ -21,7 +21,7 @@ export const TransversalModule = {
         { id: 1, label: 'INGESTA' },
         { id: 2, label: 'PERFIL MUESTRA' },
         { id: 3, label: 'DISPARIDAD' },
-        { id: 4, label: 'CONTRASTE G2' }
+        { id: 4, label: 'CONTRASTE LÉXICO' }
     ],
 
     async renderStep(stepId, container, state) {
@@ -94,7 +94,7 @@ export const TransversalModule = {
                 State.speakerMap = await SessionManager.getSpeakerMapForSessions(sessionIds);
                 State.segments = allSegments;
                 State.sessionId = lastSid;
-                State.covariateKeys = await this.stats.getAvailableCovariates(lastSid);
+                State.covariateKeys = await this.stats.getAvailableCovariatesForSessions(sessionIds);
                 Renderer.showToast(`Carga exitosa: ${packages.length} casos, ${State.auditSummary.traceabilityCases} con trazabilidad.`, "success");
             } catch (err) { alert(err.message); } finally { Renderer.setLoading(false); }
         };
@@ -122,7 +122,7 @@ export const TransversalModule = {
     },
 
     async _updateProfileChart(key, state) {
-        const rawSpeakers = await db.speakers.where('sessionId').equals(state.sessionId).toArray();
+        const rawSpeakers = await db.speakers.where('sessionId').anyOf(state.sessionIds).toArray();
         const dist = {};
         rawSpeakers.forEach(s => { const val = s.covariates?.[key] || 'Sin dato'; dist[val] = (dist[val] || 0) + 1; });
         Charts.renderDistribution('profile-chart', Object.keys(dist), Object.values(dist), `Distribución de ${key}`);
@@ -134,36 +134,104 @@ export const TransversalModule = {
     },
 
     async _renderG2(container, state) {
-        Renderer.renderModuleTitle(container, "04. Significancia Estadística (G2)");
+        Renderer.renderModuleTitle(container, "04. Contraste Léxico Exploratorio (G²)");
         if (state.covariateKeys.length === 0) {
-            container.innerHTML += '<p class="empty-msg">Se requiere una variable de grupo para el cálculo G2.</p>';
+            container.innerHTML += '<p class="empty-msg">No hay covariables observadas para definir grupos.</p>';
             return;
         }
 
         container.innerHTML += `
             <div class="wb-card">
-                <select id="g2-var" style="width:100%; padding:0.8rem; border:1px solid #000; font-family:var(--font-mono); margin-bottom:2rem;">
-                    <option value="">-- SELECCIONAR GRUPO --</option>
-                    ${state.covariateKeys.map(k => `<option value="${k}">${k.toUpperCase()}</option>`).join('')}
-                </select>
-                <div id="g2-results-area"></div>
+                <p style="font-size:0.8rem; line-height:1.5; margin-bottom:1.5rem;">
+                    Compara palabras desproporcionadas entre dos corpus. No demuestra efecto clínico ni diferencias independientes entre participantes.
+                </p>
+                <label>VARIABLE DEL PROTOCOLO</label>
+                <select id="g2-var" style="width:100%; padding:0.8rem; margin:0.5rem 0 1rem;"></select>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div><label>GRUPO A</label><select id="g2-a" disabled style="width:100%; padding:0.8rem; margin-top:0.5rem;"></select></div>
+                    <div><label>GRUPO B</label><select id="g2-b" disabled style="width:100%; padding:0.8rem; margin-top:0.5rem;"></select></div>
+                </div>
+                <button id="g2-run" class="btn-core" disabled style="width:100%; margin-top:1.5rem;">CALCULAR CONTRASTE EXPLORATORIO</button>
+                <div id="g2-results-area" style="margin-top:2rem;"></div>
             </div>`;
 
-        container.querySelector('#g2-var').onchange = async (e) => {
-            const key = e.target.value;
-            if (!key) return;
-            Renderer.setLoading(true, "Calculando G2...");
-            const results = await this.stats.calculateKeyness(state.sessionId, key);
-            const area = document.getElementById('g2-results-area');
-            area.innerHTML = '';
-            results.forEach(res => {
-                const div = document.createElement('div');
-                div.style.marginBottom = '2rem';
-                div.innerHTML = `<h4 style="font-size:0.8rem; font-weight:bold; border-bottom:1px solid #000; padding-bottom:0.5rem; margin-bottom:1rem;">PERFIL: ${res.group.toUpperCase()}</h4>`;
-                Charts.renderKeywordImpact(div, res.keywords);
-                area.appendChild(div);
-            });
-            Renderer.setLoading(false);
+        const variable = container.querySelector('#g2-var');
+        const groupA = container.querySelector('#g2-a');
+        const groupB = container.querySelector('#g2-b');
+        const run = container.querySelector('#g2-run');
+        const area = container.querySelector('#g2-results-area');
+        this._setSelectOptions(variable, state.covariateKeys, '-- SELECCIONAR COVARIABLE --');
+
+        variable.onchange = async () => {
+            const values = variable.value
+                ? await this.stats.getCovariateValuesForSessions(state.sessionIds, variable.value)
+                : [];
+            this._setSelectOptions(groupA, values, '-- SELECCIONAR --');
+            this._setSelectOptions(groupB, values, '-- SELECCIONAR --');
+            groupA.disabled = values.length < 2;
+            groupB.disabled = values.length < 2;
+            run.disabled = true;
+            area.innerHTML = values.length < 2 ? '<p class="empty-msg">Se requieren al menos dos valores observados.</p>' : '';
         };
+        const updateButton = () => { run.disabled = !groupA.value || !groupB.value || groupA.value === groupB.value; };
+        groupA.onchange = updateButton;
+        groupB.onchange = updateButton;
+
+        run.onclick = async () => {
+            Renderer.setLoading(true, "Calculando contraste léxico...");
+            try {
+                const result = await this.stats.calculateKeyness(
+                    state.sessionIds, variable.value, groupA.value, groupB.value,
+                    { minTotal: 2, limit: 20 }
+                );
+                this._renderKeynessResult(area, result);
+            } catch (error) {
+                area.innerHTML = `<p class="empty-msg">${Renderer.sanitize(error.message)}</p>`;
+            } finally {
+                Renderer.setLoading(false);
+            }
+        };
+    },
+
+    _setSelectOptions(select, values, placeholder) {
+        select.replaceChildren();
+        const empty = document.createElement('option');
+        empty.value = '';
+        empty.textContent = placeholder;
+        select.appendChild(empty);
+        for (const value of values) {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+            select.appendChild(option);
+        }
+    },
+
+    _renderKeynessResult(container, result) {
+        const warnings = result.warnings.length
+            ? `<div style="border:1px solid #a16207; padding:0.8rem; background:#fef3c7;">${result.warnings.map(Renderer.sanitize).join('<br>')}</div>`
+            : '';
+        container.innerHTML = `
+            ${warnings}
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; font-size:0.75rem;">
+                <div><strong>${Renderer.sanitize(result.groupA.label)}</strong><br>${result.groupA.participantCount} participantes · ${result.groupA.tokenCount} palabras</div>
+                <div><strong>${Renderer.sanitize(result.groupB.label)}</strong><br>${result.groupB.participantCount} participantes · ${result.groupB.tokenCount} palabras</div>
+            </div>
+            <p style="font-size:0.7rem;">Segmentos incluidos: ${result.includedSegments} · Excluidos por grupo ausente/diferente: ${result.excludedSegments}</p>
+            ${this._renderKeynessTable(result.terms, result.groupA.label, result.groupB.label)}`;
+    },
+
+    _renderKeynessTable(terms, labelA, labelB) {
+        if (terms.length === 0) return '<p class="empty-msg">No se detectaron términos desproporcionados con el umbral actual.</p>';
+        return `<table class="wb-table" style="margin-top:1rem;">
+            <thead><tr><th>TÉRMINO</th><th>G²</th><th>${Renderer.sanitize(labelA)} PMW</th><th>${Renderer.sanitize(labelB)} PMW</th><th>MÁS FRECUENTE EN</th></tr></thead>
+            <tbody>${terms.map(term => `<tr>
+                <td><strong>${Renderer.sanitize(term.word)}</strong></td>
+                <td>${term.g2.toFixed(2)}</td>
+                <td>${term.groupAPmw.toFixed(0)}</td>
+                <td>${term.groupBPmw.toFixed(0)}</td>
+                <td>${Renderer.sanitize(term.direction)}</td>
+            </tr>`).join('')}</tbody>
+        </table>`;
     }
 };
