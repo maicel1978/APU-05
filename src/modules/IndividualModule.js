@@ -42,6 +42,7 @@ export const IndividualModule = {
                 case 4: await this._renderSynthesis(wrapper, state); break;
                 case 5: await this._renderImpact(wrapper, state); break;
             }
+            Renderer.renderProvisionalBanner(wrapper, state);
         } catch (err) {
             console.error(err);
             wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red; font-family:monospace;"><h3>ERROR DE ANÁLISIS</h3>${err.message}</div>`;
@@ -62,8 +63,14 @@ export const IndividualModule = {
                 try {
                     const text = await file.text();
                     const json = JSON.parse(text);
-                    const { data } = await APUParser.validate(json, 'individual');
-                    const sid = await SessionManager.createSession(data);
+                    const validation = await APUParser.validate(json, 'individual');
+                    if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                        Renderer.showToast('Carga provisional cancelada.', 'info');
+                        return;
+                    }
+                    const sid = await SessionManager.createSession(validation.data);
+                    State.isProvisional = validation.requiresConfirmation;
+                    State.validationWarnings = validation.warnings;
                     State.speakerMap = await SessionManager.getSpeakerMap(sid);
                     State.segments = await SessionManager.getSegments(sid);
                     State.sessionId = sid;

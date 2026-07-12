@@ -135,3 +135,22 @@ Los paquetes de gasto de bolsillo y barreras geriátricas superaron controles de
 ### Hallazgo
 
 Los registros distinguen interacción humana de cambio textual real. Ver `V5_BENCHMARK_AUDIT.md`.
+
+---
+
+## MT-006 — Parser estricto y estado provisional
+
+**Estado:** pendiente de validación manual
+**Fecha de preparación:** 2026-07-12
+
+### Escenarios
+
+- Rechazar `entrevista01.json` 4.0.0.
+- Aceptar `barreras_cleaned.json` 5.0.0 finalizado.
+- Cancelar y luego aceptar `provisional_v5.json`.
+- Mostrar banner y reporte provisional.
+- Aceptar `speakers-5_cleaned (1).json` con duración cero.
+
+### Criterio
+
+No deben crearse sesiones al cancelar o rechazar. Los casos finalizados no muestran advertencia provisional.

@@ -63,8 +63,9 @@ export const ExportModule = {
             const blob = new Blob([reportContent], { type: 'text/markdown' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
+            const statusTag = state.isProvisional ? '_PROVISIONAL' : '';
             a.href = url;
-            a.download = `APU05_Reporte_${state.topology}_${new Date().toISOString().split('T')[0]}.md`;
+            a.download = `APU05_Reporte_${state.topology}${statusTag}_${new Date().toISOString().split('T')[0]}.md`;
             a.click();
             URL.revokeObjectURL(url);
 

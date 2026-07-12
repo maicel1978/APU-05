@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "cleaned-text",
+  "sourceSession": "qa-provisional-v5",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Participante sintético",
+      "covariates": {}
+    }
+  ],
+  "covariateProject": null,
+  "covariateSchema": [],
+  "finalizedByHuman": false,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "speakerId": "spk-1",
+      "speaker": "Participante sintético",
+      "start": 0,
+      "end": 5,
+      "cleanedText": "Este texto sintético no fue finalizado y solo sirve para probar la advertencia provisional.",
+      "confidence": null
+    }
+  ]
+}

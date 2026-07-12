@@ -42,6 +42,22 @@ export class Renderer {
         setTimeout(() => toast.remove(), 4000);
     }
 
+    static confirmProvisional(warnings = [], fileName = '') {
+        const source = fileName ? `\nArchivo: ${fileName}\n` : '\n';
+        const detail = warnings.length ? `\n${warnings.join('\n')}` : '';
+        return window.confirm(
+            `El texto no fue finalizado por un humano en APU-04.${source}${detail}\n\n¿Desea continuar con un análisis PROVISIONAL?`
+        );
+    }
+
+    static renderProvisionalBanner(container, state) {
+        if (!state.isProvisional || !container) return;
+        const banner = document.createElement('div');
+        banner.style.cssText = 'border:2px solid #a16207; background:#fef3c7; color:#713f12; padding:1rem; margin-bottom:1.5rem; font-family:monospace; font-size:0.75rem; font-weight:bold;';
+        banner.textContent = 'ANÁLISIS PROVISIONAL — Uno o más archivos no fueron finalizados por un humano en APU-04. No interprete estos resultados como definitivos.';
+        container.prepend(banner);
+    }
+
     static setLoading(isLoading, message = "Procesando...") {
         let overlay = document.getElementById('loading-overlay');
         if (isLoading) {

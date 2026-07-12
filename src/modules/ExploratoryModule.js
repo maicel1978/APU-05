@@ -40,6 +40,7 @@ export const ExploratoryModule = {
                 case 4: await this._renderFindings(wrapper, state); break;
                 case 5: await this._renderHypotheses(wrapper, state); break;
             }
+            Renderer.renderProvisionalBanner(wrapper, state);
         } catch (err) {
             wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red;"><h3>ERROR DE ANÁLISIS</h3>${err.message}</div>`;
         }
@@ -58,15 +59,26 @@ export const ExploratoryModule = {
                 if (files.length === 0) return;
                 Renderer.setLoading(true, "Procesando Cohorte...");
                 try {
-                    let allSegments = [];
-                    let lastSid = null;
+                    const validated = [];
                     for (const file of files) {
                         const json = JSON.parse(await file.text());
-                        const { data } = await APUParser.validate(json, 'exploratory');
-                        const sid = await SessionManager.createSession(data);
+                        const validation = await APUParser.validate(json, 'exploratory');
+                        if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, file.name)) {
+                            Renderer.showToast('Carga de cohorte cancelada.', 'info');
+                            return;
+                        }
+                        validated.push(validation);
+                    }
+
+                    let allSegments = [];
+                    let lastSid = null;
+                    for (const validation of validated) {
+                        const sid = await SessionManager.createSession(validation.data);
                         lastSid = sid;
                         allSegments.push(...(await SessionManager.getSegments(sid)));
                     }
+                    State.isProvisional = validated.some((item) => item.requiresConfirmation);
+                    State.validationWarnings = validated.flatMap((item) => item.warnings);
                     State.speakerMap = await SessionManager.getSpeakerMap(lastSid);
                     State.segments = allSegments;
                     State.sessionId = lastSid;

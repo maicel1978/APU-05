@@ -34,6 +34,7 @@ export const ReaderModule = {
             <div id="corpus-list-container"></div>
             <div id="reader-pagination-area" style="padding:2rem; text-align:center; border-top:1px solid #eee; margin-top:2rem;"></div>
         `;
+        Renderer.renderProvisionalBanner(container, state);
 
         container.querySelector('#reader-session-filter').onchange = (e) => {
             this.currentFilter = e.target.value;

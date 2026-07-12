@@ -1,7 +1,9 @@
 # Línea base de QA de APU-05
 
 **Fase:** 1A — caracterización y primera regresión controlada
-**Estado:** aceptada por el investigador
+**Estado:** histórica; superada por `PARSER_IMPLEMENTATION.md`
+
+> Este documento conserva la fotografía previa al Parser estricto. Las brechas enumeradas aquí fueron la base de trabajo y no describen necesariamente el comportamiento actual.
 
 ## 1. Propósito
 

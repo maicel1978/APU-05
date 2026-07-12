@@ -50,10 +50,16 @@ export class AuditEngine {
 
     // Reporte genérico simplificado para el prototipo
     static generateFullProjectReport(state, stats) {
+        const provisional = state.isProvisional === true;
+        const status = provisional ? 'PROVISIONAL — TEXTO NO FINALIZADO EN APU-04' : 'Consolidado';
+        const warning = provisional
+            ? '\n> ADVERTENCIA: Este documento es exploratorio. El corpus puede cambiar después de la revisión humana.\n'
+            : '';
         return `
 # REPORTE DE PROYECTO: ${state.topology.toUpperCase()}
-Estado: Consolidado
+Estado: ${status}
 Fecha: ${new Date().toLocaleDateString()}
+${warning}
 
 ## CARACTERIZACIÓN DE LA EVIDENCIA
 - Volumen: ${stats.production.words} palabras en ${stats.production.segments} segmentos.
@@ -61,8 +67,8 @@ Fecha: ${new Date().toLocaleDateString()}
 - Complejidad: ${stats.complexity.lexicalDiversity}% de diversidad léxica.
 
 ## MEMORIA TÉCNICA
-Análisis ejecutado bajo estándares de rigor científico local-first. 
-La integridad de los microdatos de APU-03/04 ha sido validada.
+Análisis ejecutado bajo estándares local-first.
+El corpus superó la validación estructural de entrada APU-04 5.x.
 
 --------------------------------------------------
 DOCUMENTO PREPARADO PARA EVALUACIÓN ACADÉMICA.

@@ -273,6 +273,17 @@ El bloqueo previo para implementar el Parser estricto queda levantado.
 
 ---
 
+## D-024 — Parser estricto 5.x listo para validación manual
+
+**Estado:** implementado; pendiente de prueba local
+**Fecha:** 2026-07-12
+
+Se aplicaron las políticas D-018 a D-020: rechazo 4.x, confirmación provisional, contrato estructural, duración cero no fatal y validación pura de trazabilidad opcional.
+
+La interfaz de selección conjunta de trazabilidad queda explícitamente para Fase 2B. No se modificaron `App.js`, `index.html` ni IndexedDB.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?

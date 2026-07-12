@@ -8,6 +8,8 @@ export const State = new Proxy({
     segments: [],
     speakerMap: new Map(),
     covariateKeys: [],
+    isProvisional: false,
+    validationWarnings: [],
     auditSummary: { total: 0, edited: 0, anomalous: 0 }
 }, {
     set(target, property, value) {
