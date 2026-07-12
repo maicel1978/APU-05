@@ -1,7 +1,7 @@
 # APU-05 — Checklist Beta / Release Candidate
 
-**Estado:** preparación de RC
-**Destino:** Pull Request hacia `main`
+**Estado:** RC listo para revisión
+**Destino:** Pull Request #1 hacia `main`
 
 ## Capacidades operativas
 
@@ -36,8 +36,8 @@
 
 ## QA requerida antes del merge
 
-- [ ] CI verde en Node 18, 20 y 22.
-- [ ] Deploy preview Netlify operativo.
+- [ ] CI verde en Node 18, 20 y 22. Plantilla lista en `docs/templates/apu05-ci.yml`; requiere permiso workflows para instalar.
+- [x] Deploy preview Netlify operativo.
 - [ ] Consola limpia en Chrome/Edge.
 - [ ] Individual finalizado y provisional.
 - [ ] Exploratorio con 2 y 4 entrevistas.
