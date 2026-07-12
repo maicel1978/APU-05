@@ -1,0 +1,32 @@
+{
+  "project": {
+    "name": "QA sintético de acceso digital en salud",
+    "specialty": "Epidemiología y servicios de salud",
+    "date": "2026-07-12"
+  },
+  "variables": [
+    {
+      "name": "grupo_estudio",
+      "type": "Nominal Dicotómica",
+      "description": "Asignación sintética para probar contraste léxico entre dos grupos.",
+      "metadata": {
+        "question": "¿A qué grupo del protocolo pertenece el participante?",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "Intervención",
+            "synonyms": ["intervencion", "grupo a"]
+          },
+          {
+            "label": "Control",
+            "synonyms": ["control", "grupo b"]
+          }
+        ]
+      }
+    }
+  ]
+}

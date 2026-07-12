@@ -27,11 +27,11 @@ No responde:
 
 El investigador elegirá explícitamente:
 
-1. covariable;
+1. covariable heredada de Clinical VarOps/APU-03;
 2. valor de Grupo A;
 3. valor de Grupo B.
 
-El sistema no seleccionará automáticamente los primeros valores ni comparará cada categoría contra el resto.
+El significado y las categorías proceden de `covariateSchema`; los valores observados proceden de `speakers[].covariates`. El sistema no seleccionará automáticamente los primeros valores, no comparará cada categoría contra el resto y no inferirá grupos desde la narrativa.
 
 ## 4. Unidad analítica
 

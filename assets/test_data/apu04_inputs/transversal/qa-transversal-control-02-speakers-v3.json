@@ -51,28 +51,60 @@
     }
   ],
   "covariateProject": {
-    "projectId": "QA-TRANSVERSAL-001",
-    "projectName": "QA sintético de acceso digital en salud"
+    "name": "QA sintético de acceso digital en salud",
+    "specialty": "Epidemiología y servicios de salud",
+    "date": "2026-07-12"
   },
   "covariateSchema": [
     {
       "name": "grupo_estudio",
-      "key": "grupo_estudio",
       "type": "Nominal Dicotómica",
-      "description": "Grupo sintético para probar contraste léxico",
-      "label": "Grupo de estudio",
+      "description": "Asignación sintética para probar contraste léxico entre dos grupos.",
+      "label": "¿A qué grupo del protocolo pertenece el participante?",
       "categories": [
         {
           "label": "Intervención",
-          "synonyms": []
+          "synonyms": [
+            "intervencion",
+            "grupo a"
+          ]
         },
         {
           "label": "Control",
-          "synonyms": []
+          "synonyms": [
+            "control",
+            "grupo b"
+          ]
         }
       ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
       "metadata": {
-        "question": "Asignación sintética para QA; no representa efecto clínico"
+        "question": "¿A qué grupo del protocolo pertenece el participante?",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "Intervención",
+            "synonyms": [
+              "intervencion",
+              "grupo a"
+            ]
+          },
+          {
+            "label": "Control",
+            "synonyms": [
+              "control",
+              "grupo b"
+            ]
+          }
+        ]
       }
     }
   ]

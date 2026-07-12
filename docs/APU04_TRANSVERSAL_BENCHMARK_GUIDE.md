@@ -17,7 +17,15 @@ qa-transversal-intervencion-01-speakers-v3.json
 qa-transversal-intervencion-02-speakers-v3.json
 ```
 
-Todos fueron validados con el contrato real APU-03 3.0.0 y el adaptador/validador actual de APU-04.
+Todos fueron normalizados contra el maestro real:
+
+```text
+assets/test_data/qa-transversal.clinical
+```
+
+y validados con el cargador de Clinical VarOps de APU-03, el contrato APU-03 3.0.0 y el adaptador/validador actual de APU-04.
+
+El `.clinical` documenta el protocolo; no se carga en APU-04. Los cuatro `speakers-v3.json` ya representan la salida APU-03 después de asignar los valores por hablante.
 
 ## Contenido
 

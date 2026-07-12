@@ -370,6 +370,15 @@ Los segmentos se asignan mediante la covariable del hablante y su identidad comp
 
 ---
 
+## D-034 — Clinical VarOps define esquema, APU-03 asigna valores
+
+**Estado:** confirmado contra repositorios reales
+**Fecha:** 2026-07-12
+
+El `.clinical` contiene `project` y `variables`, no observaciones. APU-03 normaliza el esquema y escribe valores en `speakers[].covariates`; APU-04 los preserva y APU-05 los consume. No se inferirán grupos desde narrativa o nombres. Ver `VAROPS_INHERITANCE.md`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
