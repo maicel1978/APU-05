@@ -1,3 +1,5 @@
+import { resolveSpeakerLabel } from '../core/SpeakerIdentity.js';
+
 /**
  * Motor de Renderizado DOM (Rigor UI)
  * V8.6.0: Edición Editorial de Transcripción y Restauración de Componentes.
@@ -42,6 +44,22 @@ export class Renderer {
         setTimeout(() => toast.remove(), 4000);
     }
 
+    static confirmProvisional(warnings = [], fileName = '') {
+        const source = fileName ? `\nArchivo: ${fileName}\n` : '\n';
+        const detail = warnings.length ? `\n${warnings.join('\n')}` : '';
+        return window.confirm(
+            `El texto no fue finalizado por un humano en APU-04.${source}${detail}\n\n¿Desea continuar con un análisis PROVISIONAL?`
+        );
+    }
+
+    static renderProvisionalBanner(container, state) {
+        if (!state.isProvisional || !container) return;
+        const banner = document.createElement('div');
+        banner.style.cssText = 'border:2px solid #a16207; background:#fef3c7; color:#713f12; padding:1rem; margin-bottom:1.5rem; font-family:monospace; font-size:0.75rem; font-weight:bold;';
+        banner.textContent = 'ANÁLISIS PROVISIONAL — Uno o más archivos no fueron finalizados por un humano en APU-04. No interprete estos resultados como definitivos.';
+        container.prepend(banner);
+    }
+
     static setLoading(isLoading, message = "Procesando...") {
         let overlay = document.getElementById('loading-overlay');
         if (isLoading) {
@@ -80,7 +98,7 @@ export class Renderer {
                 </div>
                 <div style="font-size:1.05rem; line-height:1.8; color:#1a1a1a;">
                     <span style="display:inline-block; padding:2px 6px; background:#000; color:#fff; font-size:0.65rem; font-family:monospace; margin-right:0.8rem; text-transform:uppercase;">
-                        ${this.sanitize(speakerMap.get(seg.speakerId) || 'P')}
+                        ${this.sanitize(resolveSpeakerLabel(speakerMap, seg) || 'P')}
                     </span>
                     ${this.sanitize(seg.cleanedText)}
                 </div>`;
@@ -109,7 +127,7 @@ export class Renderer {
                     <div style="display:grid; grid-template-columns: 1fr 200px; gap:20px; align-items:center;">
                         <table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.8rem; border:1px solid #000;">
                             <tr style="background:#f4f4f5;"><th style="padding:0.6rem; text-align:left;">HABLANTE</th><th style="padding:0.6rem; text-align:right;">% DISCURSO</th></tr>
-                            ${Object.entries(data.participation).map(([id, s]) => `<tr><td>${speakerMap.get(id) || id}</td><td style="text-align:right; font-weight:bold;">${((s.words / data.production.words) * 100).toFixed(0)}%</td></tr>`).join('')}
+                            ${Object.entries(data.participation).map(([id, s]) => `<tr><td>${resolveSpeakerLabel(speakerMap, id) || id}</td><td style="text-align:right; font-weight:bold;">${((s.words / data.production.words) * 100).toFixed(0)}%</td></tr>`).join('')}
                         </table>
                         <div style="height:150px;"><canvas id="speaker-dist-chart"></canvas></div>
                     </div>
@@ -124,7 +142,7 @@ export class Renderer {
                 </section>
             </div>`;
         const ctx = container.querySelector('#speaker-dist-chart').getContext('2d');
-        new Chart(ctx, { type: 'doughnut', data: { labels: Object.keys(data.participation).map(id => speakerMap.get(id) || id), datasets: [{ data: Object.values(data.participation).map(s => s.words), backgroundColor: ['#000', '#666', '#ccc'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+        new Chart(ctx, { type: 'doughnut', data: { labels: Object.keys(data.participation).map(id => resolveSpeakerLabel(speakerMap, id) || id), datasets: [{ data: Object.values(data.participation).map(s => s.words), backgroundColor: ['#000', '#666', '#ccc'] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
     }
 
     static renderModuleTitle(container, title) {

@@ -2,6 +2,8 @@ import { Renderer } from '../ui/Renderer.js';
 import { APUParser } from '../core/Parser.js';
 import { SessionManager } from '../core/Session.js';
 import { State } from '../core/State.js';
+import { readInputPackages } from '../core/InputPackage.js';
+import { summarizeTraceabilities } from '../core/Traceability.js';
 import { StatsEngine } from '../science/StatsEngine.js';
 
 /**
@@ -40,6 +42,7 @@ export const ExploratoryModule = {
                 case 4: await this._renderFindings(wrapper, state); break;
                 case 5: await this._renderHypotheses(wrapper, state); break;
             }
+            Renderer.renderProvisionalBanner(wrapper, state);
         } catch (err) {
             wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red;"><h3>ERROR DE ANÁLISIS</h3>${err.message}</div>`;
         }
@@ -51,26 +54,46 @@ export const ExploratoryModule = {
             container.innerHTML += `
                 <div class="wb-card" style="text-align:center; padding:4rem;">
                     <input type="file" id="cohort-upload" accept=".json" multiple style="display:none;">
-                    <button class="btn-core" onclick="document.getElementById('cohort-upload').click()">📂 SELECCIONAR ARCHIVOS</button>
+                    <button class="btn-core" onclick="document.getElementById('cohort-upload').click()">📂 SELECCIONAR CORPUS + TRAZABILIDADES OPCIONALES</button>
                 </div>`;
             container.querySelector('#cohort-upload').onchange = async (e) => {
                 const files = Array.from(e.target.files);
                 if (files.length === 0) return;
                 Renderer.setLoading(true, "Procesando Cohorte...");
                 try {
+                    const packages = await readInputPackages(files);
+                    const validated = [];
+                    for (const input of packages) {
+                        const validation = await APUParser.validate(
+                            input.cleaned,
+                            'exploratory',
+                            input.traceability
+                        );
+                        if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, input.cleanedFileName)) {
+                            e.target.value = '';
+                            Renderer.showToast('Carga de cohorte cancelada.', 'info');
+                            return;
+                        }
+                        validated.push(validation);
+                    }
+
                     let allSegments = [];
                     let lastSid = null;
-                    for (const file of files) {
-                        const json = JSON.parse(await file.text());
-                        const { data } = await APUParser.validate(json, 'exploratory');
-                        const sid = await SessionManager.createSession(data);
+                    const sessionIds = [];
+                    for (const validation of validated) {
+                        const sid = await SessionManager.createSession(validation.data, validation.traceability);
                         lastSid = sid;
+                        sessionIds.push(sid);
                         allSegments.push(...(await SessionManager.getSegments(sid)));
                     }
-                    State.speakerMap = await SessionManager.getSpeakerMap(lastSid);
+                    State.isProvisional = validated.some((item) => item.requiresConfirmation);
+                    State.validationWarnings = validated.flatMap((item) => item.warnings);
+                    State.auditSummary = summarizeTraceabilities(validated.map((item) => item.traceability));
+                    State.sessionIds = sessionIds;
+                    State.speakerMap = await SessionManager.getSpeakerMapForSessions(sessionIds);
                     State.segments = allSegments;
                     State.sessionId = lastSid;
-                    Renderer.showToast("Cohorte integrada", "success");
+                    Renderer.showToast(`Cohorte integrada: ${packages.length} casos, ${State.auditSummary.traceabilityCases} con trazabilidad.`, "success");
                 } catch (err) { alert(err.message); } finally { Renderer.setLoading(false); }
             };
         } else {
@@ -131,20 +154,26 @@ export const ExploratoryModule = {
     },
 
     async _renderFindings(container, state) {
-        Renderer.renderModuleTitle(container, "04. Hallazgos Sorpresa");
-        const outliers = await this.stats.getNarrativeOutliers(state.segments);
-        if (outliers.length === 0) {
-            container.innerHTML += '<p class="empty-msg">Se requieren al menos 2 entrevistas para detectar hallazgos.</p>';
+        Renderer.renderModuleTitle(container, "04. Saliencias Narrativas Exploratorias");
+        const result = await this.stats.getNarrativeSalience(state.segments);
+        const warnings = result.warnings.length
+            ? `<div style="border:1px solid #a16207; background:#fef3c7; padding:1rem; margin-bottom:1rem;">${result.warnings.map(Renderer.sanitize).join('<br>')}</div>`
+            : '';
+        if (result.findings.length === 0) {
+            container.innerHTML += `${warnings}<p class="empty-msg">No se detectaron saliencias relativas que superen los criterios actuales. Este resultado es válido y no obliga a generar un hallazgo.</p>`;
             return;
         }
         container.innerHTML += `
+            ${warnings}
             <div class="wb-card">
+                <p style="font-size:0.75rem; margin-bottom:1rem;">Cada entrevista se compara contra las demás mediante referencia leave-one-out. Una saliencia no demuestra importancia clínica.</p>
                 <div style="display:grid; gap:15px;">
-                    ${outliers.slice(0, 5).map(o => `
+                    ${result.findings.slice(0, 8).map(finding => `
                         <div style="padding:1.5rem; border:1px solid #000; border-left:8px solid #000;">
-                            <div style="font-size:0.6rem; font-weight:bold; color:var(--muted);">SESIÓN #${o.sessionId}</div>
-                            <div style="font-size:1rem; font-weight:bold; margin:0.5rem 0;">HALLAZGO ATÍPICO: "${o.keyTopic.toUpperCase()}"</div>
-                            <p style="font-size:0.8rem;">Desviación temática: <strong>${o.intensity}x</strong> superior al promedio.</p>
+                            <div style="font-size:0.6rem; font-weight:bold;">SESIÓN #${Renderer.sanitize(String(finding.sessionId))}</div>
+                            <div style="font-size:1rem; font-weight:bold; margin:0.5rem 0;">SALIENCIA: "${Renderer.sanitize(finding.term.toUpperCase())}"</div>
+                            <p style="font-size:0.8rem;">Razón relativa: <strong>${finding.ratio.toFixed(1)}x</strong> · Caso: ${finding.targetCount} · Referencia: ${finding.referenceCount}</p>
+                            ${finding.evidence.map(item => `<blockquote style="font-size:0.75rem; border-left:2px solid #999; padding-left:0.7rem;">${Renderer.sanitize(item.text)}</blockquote>`).join('')}
                         </div>`).join('')}
                 </div>
             </div>`;

@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "3.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-03",
+  "stage": "speaker-refinement",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Dr. Monzón",
+      "covariates": {}
+    },
+    {
+      "id": "spk-2",
+      "label": "Sr. González",
+      "covariates": {}
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg-001",
+      "start": 0,
+      "end": 6.5,
+      "text": "Buenos días, señor González. Cuénteme, ¿cómo se ha sentido esta última semana y cómo va con su medicación?",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-002",
+      "start": 6.5,
+      "end": 14.2,
+      "text": "Buenos días, doctor. Pues regular. Me siento un poco mareado a veces. Y con las pastillas, la verdad es un lío, son demasiadas.",
+      "speakerId": "spk-2",
+      "speaker": "Sr. González",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-003",
+      "start": 14.2,
+      "end": 20.8,
+      "text": "Entiendo. La polifarmacia es un reto común a su edad. ¿Tiene dificultades para identificar cuál tomar en cada horario?",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-004",
+      "start": 20.8,
+      "end": 29.5,
+      "text": "Sí, a veces me confundo. Además, la de la presión no me la tomé ayer porque se me acabó y la farmacia queda muy lejos de mi casa.",
+      "speakerId": "spk-2",
+      "speaker": "Sr. González",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-005",
+      "start": 29.5,
+      "end": 34.0,
+      "text": "¿No tiene algún familiar que le pueda facilitar la compra o ayudarle con el transporte?",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-006",
+      "start": 34.0,
+      "end": 43.5,
+      "text": "Mi hijo trabaja todo el día. Yo uso bastón y subir al ómnibus se me hace imposible, los escalones son muy altos y las calles están malas.",
+      "speakerId": "spk-2",
+      "speaker": "Sr. González",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-007",
+      "start": 43.5,
+      "end": 51.0,
+      "text": "Claro, la barrera arquitectónica y de movilidad es evidente, eso limita mucho su acceso. ¿Y para sacar los turnos médicos ha tenido problemas?",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-008",
+      "start": 51.0,
+      "end": 59.8,
+      "text": "Muchos, doctor. Ahora dicen que todo es por una aplicación en el teléfono, pero yo no entiendo de eso. Es un dolor de cabeza, siento que me quedo fuera.",
+      "speakerId": "spk-2",
+      "speaker": "Sr. González",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-009",
+      "start": 59.8,
+      "end": 69.0,
+      "text": "Esa es una barrera digital importante que aísla a gran parte de nuestros pacientes mayores. Vamos a revisar sus fármacos ahora mismo para simplificar su esquema y ver cómo coordinamos la entrega.",
+      "speakerId": "spk-1",
+      "speaker": "Dr. Monzón",
+      "confidence": null,
+      "edited": false
+    }
+  ],
+  "covariateProject": {
+    "name": "Evaluación de Barreras de Salud en Geriatría",
+    "specialty": "Geriatría y Bioestadística",
+    "date": "2026-07-08"
+  },
+  "covariateSchema": [
+    {
+      "name": "edad",
+      "type": "Cuantitativa Continua",
+      "description": "Edad biológica del paciente",
+      "label": "Edad del paciente",
+      "categories": [],
+      "unit": "años",
+      "range": {
+        "min": "65",
+        "max": "120"
+      },
+      "metadata": {
+        "question": "Edad del paciente",
+        "unit": "años",
+        "range": {
+          "min": "65",
+          "max": "120"
+        },
+        "categories": []
+      }
+    },
+    {
+      "name": "sexo",
+      "type": "Nominal Dicotómica",
+      "description": "Sexo biológico del paciente",
+      "label": "Sexo biológico del paciente",
+      "categories": [
+        {
+          "label": "masculino",
+          "synonyms": []
+        },
+        {
+          "label": "femenino",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "masculino",
+            "synonyms": []
+          },
+          {
+            "label": "femenino",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "grupo",
+      "type": "Nominal Dicotómica",
+      "description": "grupo",
+      "label": "grupo",
+      "categories": [
+        {
+          "label": "control",
+          "synonyms": []
+        },
+        {
+          "label": "caso",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "control",
+            "synonyms": []
+          },
+          {
+            "label": "caso",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "color_de_la_piel",
+      "type": "Nominal Politómica",
+      "description": "color de la piel",
+      "label": "color de la piel",
+      "categories": [
+        {
+          "label": "blanco",
+          "synonyms": []
+        },
+        {
+          "label": "negro",
+          "synonyms": []
+        },
+        {
+          "label": "amarillo",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "blanco",
+            "synonyms": []
+          },
+          {
+            "label": "negro",
+            "synonyms": []
+          },
+          {
+            "label": "amarillo",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "app",
+      "type": "Nominal Dicotómica",
+      "description": "Antecedentes patológicos personales",
+      "label": "Antecedentes patológicos personales",
+      "categories": [
+        {
+          "label": "si",
+          "synonyms": []
+        },
+        {
+          "label": "no",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "si",
+            "synonyms": []
+          },
+          {
+            "label": "no",
+            "synonyms": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "apf",
+      "type": "Nominal Dicotómica",
+      "description": "antecedentes patológicos familiares",
+      "label": "antecedentes patológicos familiares",
+      "categories": [
+        {
+          "label": "si",
+          "synonyms": []
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "si",
+            "synonyms": []
+          }
+        ]
+      }
+    }
+  ]
+}

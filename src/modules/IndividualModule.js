@@ -2,6 +2,8 @@ import { Renderer } from '../ui/Renderer.js';
 import { APUParser } from '../core/Parser.js';
 import { SessionManager } from '../core/Session.js';
 import { State } from '../core/State.js';
+import { readInputPackages } from '../core/InputPackage.js';
+import { summarizeTraceabilities } from '../core/Traceability.js';
 import { NER } from '../science/NER.js';
 import { SentimentEngine } from '../science/Sentiment.js';
 import { StatsEngine } from '../science/StatsEngine.js';
@@ -42,6 +44,7 @@ export const IndividualModule = {
                 case 4: await this._renderSynthesis(wrapper, state); break;
                 case 5: await this._renderImpact(wrapper, state); break;
             }
+            Renderer.renderProvisionalBanner(wrapper, state);
         } catch (err) {
             console.error(err);
             wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red; font-family:monospace;"><h3>ERROR DE ANÁLISIS</h3>${err.message}</div>`;
@@ -53,21 +56,41 @@ export const IndividualModule = {
         if (!state.sessionId) {
             container.innerHTML += `
                 <div class="wb-card" style="text-align:center; padding:4rem;">
-                    <input type="file" id="wb-file-upload" accept=".json" style="display:none;">
-                    <button class="btn-core" onclick="document.getElementById('wb-file-upload').click()">📂 SELECCIONAR ARCHIVO</button>
+                    <input type="file" id="wb-file-upload" accept=".json" multiple style="display:none;">
+                    <button class="btn-core" onclick="document.getElementById('wb-file-upload').click()">📂 SELECCIONAR CORPUS + TRAZABILIDAD OPCIONAL</button>
                 </div>`;
             container.querySelector('#wb-file-upload').onchange = async (e) => {
-                const file = e.target.files[0]; if (!file) return;
+                const files = Array.from(e.target.files);
+                if (files.length === 0) return;
                 Renderer.setLoading(true, "Procesando...");
                 try {
-                    const text = await file.text();
-                    const json = JSON.parse(text);
-                    const { data } = await APUParser.validate(json, 'individual');
-                    const sid = await SessionManager.createSession(data);
-                    State.speakerMap = await SessionManager.getSpeakerMap(sid);
+                    const packages = await readInputPackages(files);
+                    if (packages.length !== 1) {
+                        throw new Error('El diseño Individual admite un solo caso.');
+                    }
+                    const input = packages[0];
+                    const validation = await APUParser.validate(
+                        input.cleaned,
+                        'individual',
+                        input.traceability
+                    );
+                    if (validation.requiresConfirmation && !Renderer.confirmProvisional(validation.warnings, input.cleanedFileName)) {
+                        e.target.value = '';
+                        Renderer.showToast('Carga provisional cancelada.', 'info');
+                        return;
+                    }
+                    const sid = await SessionManager.createSession(validation.data, validation.traceability);
+                    State.isProvisional = validation.requiresConfirmation;
+                    State.validationWarnings = validation.warnings;
+                    State.auditSummary = summarizeTraceabilities([validation.traceability]);
+                    State.sessionIds = [sid];
+                    State.speakerMap = await SessionManager.getSpeakerMapForSessions([sid]);
                     State.segments = await SessionManager.getSegments(sid);
                     State.sessionId = sid;
-                    Renderer.showToast("Carga exitosa", "success");
+                    const message = validation.traceability
+                        ? `Carga exitosa: ${validation.traceability.segments.length} segmentos con trazabilidad.`
+                        : 'Carga exitosa sin trazabilidad complementaria.';
+                    Renderer.showToast(message, "success");
                 } catch (err) { alert(err.message); } finally { Renderer.setLoading(false); }
             };
         } else {

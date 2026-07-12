@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "3.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-03",
+  "stage": "speaker-refinement",
+  "sourceSession": "qa-transversal-control-02",
+  "speakers": [
+    {
+      "id": "spk-1",
+      "label": "Entrevistador",
+      "covariates": {}
+    },
+    {
+      "id": "spk-2",
+      "label": "Participante 02",
+      "covariates": {
+        "grupo_estudio": "Control"
+      }
+    }
+  ],
+  "segments": [
+    {
+      "id": "seg-001",
+      "start": 0,
+      "end": 5,
+      "text": "Cuénteme cómo fue su experiencia para gestionar la consulta.",
+      "speakerId": "spk-1",
+      "speaker": "Entrevistador",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-002",
+      "start": 5.5,
+      "end": 14,
+      "text": "El sistema digital fue confuso, apareció un error de conexión y perdí la cita.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 02",
+      "confidence": null,
+      "edited": false
+    },
+    {
+      "id": "seg-003",
+      "start": 14.5,
+      "end": 23,
+      "text": "Sin orientación ni ayuda, la contraseña y la aplicación se volvieron una barrera.",
+      "speakerId": "spk-2",
+      "speaker": "Participante 02",
+      "confidence": null,
+      "edited": false
+    }
+  ],
+  "covariateProject": {
+    "name": "QA sintético de acceso digital en salud",
+    "specialty": "Epidemiología y servicios de salud",
+    "date": "2026-07-12"
+  },
+  "covariateSchema": [
+    {
+      "name": "grupo_estudio",
+      "type": "Nominal Dicotómica",
+      "description": "Asignación sintética para probar contraste léxico entre dos grupos.",
+      "label": "¿A qué grupo del protocolo pertenece el participante?",
+      "categories": [
+        {
+          "label": "Intervención",
+          "synonyms": [
+            "intervencion",
+            "grupo a"
+          ]
+        },
+        {
+          "label": "Control",
+          "synonyms": [
+            "control",
+            "grupo b"
+          ]
+        }
+      ],
+      "unit": "",
+      "range": {
+        "min": "",
+        "max": ""
+      },
+      "metadata": {
+        "question": "¿A qué grupo del protocolo pertenece el participante?",
+        "unit": "",
+        "range": {
+          "min": "",
+          "max": ""
+        },
+        "categories": [
+          {
+            "label": "Intervención",
+            "synonyms": [
+              "intervencion",
+              "grupo a"
+            ]
+          },
+          {
+            "label": "Control",
+            "synonyms": [
+              "control",
+              "grupo b"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

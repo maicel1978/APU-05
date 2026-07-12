@@ -1,5 +1,8 @@
 import db from '../core/Database.js';
 import { SessionManager } from '../core/Session.js';
+import { speakerKey } from '../core/SpeakerIdentity.js';
+import { getCovariateValues, prepareKeynessComparison } from './KeynessGroups.js';
+import { detectNarrativeSalience } from './NarrativeSalience.js';
 
 /**
  * Motor Estadístico APU-05 (Unified v9.0.0)
@@ -21,9 +24,10 @@ export class StatsEngine {
             });
             const duration = (s.end - s.start);
             stats.durationTotal += duration > 0 ? duration : 0;
-            if (!stats.speakerStats[s.speakerId]) stats.speakerStats[s.speakerId] = { words: 0, segments: 0 };
-            stats.speakerStats[s.speakerId].words += tokens.length;
-            stats.speakerStats[s.speakerId].segments += 1;
+            const participantId = speakerKey(s.sessionId, s.speakerId);
+            if (!stats.speakerStats[participantId]) stats.speakerStats[participantId] = { words: 0, segments: 0 };
+            stats.speakerStats[participantId].words += tokens.length;
+            stats.speakerStats[participantId].segments += 1;
         });
 
         const nerModule = await import('./NER.js');
@@ -54,26 +58,20 @@ export class StatsEngine {
         return links.sort((a, b) => b.weight - a.weight);
     }
 
-    async getNarrativeOutliers(segments) {
-        const sessionIds = [...new Set(segments.map(s => s.sessionId))];
-        if (sessionIds.length < 2) return [];
-        const cohorteFreq = new Map();
-        let totalWords = 0;
-        segments.forEach(s => { this._tokenize(s.cleanedText).forEach(t => { cohorteFreq.set(t, (cohorteFreq.get(t) || 0) + 1); totalWords++; })});
+    async getNarrativeSalience(segments, options = {}) {
+        return detectNarrativeSalience(segments, options);
+    }
 
-        return sessionIds.map(sid => {
-            const sessionSegs = segments.filter(s => s.sessionId === sid);
-            const sessionText = sessionSegs.map(s => s.cleanedText).join(' ');
-            const sessionTokens = this._tokenize(sessionText);
-            const sessionFreq = new Map();
-            sessionTokens.forEach(t => sessionFreq.set(t, (sessionFreq.get(t) || 0) + 1));
-            let maxD = { word: 'N/A', factor: 0 };
-            sessionFreq.forEach((count, word) => {
-                const factor = (count / sessionTokens.length) / ((cohorteFreq.get(word) || 1) / totalWords);
-                if (factor > maxD.factor) maxD = { word, factor };
-            });
-            return { sessionId: sid, keyTopic: maxD.word, intensity: maxD.factor.toFixed(1) };
-        }).sort((a, b) => b.intensity - a.intensity);
+    // Adaptador temporal para el generador de hipótesis existente.
+    async getNarrativeOutliers(segments, options = {}) {
+        const result = await this.getNarrativeSalience(segments, options);
+        return result.findings.map(finding => ({
+            sessionId: finding.sessionId,
+            keyTopic: finding.term,
+            intensity: finding.ratio.toFixed(1),
+            evidence: finding.evidence,
+            status: finding.status
+        }));
     }
 
     async getNarrativeStructure(segments) {
@@ -120,10 +118,38 @@ export class StatsEngine {
     }
 
     async getAvailableCovariates(sessionId) {
-        const speakers = await db.speakers.where('sessionId').equals(sessionId).toArray();
+        return await this.getAvailableCovariatesForSessions([sessionId]);
+    }
+
+    async getAvailableCovariatesForSessions(sessionIds) {
+        const speakers = await this._getSpeakersForSessions(sessionIds);
         const keys = new Set();
         speakers.forEach(s => { if (s.covariates) Object.keys(s.covariates).forEach(k => keys.add(k)); });
-        return Array.from(keys);
+        return Array.from(keys).sort((a, b) => a.localeCompare(b, 'es'));
+    }
+
+    async getCovariateValuesForSessions(sessionIds, covariateKey) {
+        return getCovariateValues(await this._getSpeakersForSessions(sessionIds), covariateKey);
+    }
+
+    async calculateKeyness(sessionIds, covariateKey, groupA, groupB, options = {}) {
+        const ids = this._normalizeSessionIds(sessionIds);
+        const [speakers, segments] = await Promise.all([
+            this._getSpeakersForSessions(ids),
+            db.segments.where('sessionId').anyOf(ids).toArray()
+        ]);
+        return prepareKeynessComparison({ segments, speakers, covariateKey, groupA, groupB }, options);
+    }
+
+    async _getSpeakersForSessions(sessionIds) {
+        const ids = this._normalizeSessionIds(sessionIds);
+        if (ids.length === 0) return [];
+        return await db.speakers.where('sessionId').anyOf(ids).toArray();
+    }
+
+    _normalizeSessionIds(sessionIds) {
+        const list = Array.isArray(sessionIds) ? sessionIds : [sessionIds];
+        return [...new Set(list.filter((id) => id !== null && id !== undefined))];
     }
 
     /**
@@ -147,8 +173,8 @@ export class StatsEngine {
             const topOutlier = outliers[0];
             hypotheses.push({
                 type: 'FOCAL',
-                statement: `La Entrevista #${topOutlier.sessionId} presenta una saliencia atípica en "${topOutlier.keyTopic.toUpperCase()}" (${topOutlier.intensity}x superior al promedio).`,
-                question: `¿Qué factores específicos del caso #${topOutlier.sessionId} explican esta desviación temática respecto a la norma de la cohorte?`
+                statement: `La Entrevista #${topOutlier.sessionId} presenta una saliencia relativa en "${topOutlier.keyTopic.toUpperCase()}" (${topOutlier.intensity}x frente a la referencia leave-one-out).`,
+                question: `¿Qué características del caso #${topOutlier.sessionId} podrían explicar esta saliencia exploratoria respecto a las demás entrevistas?`
             });
         }
 

@@ -34,6 +34,7 @@ export const ReaderModule = {
             <div id="corpus-list-container"></div>
             <div id="reader-pagination-area" style="padding:2rem; text-align:center; border-top:1px solid #eee; margin-top:2rem;"></div>
         `;
+        Renderer.renderProvisionalBanner(container, state);
 
         container.querySelector('#reader-session-filter').onchange = (e) => {
             this.currentFilter = e.target.value;
@@ -77,7 +78,11 @@ export const ReaderModule = {
 
         // 3. Actualizar estadísticas
         if (statsEl) {
-            statsEl.innerHTML = `VISTO: ${visibleSegments.length} / TOTAL: ${fullList.length}<br>DISEÑO: ${state.topology.toUpperCase()}`;
+            const audit = state.auditSummary;
+            const auditLine = audit?.traceabilityCases > 0
+                ? `<br>TRAZABILIDAD: ${audit.reviewed}/${audit.total} REVISADOS · ${audit.changed} CAMBIOS · ${audit.anomalous} ANÓMALOS`
+                : '<br>TRAZABILIDAD: NO CARGADA';
+            statsEl.innerHTML = `VISTO: ${visibleSegments.length} / TOTAL: ${fullList.length}<br>DISEÑO: ${state.topology.toUpperCase()}${auditLine}`;
         }
     }
 };

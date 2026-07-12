@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "trazabilidad",
+  "sourceSession": "qa-geriatria-barreras-speakers-v3",
+  "source_hash": "380745301a1469f5f7b02d501a25fe3a493b4fd4e4e4cdde91a24568e5fd4840",
+  "sourceRefs": {
+    "sourceAudioFileName": null,
+    "sourceManifestRef": null,
+    "sourceManifestHash": null,
+    "sourceTranscriptRef": null,
+    "sourceTranscriptHash": null
+  },
+  "auditLog": {
+    "version": "0.4",
+    "lastModified": "2026-07-12T15:54:40.798Z",
+    "termsCorrectedCount": 0,
+    "finalizedByHuman": true,
+    "nerOptInActive": false
+  },
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "originalText": "Buenos días, señor González. Cuénteme, ¿cómo se ha sentido esta última semana y cómo va con su medicación?",
+      "wpm": 166.15384615384616,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:53:39.862Z",
+          "type": "human",
+          "before": "Buenos días, señor González. Cuénteme, ¿cómo se ha sentido esta última semana y cómo va con su medicación?",
+          "after": "Buenos días, señor González. Cuénteme, ¿cómo se ha sentido esta última semana y cómo va con su medicación?"
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-002",
+      "originalText": "Buenos días, doctor. Pues regular. Me siento un poco mareado a veces. Y con las pastillas, la verdad es un lío, son demasiadas.",
+      "wpm": 179.22077922077924,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:07.734Z",
+          "type": "human",
+          "before": "Buenos días, doctor. Pues regular. Me siento un poco mareado a veces. Y con las pastillas, la verdad es un lío, son demasiadas.",
+          "after": "Buenos días, doctor. Pues regular. Me siento un poco mareado a veces. Y con las pastillas, la verdad es un lío, son demasiadas y se me olvidan."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-003",
+      "originalText": "Entiendo. La polifarmacia es un reto común a su edad. ¿Tiene dificultades para identificar cuál tomar en cada horario?",
+      "wpm": 172.7272727272727,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:23.062Z",
+          "type": "human",
+          "before": "Entiendo. La polifarmacia es un reto común a su edad. ¿Tiene dificultades para identificar cuál tomar en cada horario?",
+          "after": "Entiendo. La polifarmacia es un reto común a su edad. ¿Tiene dificultades para identificar cuál tomar en cada horario?"
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-004",
+      "originalText": "Sí, a veces me confundo. Además, la de la presión no me la tomé ayer porque se me acabó y la farmacia queda muy lejos de mi casa.",
+      "wpm": 193.10344827586206,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:28.166Z",
+          "type": "human",
+          "before": "Sí, a veces me confundo. Además, la de la presión no me la tomé ayer porque se me acabó y la farmacia queda muy lejos de mi casa.",
+          "after": "Sí, a veces me confundo. Además, la de la presión no me la tomé ayer porque se me acabó y la farmacia queda muy lejos de mi casa."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-005",
+      "originalText": "¿No tiene algún familiar que le pueda facilitar la compra o ayudarle con el transporte?",
+      "wpm": 200,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:31.446Z",
+          "type": "human",
+          "before": "¿No tiene algún familiar que le pueda facilitar la compra o ayudarle con el transporte?",
+          "after": "¿No tiene algún familiar que le pueda facilitar la compra o ayudarle con el transporte?"
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-006",
+      "originalText": "Mi hijo trabaja todo el día. Yo uso bastón y subir al ómnibus se me hace imposible, los escalones son muy altos y las calles están malas.",
+      "wpm": 170.52631578947367,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:36.094Z",
+          "type": "human",
+          "before": "Mi hijo trabaja todo el día. Yo uso bastón y subir al ómnibus se me hace imposible, los escalones son muy altos y las calles están malas.",
+          "after": "Mi hijo trabaja todo el día. Yo uso bastón y subir al ómnibus se me hace imposible, los escalones son muy altos y las calles están malas."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-007",
+      "originalText": "Claro, la barrera arquitectónica y de movilidad es evidente, eso limita mucho su acceso. ¿Y para sacar los turnos médicos ha tenido problemas?",
+      "wpm": 184,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:38.246Z",
+          "type": "human",
+          "before": "Claro, la barrera arquitectónica y de movilidad es evidente, eso limita mucho su acceso. ¿Y para sacar los turnos médicos ha tenido problemas?",
+          "after": "Claro, la barrera arquitectónica y de movilidad es evidente, eso limita mucho su acceso. ¿Y para sacar los turnos médicos ha tenido problemas?"
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-008",
+      "originalText": "Muchos, doctor. Ahora dicen que todo es por una aplicación en el teléfono, pero yo no entiendo de eso. Es un dolor de cabeza, siento que me quedo fuera.",
+      "wpm": 197.72727272727278,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:39.158Z",
+          "type": "human",
+          "before": "Muchos, doctor. Ahora dicen que todo es por una aplicación en el teléfono, pero yo no entiendo de eso. Es un dolor de cabeza, siento que me quedo fuera.",
+          "after": "Muchos, doctor. Ahora dicen que todo es por una aplicación en el teléfono, pero yo no entiendo de eso. Es un dolor de cabeza, siento que me quedo fuera."
+        }
+      ]
+    },
+    {
+      "segmentId": "seg-009",
+      "originalText": "Esa es una barrera digital importante que aísla a gran parte de nuestros pacientes mayores. Vamos a revisar sus fármacos ahora mismo para simplificar su esquema y ver cómo coordinamos la entrega.",
+      "wpm": 208.69565217391298,
+      "anomalous": false,
+      "anomalyReason": null,
+      "aiSuggested": true,
+      "editedByHuman": true,
+      "modificationsLog": [
+        {
+          "timestamp": "2026-07-12T15:54:39.854Z",
+          "type": "human",
+          "before": "Esa es una barrera digital importante que aísla a gran parte de nuestros pacientes mayores. Vamos a revisar sus fármacos ahora mismo para simplificar su esquema y ver cómo coordinamos la entrega.",
+          "after": "Esa es una barrera digital importante que aísla a gran parte de nuestros pacientes mayores. Vamos a revisar sus fármacos ahora mismo para simplificar su esquema y ver cómo coordinamos la entrega."
+        }
+      ]
+    }
+  ]
+}

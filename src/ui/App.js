@@ -3,6 +3,7 @@ import { SessionManager } from '../core/Session.js';
 import { Renderer } from './Renderer.js';
 import { Registry } from '../core/Registry.js';
 import { State } from '../core/State.js';
+import { getTopologyForMethod } from '../core/StudyDesign.js';
 import db from '../core/Database.js';
 
 // Módulos Metodológicos
@@ -63,6 +64,7 @@ class App {
     activateWorkbench(id) {
         this.activeMethodId = id;
         const mod = Registry.getModule(id);
+        State.topology = getTopologyForMethod(id);
         document.getElementById('entry-gate').style.display = 'none';
         document.getElementById('main-app').style.display = 'flex';
         document.getElementById('display-design').innerText = mod.label.toUpperCase();

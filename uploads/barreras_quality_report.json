@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "5.0.0",
+  "ecosystem": "APU",
+  "unit": "APU-04",
+  "stage": "quality-report",
+  "totalSegments": 9,
+  "totalWords": 218,
+  "wpmAverage": 185.79,
+  "longPauseCount": 0,
+  "anomalousCount": 0,
+  "anomalousPercentage": 0,
+  "editedByHumanPercentage": 100,
+  "suspiciousTermsCount": 0,
+  "substitutionCounts": {
+    "punctuation": 0,
+    "glossary": 0,
+    "ner": 0,
+    "human": 9
+  },
+  "flaggedSegmentIds": []
+}
