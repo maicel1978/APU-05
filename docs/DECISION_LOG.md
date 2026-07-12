@@ -284,6 +284,17 @@ La interfaz de selección conjunta de trazabilidad queda explícitamente para Fa
 
 ---
 
+## D-025 — Fase 2B no descartará información forense
+
+**Estado:** diseño preparado; pendiente de Fase 2A
+**Fecha:** 2026-07-12
+
+La UI emparejará corpus y trazabilidad por `stage` + `sourceSession`, no por nombre. Antes de conectar la carga se resolverá la persistencia completa, porque el `SessionManager` actual solo conserva tres banderas compactas y deja sin uso el store `audit`.
+
+Ver `TRACEABILITY_UI_DESIGN.md`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto, cohorte y caso en IndexedDB?
