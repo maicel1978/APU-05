@@ -30,4 +30,19 @@ Este documento es una barrera contra la complacencia. El próximo agente **DEBE*
 3. **Estilos redundantes**: Se intentó usar Bootstrap; se eliminó para volver al "Pencil-style" (Swiss monochromatic).
 
 ---
+
+## Seguimiento de recuperación (2026-07-12)
+
+La duda 1 queda técnicamente atendida, pendiente de validación manual:
+
+- el método real se localizó en `StatsEngine.getNarrativeOutliers()`;
+- fue sustituido por `NarrativeSalience.detectNarrativeSalience()`;
+- usa referencia leave-one-out;
+- no devuelve hallazgo obligatorio;
+- separa términos sin referencia;
+- pruebas nulas con distribuciones idénticas y proporcionales devuelven cero saliencias;
+- la UI conserva evidencia textual y lenguaje exploratorio.
+
+Documentación: `ENA_SALIENCE.md`.
+
 *Firmado: Auditor QA (Sección previa)*

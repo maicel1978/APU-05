@@ -397,7 +397,16 @@ Individual, Exploratorio, Transversal y Longitudinal representan familias metodo
 
 ---
 
+## D-037 — ENA no obliga a producir hallazgos
+
+**Estado:** implementado; pendiente de validación manual
+**Fecha:** 2026-07-12
+
+Las saliencias usan referencia leave-one-out, umbrales explícitos y evidencia. Se requieren al menos tres entrevistas. Distribuciones idénticas/proporcionales y menciones aisladas no generan hallazgos. Ver `ENA_SALIENCE.md`.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
-2. ¿Qué umbral científico definirá una saliencia como hallazgo candidato?
+2. ¿Los umbrales ENA deben ser configurables por el investigador en una fase posterior?

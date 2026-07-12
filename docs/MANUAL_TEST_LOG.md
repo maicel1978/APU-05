@@ -213,3 +213,26 @@ Cargar los cuatro corpus de `transversal_simulated_v5`, aceptar su estado provis
 - “acompañamiento” orientado a Intervención y “contraseña” a Control.
 - G²/PMW visibles; sin lenguaje de efecto clínico.
 - Consola limpia.
+
+---
+
+## MT-010 — ENA leave-one-out sin falsos hallazgos obligatorios
+
+**Estado:** pendiente de validación manual
+**Fecha de preparación:** 2026-07-12
+
+### Escenario A
+
+Cargar en Exploratorio `barreras_cleaned` + `gasto_cleaned`. Saliencias debe advertir que se requieren 3 entrevistas y no inventar un hallazgo.
+
+### Escenario B
+
+Cargar los cuatro corpus de `transversal_simulated_v5` en Exploratorio, aceptar modo provisional y abrir Saliencias/Hipótesis.
+
+### Criterio
+
+- lenguaje “saliencia”, no “hallazgo atípico”;
+- referencia leave-one-out explicada;
+- evidencia textual visible si existen resultados;
+- posibilidad de cero resultados;
+- consola limpia.

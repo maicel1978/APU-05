@@ -154,20 +154,26 @@ export const ExploratoryModule = {
     },
 
     async _renderFindings(container, state) {
-        Renderer.renderModuleTitle(container, "04. Hallazgos Sorpresa");
-        const outliers = await this.stats.getNarrativeOutliers(state.segments);
-        if (outliers.length === 0) {
-            container.innerHTML += '<p class="empty-msg">Se requieren al menos 2 entrevistas para detectar hallazgos.</p>';
+        Renderer.renderModuleTitle(container, "04. Saliencias Narrativas Exploratorias");
+        const result = await this.stats.getNarrativeSalience(state.segments);
+        const warnings = result.warnings.length
+            ? `<div style="border:1px solid #a16207; background:#fef3c7; padding:1rem; margin-bottom:1rem;">${result.warnings.map(Renderer.sanitize).join('<br>')}</div>`
+            : '';
+        if (result.findings.length === 0) {
+            container.innerHTML += `${warnings}<p class="empty-msg">No se detectaron saliencias relativas que superen los criterios actuales. Este resultado es válido y no obliga a generar un hallazgo.</p>`;
             return;
         }
         container.innerHTML += `
+            ${warnings}
             <div class="wb-card">
+                <p style="font-size:0.75rem; margin-bottom:1rem;">Cada entrevista se compara contra las demás mediante referencia leave-one-out. Una saliencia no demuestra importancia clínica.</p>
                 <div style="display:grid; gap:15px;">
-                    ${outliers.slice(0, 5).map(o => `
+                    ${result.findings.slice(0, 8).map(finding => `
                         <div style="padding:1.5rem; border:1px solid #000; border-left:8px solid #000;">
-                            <div style="font-size:0.6rem; font-weight:bold; color:var(--muted);">SESIÓN #${o.sessionId}</div>
-                            <div style="font-size:1rem; font-weight:bold; margin:0.5rem 0;">HALLAZGO ATÍPICO: "${o.keyTopic.toUpperCase()}"</div>
-                            <p style="font-size:0.8rem;">Desviación temática: <strong>${o.intensity}x</strong> superior al promedio.</p>
+                            <div style="font-size:0.6rem; font-weight:bold;">SESIÓN #${Renderer.sanitize(String(finding.sessionId))}</div>
+                            <div style="font-size:1rem; font-weight:bold; margin:0.5rem 0;">SALIENCIA: "${Renderer.sanitize(finding.term.toUpperCase())}"</div>
+                            <p style="font-size:0.8rem;">Razón relativa: <strong>${finding.ratio.toFixed(1)}x</strong> · Caso: ${finding.targetCount} · Referencia: ${finding.referenceCount}</p>
+                            ${finding.evidence.map(item => `<blockquote style="font-size:0.75rem; border-left:2px solid #999; padding-left:0.7rem;">${Renderer.sanitize(item.text)}</blockquote>`).join('')}
                         </div>`).join('')}
                 </div>
             </div>`;

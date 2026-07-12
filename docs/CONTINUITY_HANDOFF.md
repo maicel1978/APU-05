@@ -62,6 +62,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - Herencia Clinical VarOps confirmada contra `oper` y APU-03; fixtures alineados.
 - UI Transversal G² conectada como capacidad opcional y demostración provisional.
 - Enrutamiento metodológico documentado: módulos=familias, técnicas=capacidades no obligatorias.
+- ENA reemplazado por saliencia leave-one-out conservadora; suite total 89 pruebas Node.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.
