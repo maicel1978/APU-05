@@ -13,7 +13,7 @@ Este documento conserva las validaciones realizadas por el investigador en su eq
 
 1. Abrir `index.html` mediante **Open with Live Server**.
 2. Entrar al módulo Individual.
-3. Cargar `assets/test_data/entrevista01.json`.
+3. Cargar `assets/test_data/historicos_v4/entrevista01.json` (originalmente en `assets/test_data/entrevista01.json`).
 
 ### Resultado confirmado
 
@@ -41,7 +41,7 @@ Investigador principal, confirmación durante la sesión de recuperación.
 ### Escenario
 
 1. Abrir Individual.
-2. Cargar `assets/test_data/entrevista01.json`.
+2. Cargar `assets/test_data/historicos_v4/entrevista01.json` (o `assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json`).
 3. Explorar Transcripción Original y Reporte.
 
 ### Resultado observado
@@ -72,7 +72,7 @@ El investigador confirmó que todo el escenario funciona correctamente en `26518
 
 1. Abrir Glosario.
 2. Seleccionar Portabilidad.
-3. Cargar `assets/test_data/APU05_Glosario_Maestro_1783541182585.json`.
+3. Cargar `assets/test_data/glosarios/APU05_Glosario_Maestro_1783541182585.json`.
 
 ### Resultado observado
 
@@ -98,7 +98,7 @@ El fixture contiene `terms: []`. La prueba valida compatibilidad del envoltorio 
 ### Archivo
 
 ```text
-uploads/speakers-5_cleaned (1).json
+assets/test_data/benchmarks_v5/duracion_cero/speakers-5_cleaned.json (originalmente `uploads/speakers-5_cleaned (1).json`)
 ```
 
 ### Características relevantes
@@ -150,7 +150,7 @@ Los registros distinguen interacción humana de cambio textual real. Ver `V5_BEN
 - Aceptar `barreras_cleaned.json` 5.0.0 finalizado.
 - Cancelar y luego aceptar `provisional_v5.json`.
 - Mostrar banner y reporte provisional.
-- Aceptar `speakers-5_cleaned (1).json` con duración cero.
+- Aceptar `speakers-5_cleaned.json` con duración cero.
 
 ### Resultado
 

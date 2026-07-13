@@ -26,7 +26,7 @@ Para mantener la integridad del proyecto, cualquier intervención debe respetar:
 2. Abra `http://localhost:8000`.
 3. Seleccione un diseño metodológico.
 4. Cargue un archivo `_cleaned.json` 5.x finalizado por APU-04 y, opcionalmente, su `_trazabilidad.json`. Puede seleccionar ambos a la vez; se emparejan por contenido.
-5. Para pruebas actuales use `uploads/barreras_cleaned.json` o `uploads/gasto_cleaned.json`; consulte `docs/TEST_DATA_BENCHMARKS.md`.
+5. Para pruebas actuales use `assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json` o `assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json`; consulte `docs/TEST_DATA_BENCHMARKS.md`.
 
 ## 🌐 Despliegue Beta
 

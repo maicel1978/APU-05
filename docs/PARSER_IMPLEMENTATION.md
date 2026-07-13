@@ -64,8 +64,8 @@ La suite cubre:
 
 ## Prueba manual requerida
 
-1. Rechazar `assets/test_data/entrevista01.json` con explicación de versión.
-2. Cargar `uploads/barreras_cleaned.json` normalmente.
-3. Cargar `assets/test_data/provisional_v5.json`, primero cancelar y luego continuar.
+1. Rechazar `assets/test_data/historicos_v4/entrevista01.json` con explicación de versión.
+2. Cargar `assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json` normalmente.
+3. Cargar `assets/test_data/provisional_v5/provisional_v5.json`, primero cancelar y luego continuar.
 4. Confirmar advertencia visible y reporte provisional.
-5. Cargar `uploads/speakers-5_cleaned (1).json` y confirmar que duración cero no bloquea.
+5. Cargar `assets/test_data/benchmarks_v5/duracion_cero/speakers-5_cleaned.json` y confirmar que duración cero no bloquea.

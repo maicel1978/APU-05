@@ -66,6 +66,10 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 - Longitudinal: `analysisUnitId` opcional en speaker aprobado; RFC de passthrough APU-03/APU-04 documentado.
 - PR #1 Beta/RC listo para revisión y mergeable; Deploy Preview Netlify en verde.
 - CI instalado manualmente por el investigador: Node 18, 20 y 22 en verde.
+- Se reorganizaron los datos de prueba y benchmarks en el directorio `assets/test_data/` con subcarpetas intuitivas (`benchmarks_v5/barreras/`, `benchmarks_v5/gasto_bolsillo/`, `benchmarks_v5/duracion_cero/`, `provisional_v5/`, `transversal_simulated_v5/`, `apu04_inputs/`, `historicos_v4/` y `glosarios/`) y un catálogo en `assets/test_data/README.md`.
+- Se eliminó la carpeta redundante `uploads/` y se actualizaron todas las rutas de importación y lectura en las pruebas de caracterización y documentos de arquitectura/guía manual.
+- Se integró la advertencia sobre comparabilidad metodológica (dependencia del diseño, población, instrumento y procedimiento, y no sustitución del juicio del investigador) en `USER_MANUAL.md` y en la UI de ayuda (`HelpModule.js`).
+- Se verificó que los módulos se mantienen desacoplados y que el módulo Longitudinal sigue inactivo por ahora.
 - Cuatro entradas Transversales esperan revisión y finalización en APU-04 antes de conectar la UI.
 - Se realizó un diagnóstico estático de Database, State y StatsEngine.
 - Se confirmó que `StatsEngine.calculateKeyness()` no existe aunque la UI lo invoca.

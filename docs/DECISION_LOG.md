@@ -151,7 +151,7 @@ La rama compartida es `arena/019f5692-apu-05`. Las instrucciones operativas vive
 **Estado:** aceptada y validada
 **Fecha:** 2026-07-12
 
-El investigador confirmó que APU-05 abre mediante **Open with Live Server** y que `assets/test_data/entrevista01.json` carga en el módulo Individual.
+El investigador confirmó que APU-05 abre mediante **Open with Live Server** y que `assets/test_data/historicos_v4/entrevista01.json` (originalmente `assets/test_data/entrevista01.json`) carga en el módulo Individual.
 
 Durante una serie de pruebas se mantendrá el mismo origen y puerto para no confundir bóvedas IndexedDB distintas. Ver `MANUAL_TEST_LOG.md`.
 
@@ -431,6 +431,17 @@ Los metadatos opcionales del speaker deben viajar por passthrough genérico, con
 **Fecha:** 2026-07-12
 
 La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview y checklist documentan capacidades operativas y módulos pendientes. No se anunciará como versión científica final.
+
+---
+
+## D-041 — Reorganización del catálogo de datos de prueba y advertencia metodológica en UI y Manual
+
+**Estado:** implementada y validada
+**Fecha:** 2026-07-13
+
+1. **Catálogo unificado de datos de prueba (`assets/test_data/`)**: Se eliminó la carpeta redundante y confusa `uploads/` junto con duplicados exactos. Todos los benchmarks y datos de prueba se reorganizaron en subdirectorios temáticos intuitivos (`benchmarks_v5/barreras/`, `benchmarks_v5/gasto_bolsillo/`, `benchmarks_v5/duracion_cero/`, `provisional_v5/`, `transversal_simulated_v5/`, `apu04_inputs/`, `historicos_v4/` y `glosarios/`) acompañados de un catálogo explicativo en `assets/test_data/README.md`.
+2. **Advertencia de comparabilidad metodológica**: Se integró explícitamente en el Manual (`docs/USER_MANUAL.md`) y en la Ayuda dinámica (`src/modules/HelpModule.js`) que la comparabilidad de entrevistas depende del diseño, la población, el instrumento y el procedimiento; el software no sustituye el entrenamiento ni el juicio metodológico del investigador.
+3. **Desacoplamiento modular**: Se verificó la independencia de los módulos y capacidades analíticas y se confirmó que el módulo Longitudinal (`LongitudinalModule.js`) permanece como placeholder inactivo por instrucción explícita de la hoja de ruta.
 
 ---
 

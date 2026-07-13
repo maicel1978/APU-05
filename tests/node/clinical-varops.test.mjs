@@ -7,7 +7,7 @@ const readJson = async (relativePath) => JSON.parse(
 );
 
 test('el maestro .clinical conserva la raíz estable project + variables', async () => {
-    const clinical = await readJson('../../assets/test_data/qa-transversal.clinical');
+    const clinical = await readJson('../../assets/test_data/transversal_simulated_v5/qa-transversal.clinical');
 
     assert.deepEqual(Object.keys(clinical).sort(), ['project', 'variables']);
     assert.equal(clinical.project.name, 'QA sintético de acceso digital en salud');
@@ -21,7 +21,7 @@ test('el maestro .clinical conserva la raíz estable project + variables', async
 });
 
 test('el .clinical define variables, no observaciones individuales', async () => {
-    const clinical = await readJson('../../assets/test_data/qa-transversal.clinical');
+    const clinical = await readJson('../../assets/test_data/transversal_simulated_v5/qa-transversal.clinical');
     const serialized = JSON.stringify(clinical);
 
     assert.equal(serialized.includes('speakers'), false);
@@ -30,7 +30,7 @@ test('el .clinical define variables, no observaciones individuales', async () =>
 });
 
 test('las salidas APU-03 heredan esquema y asignan valores por hablante', async () => {
-    const clinical = await readJson('../../assets/test_data/qa-transversal.clinical');
+    const clinical = await readJson('../../assets/test_data/transversal_simulated_v5/qa-transversal.clinical');
     const paths = [
         '../../assets/test_data/apu04_inputs/transversal/qa-transversal-control-01-speakers-v3.json',
         '../../assets/test_data/apu04_inputs/transversal/qa-transversal-control-02-speakers-v3.json',

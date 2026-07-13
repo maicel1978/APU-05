@@ -14,8 +14,8 @@ const readJson = async (relativePath) => JSON.parse(
 );
 
 test('resume revisión y cambio real como métricas diferentes', async () => {
-    const gasto = await readJson('../../uploads/gasto_trazabilidad.json');
-    const barreras = await readJson('../../uploads/barreras_trazabilidad.json');
+    const gasto = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
+    const barreras = await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_trazabilidad.json');
 
     assert.deepEqual(summarizeTraceabilities([gasto]), {
         total: 10, edited: 5, reviewed: 5, changed: 2, anomalous: 4, traceabilityCases: 1
@@ -29,7 +29,7 @@ test('resume revisión y cambio real como métricas diferentes', async () => {
 });
 
 test('genera registros forenses completos asociados a la sesión', async () => {
-    const traceability = await readJson('../../uploads/gasto_trazabilidad.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
     const records = buildAuditRecords(traceability, 42);
 
     assert.equal(records.length, 10);
@@ -41,7 +41,7 @@ test('genera registros forenses completos asociados a la sesión', async () => {
 });
 
 test('conserva metadatos raíz de procedencia', async () => {
-    const traceability = await readJson('../../uploads/barreras_trazabilidad.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_trazabilidad.json');
     const metadata = buildTraceabilityMetadata(traceability);
 
     assert.equal(metadata.sourceHash, traceability.source_hash);
@@ -51,7 +51,7 @@ test('conserva metadatos raíz de procedencia', async () => {
 });
 
 test('mantiene mapa compacto para compatibilidad del lector', async () => {
-    const traceability = await readJson('../../uploads/gasto_trazabilidad.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
     const compact = buildCompactAuditMap(traceability);
 
     assert.deepEqual(compact.get('seg-003'), {
