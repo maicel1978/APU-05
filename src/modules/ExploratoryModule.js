@@ -7,8 +7,8 @@ import { summarizeTraceabilities } from '../core/Traceability.js';
 import { StatsEngine } from '../science/StatsEngine.js';
 
 /**
- * Módulo EXPLORATORIO (APU-05B) - Workbench v9.2.0
- * Ingesta de Cohorte y Análisis de Patrones (ENA) con Generador de Hipótesis.
+ * Módulo EXPLORATORIO (APU-05B) - Workbench v9.5.1
+ * Ingesta de Cohorte y Análisis de Patrones (ENA) con Grafo de Red e Hipótesis.
  */
 export const ExploratoryModule = {
     id: 'exploratory',
@@ -44,7 +44,8 @@ export const ExploratoryModule = {
             }
             Renderer.renderProvisionalBanner(wrapper, state);
         } catch (err) {
-            wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red;"><h3>ERROR DE ANÁLISIS</h3>${err.message}</div>`;
+            console.error(err);
+            wrapper.innerHTML = `<div style="padding:2rem; border:2px solid red; color:red; font-family:monospace;"><h3>ERROR DE ANÁLISIS</h3>${Renderer.sanitize(err.message)}</div>`;
         }
     },
 
@@ -118,14 +119,25 @@ export const ExploratoryModule = {
         }
 
         const links = await this.stats.getAdjacencyMatrix(state.segments, allTerms);
+        if (links.length === 0) {
+            container.innerHTML += '<p class="empty-msg">No se detectaron co-ocurrencias significativas entre los términos analizados.</p>';
+            return;
+        }
+
+        const topLinks = links.slice(0, 10);
+        const activeNodes = [...new Set(topLinks.flatMap(l => [l.source, l.target]))];
+        const svgHtml = this._drawNetworkSvg(topLinks, activeNodes);
+
         container.innerHTML += `
             <div class="wb-card">
-                <h4 style="font-size:0.8rem; color:#666; margin-bottom:1.5rem; text-transform:uppercase;">Asociaciones Críticas</h4>
+                <h4 style="font-size:0.8rem; color:#666; margin-bottom:1rem; text-transform:uppercase;">Grafo de Red Léxica</h4>
+                ${svgHtml}
+                <h4 style="font-size:0.8rem; color:#666; margin-bottom:1rem; text-transform:uppercase;">Asociaciones Críticas Detalladas</h4>
                 <div style="display:flex; flex-direction:column; gap:10px;">
                     ${links.slice(0, 8).map(l => `
                         <div class="link-row" data-a="${l.source}" data-b="${l.target}" style="padding:1rem; border:1px solid #000; background:#f9f9f9; display:flex; justify-content:space-between; align-items:center; cursor:pointer;">
                             <div style="font-family:var(--font-mono); font-size:0.9rem;">
-                                <strong>${l.source.toUpperCase()}</strong> 🔗 <strong>${l.target.toUpperCase()}</strong>
+                                <strong>${Renderer.sanitize(l.source.toUpperCase())}</strong> 🔗 <strong>${Renderer.sanitize(l.target.toUpperCase())}</strong>
                             </div>
                             <div style="font-size:0.7rem; background:#000; color:#fff; padding:2px 8px;">Fuerza: ${l.weight}</div>
                         </div>`).join('')}
@@ -133,22 +145,100 @@ export const ExploratoryModule = {
                 <div id="link-evidence" style="margin-top:2rem; padding:1.5rem; border:1px dashed #000; background:#fff; display:none;"></div>
             </div>`;
 
-        container.querySelectorAll('.link-row').forEach(row => {
-            row.onclick = () => this._showLinkEvidence(row.dataset.a, row.dataset.b, state);
+        container.querySelectorAll('.svg-link, .link-row').forEach(el => {
+            el.onclick = () => {
+                const a = el.getAttribute('data-a');
+                const b = el.getAttribute('data-b');
+                if (a && b) this._showLinkEvidence(a, b, state);
+            };
         });
+
+        container.querySelectorAll('.svg-node').forEach(node => {
+            node.onclick = () => {
+                const term = node.getAttribute('data-term');
+                if (term) this._showNodeEvidence(term, state);
+            };
+        });
+    },
+
+    _drawNetworkSvg(links, nodes) {
+        if (!nodes || nodes.length === 0 || !links || links.length === 0) return '';
+        const cx = 325;
+        const cy = 180;
+        const r = 120;
+        const nodePositions = new Map();
+
+        nodes.forEach((term, index) => {
+            const angle = (2 * Math.PI * index) / nodes.length - Math.PI / 2;
+            const x = cx + r * Math.cos(angle);
+            const y = cy + r * Math.sin(angle);
+            nodePositions.set(term, { x, y, term });
+        });
+
+        const linesHtml = links.map(link => {
+            const posA = nodePositions.get(link.source);
+            const posB = nodePositions.get(link.target);
+            if (!posA || !posB) return '';
+            const strokeWidth = Math.min(Math.max(link.weight, 1.5), 6);
+            const midX = (posA.x + posB.x) / 2;
+            const midY = (posA.y + posB.y) / 2;
+            return `
+                <g class="svg-link" data-a="${Renderer.sanitize(link.source)}" data-b="${Renderer.sanitize(link.target)}" style="cursor:pointer; transition:all 0.2s;">
+                    <line x1="${posA.x}" y1="${posA.y}" x2="${posB.x}" y2="${posB.y}" stroke="#000" stroke-width="${strokeWidth}" stroke-opacity="0.35" />
+                    <rect x="${midX - 14}" y="${midY - 9}" width="28" height="18" fill="#fff" stroke="#000" stroke-width="1" rx="3" />
+                    <text x="${midX}" y="${midY}" text-anchor="middle" dominant-baseline="central" font-family="monospace" font-size="9" font-weight="bold" fill="#000">${link.weight}</text>
+                </g>`;
+        }).join('');
+
+        const nodesHtml = nodes.map(term => {
+            const pos = nodePositions.get(term);
+            if (!pos) return '';
+            const label = term.length > 10 ? term.slice(0, 9) + '…' : term;
+            return `
+                <g class="svg-node" data-term="${Renderer.sanitize(term)}" style="cursor:pointer; transition:all 0.2s;">
+                    <circle cx="${pos.x}" cy="${pos.y}" r="22" fill="#fff" stroke="#000" stroke-width="2" />
+                    <text x="${pos.x}" y="${pos.y}" text-anchor="middle" dominant-baseline="central" font-family="monospace" font-size="9" font-weight="bold" fill="#000">${Renderer.sanitize(label.toUpperCase())}</text>
+                </g>`;
+        }).join('');
+
+        return `
+            <div style="border:1px solid #000; background:#fcfcfc; padding:1rem; margin-bottom:2rem; overflow-x:auto;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; font-family:monospace; font-size:0.7rem; color:#666;">
+                    <span>MAPA LÉXICO DE CO-OCURRENCIAS (Nodos = Términos | Enlaces = Co-ocurrencias por segmento)</span>
+                    <span style="background:#000; color:#fff; padding:2px 6px;">INTERACTIVO: HAGA CLIC EN NODOS O ENLACES</span>
+                </div>
+                <svg viewBox="0 0 650 360" style="width:100%; max-height:420px; display:block; margin:0 auto;">
+                    ${linesHtml}
+                    ${nodesHtml}
+                </svg>
+            </div>`;
+    },
+
+    _showNodeEvidence(term, state) {
+        const area = document.getElementById('link-evidence');
+        if (!area) return;
+        area.style.display = 'block';
+        const matches = state.segments.filter(s => s.cleanedText.toLowerCase().includes(term.toLowerCase())).slice(0, 4);
+
+        area.innerHTML = `
+            <h4 style="font-size:0.8rem; font-weight:bold; margin-bottom:1rem; text-transform:uppercase;">Evidencia del Nodo: ${Renderer.sanitize(term.toUpperCase())} (${matches.length} menciones principales)</h4>
+            ${matches.map(m => `<blockquote style="font-size:0.8rem; border-left:3px solid #000; padding-left:1rem; margin-bottom:1rem;">"${Renderer.sanitize(m.cleanedText)}"</blockquote>`).join('')}
+        `;
+        area.scrollIntoView({ behavior: 'smooth', block: 'center' });
     },
 
     _showLinkEvidence(a, b, state) {
         const area = document.getElementById('link-evidence');
+        if (!area) return;
         area.style.display = 'block';
         const matches = state.segments.filter(s => {
             const txt = s.cleanedText.toLowerCase();
             return txt.includes(a.toLowerCase()) && txt.includes(b.toLowerCase());
-        }).slice(0, 3);
+        }).slice(0, 4);
 
         area.innerHTML = `
-            <h4 style="font-size:0.8rem; font-weight:bold; margin-bottom:1rem; text-transform:uppercase;">Evidencia de Vínculo: ${a} + ${b}</h4>
-            ${matches.map(m => `<blockquote style="font-size:0.8rem; border-left:3px solid #000; padding-left:1rem; margin-bottom:1rem;">"${m.cleanedText}"</blockquote>`).join('')}
+            <h4 style="font-size:0.8rem; font-weight:bold; margin-bottom:1rem; text-transform:uppercase;">Evidencia de Vínculo: ${Renderer.sanitize(a.toUpperCase())} 🔗 ${Renderer.sanitize(b.toUpperCase())} (${matches.length} co-ocurrencias)</h4>
+            ${matches.map(m => `<blockquote style="font-size:0.8rem; border-left:3px solid #000; padding-left:1rem; margin-bottom:1rem;">"${Renderer.sanitize(m.cleanedText)}"</blockquote>`).join('')}
         `;
         area.scrollIntoView({ behavior: 'smooth', block: 'center' });
     },
@@ -195,18 +285,13 @@ export const ExploratoryModule = {
                     <p style="font-size:0.85rem; margin-bottom:2rem; line-height:1.5;">Basado en los patrones detectados, el sistema sugiere las siguientes líneas de investigación para profundizar en el análisis cualitativo:</p>
                     ${hypotheses.map(h => `
                         <div style="margin-bottom:2rem; padding:1.5rem; border:1px solid #000; background:#f9f9fb;">
-                            <span style="font-size:0.6rem; font-weight:bold; background:#000; color:#fff; padding:2px 8px;">TIPO: ${h.type}</span>
-                            <p style="font-size:1rem; font-weight:bold; margin:1rem 0;">"${h.statement}"</p>
+                            <span style="font-size:0.6rem; font-weight:bold; background:#000; color:#fff; padding:2px 8px;">TIPO: ${Renderer.sanitize(h.type)}</span>
+                            <p style="font-size:1rem; font-weight:bold; margin:1rem 0;">"${Renderer.sanitize(h.statement)}"</p>
                             <div style="font-size:0.85rem; color:#444; border-top:1px solid #eee; padding-top:1rem;">
-                                <strong>PREGUNTA CIENTÍFICA:</strong><br> ${h.question}
+                                <strong>PREGUNTA CIENTÍFICA:</strong><br> ${Renderer.sanitize(h.question)}
                             </div>
                         </div>`).join('')}
                 </div>`;
         } finally { Renderer.setLoading(false); }
-    },
-
-    _renderManual(container) {
-        Renderer.renderModuleTitle(container, "Guía ENA");
-        container.innerHTML += `<div class="wb-card"><p style="font-size:0.85rem; line-height:1.6;">El Análisis Exploratorio de Narrativas (ENA) detecta patrones emergentes en grandes volúmenes de texto mediante estadística inferencial y co-ocurrencias léxicas.</p></div>`;
     }
 };

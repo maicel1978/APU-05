@@ -2,7 +2,7 @@ import { resolveSpeakerLabel } from '../core/SpeakerIdentity.js';
 
 /**
  * Motor de Renderizado DOM (Rigor UI)
- * V8.6.0: Edición Editorial de Transcripción y Restauración de Componentes.
+ * V8.6.0: Edición Editorial de Transcripción y Virtualización de Componentes.
  */
 export class Renderer {
     static sanitize(text) {
@@ -79,34 +79,76 @@ export class Renderer {
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; border-bottom:2px solid #000; padding-bottom:1rem;">
                 <div>
                     <h2 style="font-family:monospace; font-size:1.1rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.5px;">EVIDENCIA PRIMARIA</h2>
-                    <p style="font-size:0.65rem; color:#71717a; text-transform:uppercase; letter-spacing:1px; margin-top:0.2rem;">Transcripción Auditada del Testimonio</p>
+                    <p style="font-size:0.65rem; color:#71717a; text-transform:uppercase; letter-spacing:1px; margin-top:0.2rem;">Transcripción Auditada del Testimonio (${segments.length} segmentos)</p>
                 </div>
                 <div style="text-align:right;">
                     <span style="font-size:0.55rem; background:#000; color:#fff; padding:4px 10px; font-weight:bold; letter-spacing:1px;">MODO LECTURA</span>
                 </div>
             </div>`;
         
-        const fragment = document.createDocumentFragment();
-        segments.forEach(seg => {
-            const article = document.createElement('article');
-            article.style.cssText = 'margin-bottom:2.5rem; padding:1.5rem; border-left:1px solid #eee; transition:all 0.2s ease;';
-            const audit = seg.audit?.h ? '✍️' : (seg.audit?.a ? '⚠️' : '');
-            article.innerHTML = `
-                <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:0.6rem; color:#71717a; margin-bottom:1rem;">
-                    <span>ID: ${seg.segmentId} ${audit}</span>
-                    <span>${seg.start.toFixed(1)}s — ${seg.end.toFixed(1)}s</span>
-                </div>
-                <div style="font-size:1.05rem; line-height:1.8; color:#1a1a1a;">
-                    <span style="display:inline-block; padding:2px 6px; background:#000; color:#fff; font-size:0.65rem; font-family:monospace; margin-right:0.8rem; text-transform:uppercase;">
-                        ${this.sanitize(resolveSpeakerLabel(speakerMap, seg) || 'P')}
-                    </span>
-                    ${this.sanitize(seg.cleanedText)}
-                </div>`;
-            article.onmouseenter = () => { article.style.borderLeft = '4px solid #000'; article.style.background = '#fcfcfc'; };
-            article.onmouseleave = () => { article.style.borderLeft = '1px solid #eee'; article.style.background = 'transparent'; };
-            fragment.appendChild(article);
-        });
-        container.appendChild(fragment);
+        if (!Array.isArray(segments) || segments.length === 0) {
+            container.innerHTML += '<p class="empty-msg">No hay segmentos disponibles en el corpus.</p>';
+            return;
+        }
+
+        const listContainer = document.createElement('div');
+        listContainer.className = 'corpus-list-virtual';
+        container.appendChild(listContainer);
+
+        const renderChunk = (from, to) => {
+            const fragment = document.createDocumentFragment();
+            for (let i = from; i < to && i < segments.length; i++) {
+                const seg = segments[i];
+                const article = document.createElement('article');
+                article.style.cssText = 'margin-bottom:2.5rem; padding:1.5rem; border-left:1px solid #eee; transition:all 0.2s ease;';
+                const audit = seg.audit?.h ? '✍️' : (seg.audit?.a ? '⚠️' : '');
+                article.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:0.6rem; color:#71717a; margin-bottom:1rem;">
+                        <span>ID: ${this.sanitize(seg.segmentId)} ${audit}</span>
+                        <span>${seg.start.toFixed(1)}s — ${seg.end.toFixed(1)}s</span>
+                    </div>
+                    <div style="font-size:1.05rem; line-height:1.8; color:#1a1a1a;">
+                        <span style="display:inline-block; padding:2px 6px; background:#000; color:#fff; font-size:0.65rem; font-family:monospace; margin-right:0.8rem; text-transform:uppercase;">
+                            ${this.sanitize(resolveSpeakerLabel(speakerMap, seg) || 'P')}
+                        </span>
+                        ${this.sanitize(seg.cleanedText)}
+                    </div>`;
+                article.onmouseenter = () => { article.style.borderLeft = '4px solid #000'; article.style.background = '#fcfcfc'; };
+                article.onmouseleave = () => { article.style.borderLeft = '1px solid #eee'; article.style.background = 'transparent'; };
+                fragment.appendChild(article);
+            }
+            listContainer.appendChild(fragment);
+        };
+
+        const chunkSize = 50;
+        if (segments.length <= chunkSize || typeof IntersectionObserver === 'undefined') {
+            renderChunk(0, segments.length);
+            return;
+        }
+
+        renderChunk(0, chunkSize);
+        let currentIndex = chunkSize;
+
+        const sentinel = document.createElement('div');
+        sentinel.id = 'virtual-scroll-sentinel';
+        sentinel.style.cssText = 'padding:1.5rem; text-align:center; font-family:monospace; font-size:0.75rem; color:#71717a; border-top:1px dashed #eee; margin-top:2rem;';
+        sentinel.innerText = `Mostrando ${currentIndex} de ${segments.length} segmentos. Desplace hacia abajo para cargar más...`;
+        container.appendChild(sentinel);
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && currentIndex < segments.length) {
+                const nextIndex = Math.min(currentIndex + chunkSize, segments.length);
+                renderChunk(currentIndex, nextIndex);
+                currentIndex = nextIndex;
+                if (currentIndex >= segments.length) {
+                    sentinel.innerText = `✔️ Total de ${segments.length} segmentos cargados exitosamente.`;
+                    observer.disconnect();
+                } else {
+                    sentinel.innerText = `Mostrando ${currentIndex} de ${segments.length} segmentos. Desplace hacia abajo para cargar más...`;
+                }
+            }
+        }, { rootMargin: '300px' });
+        observer.observe(sentinel);
     }
 
     static renderNarrativeRadiography(container, data, speakerMap, title = "Caracterización Narrativa") {
