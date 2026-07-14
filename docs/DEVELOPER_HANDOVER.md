@@ -112,17 +112,29 @@ La suite de pruebas no requiere compilación y se ejecuta en Node ES2022+ (`node
 
 ---
 
-## 🔮 5. Hoja de Ruta para la Transición a Fase Beta / Producción (APU-06)
+## 🔮 5. Hoja de Ruta e Horizontes de Revisión Científica (Iteración y Transición Beta)
 
-Cuando el investigador principal concluya el periodo de prueba intensiva del prototipo analítico actual y decida dar el salto hacia la **Fase Beta Comercial y la articulación con APU-06**, el próximo agente deberá centrarse en los siguientes hitos de maduración:
+Durante el uso intensivo del prototipo analítico y en su maduración hacia la **Fase Beta y la articulación con APU-06**, el equipo (Investigador $\leftrightarrow$ Agente) explorará, verificará y desarrollará los siguientes frentes de innovación y rigor científico:
 
-1. **Cierre de Deuda CDN (Operación 100% Air-Gapped / Offline)**:
-   - Descargar los binarios oficiales minificados de `dexie.mjs` y `chart.min.js` a la carpeta `assets/vendor/`.
-   - Modificar (con autorización explícita para tocar zona protegida) `index.html` y `src/core/Database.js` para importar las librerías directamente desde el sistema de archivos local.
-2. **Exportador de Portafolio e Ingesta de Sesiones (`ExportController`)**:
-   - Mejorar `ExportModule.js` para permitir exportar e importar no solo el reporte Markdown (`.md`), sino el archivo de proyecto o cohorte completo (`APU05_Session.zip` / `.apu05` conteniendo un volcado estandarizado de la base de datos `IndexedDB` y sus glosarios activos).
-3. **Conexión con APU-06 (Capa de Síntesis e Investigación Documental)**:
-   - Estructurar el contrato de salida de APU-05 para que los reportes de evidencia trazable, matrices de adyacencia e hipótesis candidatas puedan ser consumidos automáticamente por **APU-06** en la fase final del flujo científico.
+### 1. Desarrollo y Ampliación de Catálogos de Benchmarks Simulados (`assets/test_data/`)
+- Crear e integrar nuevos corpora y casos simulados de prueba (`_cleaned.json` y `_trazabilidad.json`) que abarquen diversas topologías (estudios longitudinales de 4+ visitas, cohortes comparativas masivas con desbalance de grupos A vs B, y datos con alta presencia de modismos o ruido acústico heredado).
+- Utilizar estos benchmarks para someter a pruebas de regresión y estrés cada nuevo ajuste metodológico antes de aplicarlo con datos clínicos reales del investigador.
+
+### 2. Revisión Empírica y Auditoría Metodológica de Técnicas Científicas (`src/science/`)
+- **Estudio detallado del comportamiento de los motores con datos reales**: Evaluar de forma exhaustiva y científica cómo interactúan las técnicas estadísticas e inferenciales actuales (*Contraste Log-Likelihood $G^2$, Frecuencia Normalizada PMW, Factor de Saliencia Narrativa ENA leave-one-out, Matrices de Adyacencia Léxica y Tasas de Deriva Concept Drift*) con las transcripciones reales de salud pública y epidemiología del investigador.
+- **Ajuste fundamentado en evidencia**: Refinar o re-calibrar las fórmulas, métodos de tokenización y criterios de exclusión léxica a partir de los hallazgos observados en el testeo clínico.
+
+### 3. Evolución de la Ayuda (`HelpModule.js`) y Enriquecimiento de Reportes (`ExportModule.js`)
+- **Ayuda Contextual e Instructiva**: Perfeccionar el módulo de ayuda para que actúe como una verdadera guía pedagógica y metodológica integrada, explicando con ejemplos clínicos sencillos la interpretación correcta de cada métrica (ej. qué representa un $G^2 > 3.84$, cómo interpretar un Delta WPM o qué límites de validez tiene el Grafo de Red ENA).
+- **Reportes de Rigor Académico (`AuditEngine.js`)**: Ampliar la profundidad analítica del informe exportable (`.md`) para que compile en un solo documento estructurado por secciones (*Radiografía, Grafo Léxico, Contraste de Cohorte, Saliencias, Trayectoria Longitudinal e Integridad Forense*) con formato listo para anexos de publicaciones científicas o expedientes de auditoría epidemiológica.
+
+### 4. Horizontes Abiertos de Revisión e Innovación Metodológica (Propuestas Exploratorias)
+El terreno queda preparado con campo abierto para valorar e implementar, según la necesidad y juicio del investigador, las siguientes capacidades durante la fase Beta:
+- **Umbrales Exploratorios Configurables**: Evaluar la conveniencia de permitir al investigador ajustar dinámicamente desde la interfaz (*o en parámetros de proyecto*) los umbrales de co-ocurrencia del Grafo ENA, la frecuencia mínima de palabras en el comparador $G^2$, o el nivel de sensibilidad en la detección de *outliers* discursivos según el diseño de su estudio.
+- **Evaluación y Afinamiento de IA Semántica Local (`Semantic.js`)**: Medir el rendimiento y consumo de memoria del *pipeline* de Transformers.js en hardware local, explorando búsquedas de similitud vectorial y agrupamiento temático (*semantic clustering*) bajo estricto cumplimiento local-first sin salida a la nube.
+- **Análisis de Sensibilidad Forense**: Estudiar la estabilidad de las hipótesis cualitativas al aislar o excluir segmentos marcados como editados por humanos (`editedByHuman`) o sugeridos por IA (`aiSuggested`).
+- **Cierre de Deuda CDN (Portabilidad 100% Air-Gapped / Offline)**: Empaquetar estáticamente `dexie.mjs` y `chart.min.js` en `assets/vendor/` para operar en entornos clínicos aislados de internet sin dependencia de servidores CDN.
+- **Conexión Inter-Unidades con APU-06**: Diseñar el contrato de exportación estructurada (`_apu05_evidence.json` / `.apu05`) para alimentar automáticamente la capa de síntesis final e investigación documental de **APU-06**.
 
 ---
-*Documento sellado y certificado por el Equipo/Agente de Rigor Analítico de APU-05.*
+*Documento sellado y preparado para el testeo científico colaborativo del Ecosistema APU-05.*

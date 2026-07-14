@@ -123,19 +123,14 @@ No hacer sin autorización y pruebas:
 - afirmar causalidad o diagnóstico clínico;
 - activar UI estadística sin motor certificado.
 
-## 7. Próximo trabajo recomendado
+## 7. Próximos pasos e horizonte de testeo continuo (Iteración y Transición Beta)
 
-**Fase 1: QA confiable, sin cambiar comportamiento de producción.**
+**Fase de Uso Intensivo del Prototipo y Preparación para APU-06:**
 
-1. Crear un runner de pruebas reproducible para APU-05.
-2. Reparar las pruebas del Parser que se autoaprueban.
-3. Añadir auditoría automática de 350 líneas.
-4. Añadir pruebas de caracterización para entrada 4.0.0 y 5.0.0.
-5. Añadir caso `start === end` como no fatal.
-6. Añadir prueba nula para Sorpresa, inicialmente esperada como fallo conocido.
-7. Generar un ZIP estable para prueba manual.
-
-No corregir todavía Parser o StatsEngine en el mismo cambio que repara el arnés de QA.
+1. **Ampliación de Benchmarks Simulados (`assets/test_data/`)**: Crear e incorporar más casos cualitativos simulados con diversas topologías metodológicas y complejidades discursivas para someter a pruebas de regresión cada ajuste analítico.
+2. **Revisión y Auditoría Metodológica en Detalle (`src/science/`)**: Evaluar empíricamente con los datos reales del investigador cómo interactúan las técnicas implementadas ($G^2$, Frecuencia Normalizada PMW, Saliencia ENA leave-one-out, Matrices de Adyacencia del Grafo ENA y Deriva Léxica Longitudinal) para re-calibrar fórmulas, tokenización y criterios de exclusión.
+3. **Evolución de la Ayuda y los Reportes Académicos (`HelpModule.js` / `AuditEngine.js`)**: Mejorar explicaciones pedagógicas integradas y ampliar la estructura del informe descargable (`.md`) para publicaciones y auditorías.
+4. **Campo Abierto a Propuestas e Innovación Científica (Fase Beta)**: Valorar umbrales adaptativos configurables, afinamiento de IA semántica vectorial en hardware local (`Semantic.js`), análisis de sensibilidad forense al remover trazas de edición/IA, empaquetamiento local definitivo de dependencias CDN (`assets/vendor/`) y diseño del contrato de exportación estructurada hacia **APU-06**.
 
 ## 8. Protocolo con el investigador
 

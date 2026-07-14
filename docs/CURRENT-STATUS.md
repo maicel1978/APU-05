@@ -15,8 +15,11 @@
 - **Validación R13**: Verificada en todos los niveles (V1 a V9).
 - **Herencia**: El mapeo de hablantes de APU-03 es proactivo y funcional.
 
-## 🚧 PRÓXIMOS PASOS (Handover)
-1. Cerrar la Deuda RC (*Release Candidate*): certificar portabilidad local absoluta empaquetando dependencias de runtime (`Dexie.js` y `Chart.js`) en el repositorio para operación estricta local-first sin CDN.
+## 🚧 PRÓXIMOS PASOS E HORIZONTE DE TESTEO CIENTÍFICO (Handover)
+1. **Desarrollar y ampliar ejemplos simulados de prueba (`assets/test_data/`)**: generar nuevos benchmarks con diversas topologías y densidades para someter a estrés y regresión cada módulo.
+2. **Revisión profunda y auditoría metodológica de técnicas científicas (`src/science/`)**: estudiar empíricamente el comportamiento de los motores ($G^2$, PMW, Grafo ENA y Deriva Longitudinal) con los datos clínicos reales del investigador para afinar algoritmos y parámetros.
+3. **Evolución de la Ayuda (`HelpModule.js`) y enriquecimiento de Reportes (`ExportModule.js`)**: expandir explicaciones pedagógicas metodológicas y profundizar el formato analítico descargable (`.md`).
+4. **Campo abierto a innovación exploratoria (Fase Beta)**: valorar umbrales adaptativos configurables, afinamiento de IA semántica local, análisis de sensibilidad forense y el cierre definitivo de deuda CDN hacia **APU-06**.
 
 ## 🛠️ NOTA TÉCNICA
 El sistema es ahora inmune a colisiones de llaves y errores de caché.
