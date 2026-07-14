@@ -445,6 +445,18 @@ La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview 
 
 ---
 
+## D-042 — Activación del Módulo de Auditoría e Integridad Forense y Enriquecimiento de Reporte Final
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `ccc5432`
+**Fecha:** 2026-07-14
+
+1. **Módulo Auditoría e Integridad (`IntegrityModule.js`) operativo**: Se reemplazó el placeholder visual por una estación analítica y forense bajo estándar Workbench con dos pasos (`INGESTA` y `CALIDAD`). El paso de ingesta permite cargar en simultáneo el corpus `_cleaned.json` y `_trazabilidad.json`, mostrando tarjetas con el volumen, estado provisional/consolidado, porcentaje de edición humana (`editedByHuman`) y conteo de anomalías. El paso de calidad despliega una tabla forense con filtros interactivos (`🔘 Todos`, `✍️ Editados`, `🤖 Sugeridos IA`, `⚠️ Anomalías`) y visualiza el historial previo (`modificationsLog`).
+2. **Enriquecimiento del Reporte Descargable (`ExportModule.js` / `AuditEngine.js`)**: Se solucionó el error de referencia en `generateIndividualReport` y se mejoró `generateFullProjectReport` para adjuntar la sección `## ESTADO FORENSE Y TRAZABILIDAD (APU-04 → APU-05)` junto a las advertencias de calidad inmutables.
+3. **Suite de Pruebas Node**: Se añadieron 4 pruebas en `tests/node/integrity.test.mjs` y se integró `IntegrityModule.js` a la suite comunitaria, alcanzando **98 pruebas en verde (`100% PASS`)**.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

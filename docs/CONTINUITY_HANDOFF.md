@@ -1,8 +1,8 @@
 # Continuidad de trabajo — leer primero
 
 **Proyecto:** APU-05  
-**Rama de trabajo:** `arena/019f5692-apu-05`  
-**Línea base:** commit `a2fb799`
+**Rama de trabajo actual:** `arena/019f5fbd-apu-05` (Pull Request #3)  
+**Línea base previa:** commit `99d84cd` -> **Punto estable actual:** commit `ccc5432`
 
 ## 1. Misión
 
@@ -39,6 +39,7 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 
 ## 3. Estado actual
 
+- **Fase de Continuidad 1 (D-042) aprobada y aceptada por el investigador (`ccc5432` / PR #3):** Activado el Módulo de Auditoría e Integridad Forense (`IntegrityModule.js`) de dos pasos (`INGESTA` y `CALIDAD`), resuelto error de referencia en `AuditEngine.generateIndividualReport`, adjuntada sección forense y advertencias en reportes exportados (`ExportModule.js`) y suite de pruebas incrementada a **98 pruebas en verde (`100% PASS`)**.
 - **Fase 0 aceptada por el investigador.**
 - **Fase 1A aceptada por el investigador:** runner Node, caracterización del Parser y auditoría R10.
 - Prueba manual MT-001 aprobada: apertura con Live Server y carga de `entrevista01.json` en Individual.
