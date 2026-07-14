@@ -5,6 +5,7 @@
 export class AuditEngine {
     static async generateIndividualReport(state, stats, diagnosis, impact) {
         const date = new Date().toLocaleDateString();
+        const ideaCentral = state?.synthesis?.ideaCentral || diagnosis?.ideaCentral || 'Análisis de esencia completado.';
         
         let report = `# INFORME ESTRATÉGICO DE INVESTIGACIÓN (INDIVIDUAL)\n`;
         report += `Generado por APU-05 // Analysis & Protocol Utilities\n`;
@@ -31,7 +32,7 @@ export class AuditEngine {
 
         // 3. Síntesis
         report += `## 3. SÍNTESIS ANALÍTICA (Idea Central)\n`;
-        report += `> "${data.ideaCentral || 'Análisis de esencia completado.'}"\n\n`;
+        report += `> "${ideaCentral}"\n\n`;
 
         // 4. Impacto
         report += `## 4. MATRIZ DE PRIORIDADES (M-R-A)\n`;
@@ -48,27 +49,63 @@ export class AuditEngine {
         return report;
     }
 
-    // Reporte genérico simplificado para el prototipo
-    static generateFullProjectReport(state, stats) {
+    // Reporte genérico ampliado y forense para el prototipo
+    static generateFullProjectReport(state, stats, auditRecords = null, auditSummary = null) {
         const provisional = state.isProvisional === true;
         const status = provisional ? 'PROVISIONAL — TEXTO NO FINALIZADO EN APU-04' : 'Consolidado';
         const warning = provisional
             ? '\n> ADVERTENCIA: Este documento es exploratorio. El corpus puede cambiar después de la revisión humana.\n'
             : '';
+        const topology = (state.topology || 'desconocido').toUpperCase();
+        const dateStr = new Date().toLocaleDateString();
+
+        let auditSection = '\n## ESTADO FORENSE Y TRAZABILIDAD\n- Trazabilidad complementaria: No disponible o no adjuntada en la ingesta.\n';
+        const summary = auditSummary || state.auditSummary;
+        if (summary && summary.traceabilityCases > 0) {
+            const editedPct = summary.total > 0 ? Math.round((summary.edited / summary.total) * 100) : 0;
+            auditSection = `
+## ESTADO FORENSE Y TRAZABILIDAD (APU-04 → APU-05)
+- Casos con archivo de trazabilidad (_trazabilidad.json): ${summary.traceabilityCases}
+- Segmentos auditados: ${summary.total}
+- Segmentos editados por humano (editedByHuman): ${summary.edited} (${editedPct}%)
+- Segmentos con modificaciones en log: ${summary.changed}
+- Segmentos con anomalías / duración 0: ${summary.anomalous}
+`;
+        } else if (auditRecords && auditRecords.length > 0) {
+            const editedCount = auditRecords.filter(a => a.editedByHuman).length;
+            const aiCount = auditRecords.filter(a => a.aiSuggested).length;
+            const anomalousCount = auditRecords.filter(a => a.anomalous || (a.start === a.end)).length;
+            auditSection = `
+## ESTADO FORENSE Y TRAZABILIDAD (APU-04 → APU-05)
+- Segmentos con registros de auditoría: ${auditRecords.length}
+- Segmentos editados por humano (editedByHuman): ${editedCount}
+- Segmentos sugeridos por IA (aiSuggested): ${aiCount}
+- Segmentos con anomalías / duración 0: ${anomalousCount}
+`;
+        }
+
+        let warningsSection = '';
+        if (state.validationWarnings && state.validationWarnings.length > 0) {
+            warningsSection = `\n## ADVERTENCIAS DE CALIDAD\n${state.validationWarnings.map(w => `- ${w}`).join('\n')}\n`;
+        }
+
         return `
-# REPORTE DE PROYECTO: ${state.topology.toUpperCase()}
+# REPORTE DE PROYECTO: ${topology}
 Estado: ${status}
-Fecha: ${new Date().toLocaleDateString()}
+Fecha: ${dateStr}
 ${warning}
 
 ## CARACTERIZACIÓN DE LA EVIDENCIA
 - Volumen: ${stats.production.words} palabras en ${stats.production.segments} segmentos.
 - Duración: ${stats.production.duration} minutos.
+- Velocidad media: ${stats.production.wpm} palabras por minuto (wpm).
 - Complejidad: ${stats.complexity.lexicalDiversity}% de diversidad léxica.
+${auditSection.trim()}
+${warningsSection.trim()}
 
 ## MEMORIA TÉCNICA
-Análisis ejecutado bajo estándares local-first.
-El corpus superó la validación estructural de entrada APU-04 5.x.
+Análisis ejecutado bajo estándares local-first inmutables (PRISMA+ v5.3).
+El corpus superó la validación estructural estricta de entrada APU-04 5.x.
 
 --------------------------------------------------
 DOCUMENTO PREPARADO PARA EVALUACIÓN ACADÉMICA.
