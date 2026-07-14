@@ -35,7 +35,8 @@ test('todos los módulos de ingesta exigen decisión antes de persistir un provi
         '../../src/modules/IndividualModule.js',
         '../../src/modules/ExploratoryModule.js',
         '../../src/modules/TransversalModule.js',
-        '../../src/modules/IntegrityModule.js'
+        '../../src/modules/IntegrityModule.js',
+        '../../src/modules/LongitudinalModule.js'
     ];
 
     for (const relativePath of modules) {
@@ -55,6 +56,7 @@ test('lector y módulos metodológicos muestran la marca provisional', async () 
         '../../src/modules/ExploratoryModule.js',
         '../../src/modules/TransversalModule.js',
         '../../src/modules/IntegrityModule.js',
+        '../../src/modules/LongitudinalModule.js',
         '../../src/modules/ReaderModule.js'
     ];
 
