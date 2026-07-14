@@ -469,6 +469,18 @@ La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview 
 
 ---
 
+## D-044 — Motor Científico Longitudinal de Concept Drift y Módulo Longitudinal Descriptivo (R7 / D-038)
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `6cd8e7a`
+**Fecha:** 2026-07-14
+
+1. **Motor Longitudinal (`LongitudinalEngine.js` - 106 líneas)**: Lógica científica pura para cuantificar trayectorias temporales y derivas discursivas (*Concept Drift*) entre dos o más cortes de una misma unidad analítica (`compareLexicalDrift`, `trackEntityEvolution`). Mide tasas exactas de persistencia léxica (`persistenceRate`), innovación discursiva (`innovationRate`), deltas de velocidad ($\Delta$ WPM) y términos emergentes/persistentes/ausentes.
+2. **Módulo Longitudinal Descriptivo (`LongitudinalModule.js` - 204 líneas)**: Reemplazo del placeholder visual por una interfaz bajo estándar Workbench de dos pasos (`INGESTA` y `EVOLUCIÓN`). El paso de ingesta permite apilar visitas en orden cronológico. El paso de evolución adjunta en primer plano la **Advertencia Metodológica Inmutable de la Regla R7** (prohibición estricta de inferencia causal automática), muestra el resumen ejecutivo de la trayectoria, las 4 tarjetas de deriva temporal y las listas categorizadas de términos ($T_1 \cap T_2$, $T_2 \setminus T_1$, $T_1 \setminus T_2$).
+3. **Certificación de Rigor Previo (`AUDIT_DOUBT_MANIFEST.md`)**: Se verificaron las fórmulas en `tests/node/longitudinal-engine.test.mjs` antes de conectar la UI y se integró a `provisional-output.test.mjs`, superando **104 pruebas en verde (`100% PASS`)**.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

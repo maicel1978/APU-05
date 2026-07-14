@@ -39,7 +39,8 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 
 ## 3. Estado actual
 
-- **Fase de Continuidad 2 (D-043) aprobada y aceptada por el investigador (`31626ae` / PR #3):** Implementado Grafo de Red Exploratorio interactivo en SVG puro (`_drawNetworkSvg` y `_getTopVocabularyTerms` en `ExploratoryModule.js`) y virtualización progresiva con sentinela (`#virtual-scroll-sentinel`) en `Renderer.renderCorpus()` para cohortes masivas (Regla R14). Pruebas incrementadas a **101 en verde (`100% PASS`)**.
+- **Fase de Continuidad 3 (D-044) aprobada y aceptada por el investigador (`6cd8e7a` / PR #3):** Implementado Motor Científico Longitudinal de Concept Drift (`LongitudinalEngine.js`) y Módulo Longitudinal Descriptivo (`LongitudinalModule.js` de 2 pasos `INGESTA` y `EVOLUCIÓN`), verificando las fórmulas matemáticas en tests antes de conectar la UI (`AUDIT_DOUBT_MANIFEST.md`) y adjuntando obligatoriamente la advertencia inmutable contra inferencia causal automática (PRISMA+ R7 / D-038). Pruebas incrementadas a **104 en verde (`100% PASS`)**.
+- **Fase de Continuidad 2 (D-043) aprobada y aceptada por el investigador (`31626ae` / PR #3):** Implementado Grafo de Red Exploratorio interactivo en SVG puro (`_drawNetworkSvg` y `_getTopVocabularyTerms` en `ExploratoryModule.js`) y virtualización progresiva con sentinela (`#virtual-scroll-sentinel`) en `Renderer.renderCorpus()` para cohortes masivas (Regla R14).
 - **Fase de Continuidad 1 (D-042) aprobada y aceptada por el investigador (`ccc5432` / PR #3):** Activado el Módulo de Auditoría e Integridad Forense (`IntegrityModule.js`) de dos pasos (`INGESTA` y `CALIDAD`), resuelto error de referencia en `AuditEngine.generateIndividualReport`, adjuntada sección forense y advertencias en reportes exportados (`ExportModule.js`).
 - **Fase 0 aceptada por el investigador.**
 - **Fase 1A aceptada por el investigador:** runner Node, caracterización del Parser y auditoría R10.
