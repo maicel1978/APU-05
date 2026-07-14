@@ -457,6 +457,18 @@ La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview 
 
 ---
 
+## D-043 — Grafo de Red Exploratorio en SVG Puro y Virtualización de Rendimiento de Transcripción
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `31626ae`
+**Fecha:** 2026-07-14
+
+1. **Grafo de Red Léxica Interactivo (`ExploratoryModule.js`)**: Se reemplazó la lista estática de vínculos por un mapa SVG (`viewBox="0 0 650 360"`) con nodos (`.svg-node`) y aristas (`.svg-link`) interactivos. Se implementó `_getTopVocabularyTerms` para extraer dinámicamente el vocabulario distintivo real del corpus cuando el glosario clínico base (`NER`) no devuelve suficientes coincidencias, garantizando la generación de aristas y nodos con cualquier dataset 5.x.
+2. **Virtualización con Sentinela (`Renderer.renderCorpus()`)**: Se optimizó el visor sagrado (`ReaderModule`) implementando un `IntersectionObserver` acoplado a un sentinela (`#virtual-scroll-sentinel`) para inyección por bloques (*chunks* de 50 segmentos), evitando congelamientos en cohortes masivas (Regla R14) con degradación segura en entornos que no soporten la API.
+3. **Certificación**: Suite comunitaria y específica (`exploratory-graph.test.mjs`) aprobadas en **101 pruebas (`100% PASS`)**.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?

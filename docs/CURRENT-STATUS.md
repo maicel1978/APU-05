@@ -7,6 +7,7 @@
 - **Fase 2 (UI)**: Interfaz Zen "Premium Blueprint" reactiva.
 - **Fase 3 (Lógica Core)**: Bóveda V8 Master con aislamiento de sesión.
 - **Fase 4 (Auditoría e Integridad)**: Módulo `IntegrityModule.js` activado con inspección forense, filtrado de anomalías y reporte de calidad (`ExportModule.js`) 100% verificado (`98 tests`).
+- **Fase 5 (Exploratorio y Rendimiento)**: Grafo de red en SVG interactivo y virtualización de scroll con `IntersectionObserver` en `Renderer.renderCorpus()` para cohortes masivas (`101 tests`).
 
 ## 🧪 CERTIFICACIÓN DE DATOS (BENCHMARKS)
 - **Test Pass**: `entrevista01.json` (Geriatría) cargado con éxito.
@@ -14,9 +15,8 @@
 - **Herencia**: El mapeo de hablantes de APU-03 es proactivo y funcional.
 
 ## 🚧 PRÓXIMOS PASOS (Handover)
-1. Pulir visualización del Grafo de Red en el Módulo Exploratorio (`ExploratoryModule.js`).
-2. Implementar lógica descriptiva real de Causalidad/Evolución en el Módulo Longitudinal (`LongitudinalModule.js`).
-3. Virtualizar scroll de listas masivas (`Renderer.js` / Intersection Observer).
+1. Implementar motor de cálculo y vista descriptiva evolutiva en el Módulo Longitudinal (`LongitudinalModule.js` / `LongitudinalEngine.js`), sin inferencias causales automáticas.
+2. Certificar portabilidad local absoluta empaquetando dependencias de runtime.
 
 ## 🛠️ NOTA TÉCNICA
 El sistema es ahora inmune a colisiones de llaves y errores de caché.
