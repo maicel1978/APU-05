@@ -8,10 +8,10 @@
 Archivos:
 
 ```text
-uploads/gasto_cleaned.json
-uploads/gasto_trazabilidad.json
-uploads/gasto_quality_report.json
-uploads/gasto_edit_log.csv
+assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json
+assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json
+assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_quality_report.json
+assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_edit_log.csv
 ```
 
 Hashes SHA-256:
@@ -40,10 +40,10 @@ Integridad:
 Archivos:
 
 ```text
-uploads/barreras_cleaned.json
-uploads/barreras_trazabilidad.json
-uploads/barreras_quality_report.json
-uploads/barreras_edit_log.csv
+assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json
+assets/test_data/benchmarks_v5/barreras/barreras_trazabilidad.json
+assets/test_data/benchmarks_v5/barreras/barreras_quality_report.json
+assets/test_data/benchmarks_v5/barreras/barreras_edit_log.csv
 ```
 
 Hashes SHA-256:

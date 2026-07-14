@@ -20,7 +20,10 @@ export const HelpModule = {
                 <div style="font-size:0.85rem; line-height:1.6; color:#333;">
                     ${helpContent}
                 </div>
-                <div style="margin-top:2rem; padding:1rem; border:1px dashed #000; background:#f9f9f9; font-size:0.7rem;">
+                <div style="margin-top:1.5rem; padding:1rem; border:1px solid #000; background:#fff8e7; font-size:0.8rem; line-height:1.5; color:#333;">
+                    <strong>🛡️ Rigor y Juicio Metodológico:</strong> La comparabilidad de entrevistas cualitativas y cuantitativas depende rigurosamente del diseño del estudio, la población seleccionada, el instrumento de recolección y el procedimiento metodológico. El software no sustituye en ningún caso el entrenamiento ni el juicio metodológico del investigador.
+                </div>
+                <div style="margin-top:1rem; padding:1rem; border:1px dashed #000; background:#f9f9f9; font-size:0.7rem;">
                     <strong>Nota:</strong> Esta ayuda se ha adaptado automáticamente al diseño de estudio activo.
                 </div>
             </div>
@@ -42,6 +45,14 @@ export const HelpModule = {
                     <li>Co-ocurrencias: conceptos que aparecen vinculados en la muestra.</li>
                     <li>Outliers: entrevistas que se desvían de la norma emocional o temática.</li>
                 </ul>`,
+            comparative: `
+                <p>El modo <strong>Transversal (Comparativo)</strong> permite contrastar distribuciones entre grupos definidos por covariables clínicas (ej. Control vs. Intervención):</p>
+                <ul>
+                    <li>Contraste Léxico (G²): evalúa keyness léxica entre dos grupos explícitos.</li>
+                    <li>Requiere selección formal de variable, Grupo A y Grupo B antes del cálculo.</li>
+                </ul>`,
+            longitudinal: `
+                <p>El modo <strong>Longitudinal</strong> se encuentra reservado para diseños con estructura temporal según el protocolo.</p>`,
             general: `<p>Seleccione un diseño de investigación para ver la guía específica.</p>`
         };
         return contents[id] || contents.general;

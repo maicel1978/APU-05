@@ -22,7 +22,7 @@ test('la suite compartida certifica el contrato estricto sin falsos positivos', 
 });
 
 test('rechaza explícitamente el fixture histórico 4.0.0', async () => {
-    const fixture = await readJson('../../assets/test_data/entrevista01.json');
+    const fixture = await readJson('../../assets/test_data/historicos_v4/entrevista01.json');
 
     await assert.rejects(
         () => APUParser.validate(fixture, 'individual'),
@@ -32,8 +32,8 @@ test('rechaza explícitamente el fixture histórico 4.0.0', async () => {
 
 test('acepta los dos benchmarks revisados APU-04 5.0.0 sin mutarlos', async () => {
     for (const relativePath of [
-        '../../uploads/barreras_cleaned.json',
-        '../../uploads/gasto_cleaned.json'
+        '../../assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json',
+        '../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json'
     ]) {
         const fixture = await readJson(relativePath);
         const before = JSON.stringify(fixture);
@@ -46,7 +46,7 @@ test('acepta los dos benchmarks revisados APU-04 5.0.0 sin mutarlos', async () =
 });
 
 test('acepta y advierte el caso real 5.0.0 con duración cero', async () => {
-    const fixture = await readJson('../../uploads/speakers-5_cleaned (1).json');
+    const fixture = await readJson('../../assets/test_data/benchmarks_v5/duracion_cero/speakers-5_cleaned.json');
     const result = await APUParser.validate(fixture, 'individual');
 
     assert.ok(fixture.segments.some((segment) => segment.start === segment.end));
@@ -54,8 +54,8 @@ test('acepta y advierte el caso real 5.0.0 con duración cero', async () => {
 });
 
 test('empareja el paquete gasto por sourceSession y segmentId', async () => {
-    const cleaned = await readJson('../../uploads/gasto_cleaned.json');
-    const traceability = await readJson('../../uploads/gasto_trazabilidad.json');
+    const cleaned = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
     const result = await APUParser.validate(cleaned, 'individual', traceability);
 
     assert.equal(result.traceability, traceability);
@@ -63,14 +63,14 @@ test('empareja el paquete gasto por sourceSession y segmentId', async () => {
 });
 
 test('empareja el paquete barreras por sourceSession y segmentId', async () => {
-    const cleaned = await readJson('../../uploads/barreras_cleaned.json');
-    const traceability = await readJson('../../uploads/barreras_trazabilidad.json');
+    const cleaned = await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_trazabilidad.json');
 
     await assert.doesNotReject(() => APUParser.validate(cleaned, 'individual', traceability));
 });
 
 test('rechaza usar trazabilidad como corpus principal', async () => {
-    const traceability = await readJson('../../uploads/gasto_trazabilidad.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
 
     await assert.rejects(
         () => APUParser.validate(traceability, 'individual'),
@@ -94,7 +94,7 @@ test('los cuatro corpus Transversales simulados requieren confirmación', async 
 });
 
 test('un corpus no finalizado requiere decisión sin ser mutado', async () => {
-    const fixture = await readJson('../../assets/test_data/provisional_v5.json');
+    const fixture = await readJson('../../assets/test_data/provisional_v5/provisional_v5.json');
     const before = JSON.stringify(fixture);
     const result = await APUParser.validate(fixture, 'individual');
 

@@ -45,6 +45,7 @@ En la pestaña **⚙️ CONFIG**, usted es el soberano:
 ---
 
 ## 🛡️ 4. NOTAS DE RIGOR CIENTÍFICO
+- **Comparabilidad y Juicio Metodológico**: La comparabilidad de entrevistas cualitativas y cuantitativas depende rigurosamente del diseño del estudio, la población seleccionada, el instrumento de recolección y el procedimiento metodológico; el software no sustituye bajo ninguna circunstancia el entrenamiento ni el juicio metodológico del investigador.
 - **Inmutabilidad**: APU-05 nunca modifica su texto original. El rigor exige que la fuente sea sagrada.
 - **Privacidad Local-First**: Ningún dato viaja a la nube. El análisis de IA y estadística ocurre en su procesador.
 - **Trazabilidad**: ✍️ indica validación humana previa; ⚠️ indica una anomalía de ritmo detectada en la transcripción original.

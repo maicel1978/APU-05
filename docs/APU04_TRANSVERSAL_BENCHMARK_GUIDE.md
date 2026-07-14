@@ -20,7 +20,7 @@ qa-transversal-intervencion-02-speakers-v3.json
 Todos fueron normalizados contra el maestro real:
 
 ```text
-assets/test_data/qa-transversal.clinical
+assets/test_data/transversal_simulated_v5/qa-transversal.clinical
 ```
 
 y validados con el cargador de Clinical VarOps de APU-03, el contrato APU-03 3.0.0 y el adaptador/validador actual de APU-04.

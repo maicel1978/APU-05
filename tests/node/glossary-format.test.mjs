@@ -9,7 +9,7 @@ const readJson = async (relativePath) => JSON.parse(
 );
 
 test('acepta la plantilla histórica v7.7 incluida en test_data', async () => {
-    const fixture = await readJson('../../assets/test_data/APU05_Glosario_Maestro_1783541182585.json');
+    const fixture = await readJson('../../assets/test_data/glosarios/APU05_Glosario_Maestro_1783541182585.json');
 
     assert.equal(fixture.version, '7.7.0');
     assert.deepEqual(normalizeGlossaryImport(fixture), []);

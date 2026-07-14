@@ -10,8 +10,8 @@ const readJson = async (relativePath) => JSON.parse(
 
 async function expensePair() {
     return [
-        { name: 'gasto_trace.json', data: await readJson('../../uploads/gasto_trazabilidad.json') },
-        { name: 'nombre-libre.json', data: await readJson('../../uploads/gasto_cleaned.json') }
+        { name: 'gasto_trace.json', data: await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json') },
+        { name: 'nombre-libre.json', data: await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json') }
     ];
 }
 
@@ -26,7 +26,7 @@ test('empareja corpus y trazabilidad por contenido, sin depender de nombre u ord
 });
 
 test('acepta un corpus limpio sin trazabilidad', async () => {
-    const cleaned = await readJson('../../uploads/barreras_cleaned.json');
+    const cleaned = await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json');
     const packages = buildInputPackages([{ name: 'barreras.json', data: cleaned }]);
 
     assert.equal(packages.length, 1);
@@ -36,8 +36,8 @@ test('acepta un corpus limpio sin trazabilidad', async () => {
 test('construye una cohorte de dos paquetes completos', async () => {
     const documents = [
         ...(await expensePair()),
-        { name: 'b-clean.json', data: await readJson('../../uploads/barreras_cleaned.json') },
-        { name: 'b-trace.json', data: await readJson('../../uploads/barreras_trazabilidad.json') }
+        { name: 'b-clean.json', data: await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json') },
+        { name: 'b-trace.json', data: await readJson('../../assets/test_data/benchmarks_v5/barreras/barreras_trazabilidad.json') }
     ];
     const packages = buildInputPackages(documents);
 
@@ -46,7 +46,7 @@ test('construye una cohorte de dos paquetes completos', async () => {
 });
 
 test('rechaza trazabilidad huérfana', async () => {
-    const traceability = await readJson('../../uploads/gasto_trazabilidad.json');
+    const traceability = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_trazabilidad.json');
 
     assert.throws(
         () => buildInputPackages([{ name: 'trace.json', data: traceability }]),
@@ -55,7 +55,7 @@ test('rechaza trazabilidad huérfana', async () => {
 });
 
 test('rechaza dos corpus para el mismo sourceSession', async () => {
-    const cleaned = await readJson('../../uploads/gasto_cleaned.json');
+    const cleaned = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json');
 
     assert.throws(
         () => buildInputPackages([
@@ -74,7 +74,7 @@ test('rechaza dos trazabilidades para el mismo sourceSession', async () => {
 });
 
 test('rechaza reportes de calidad en el selector de corpus', async () => {
-    const quality = await readJson('../../uploads/gasto_quality_report.json');
+    const quality = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_quality_report.json');
 
     assert.throws(
         () => buildInputPackages([{ name: 'quality.json', data: quality }]),
@@ -101,7 +101,7 @@ test('no modifica los documentos recibidos', async () => {
 });
 
 test('lee archivos del navegador antes de clasificarlos', async () => {
-    const cleaned = await readJson('../../uploads/gasto_cleaned.json');
+    const cleaned = await readJson('../../assets/test_data/benchmarks_v5/gasto_bolsillo/gasto_cleaned.json');
     const packages = await readInputPackages([{
         name: 'gasto.json',
         async text() { return JSON.stringify(cleaned); }

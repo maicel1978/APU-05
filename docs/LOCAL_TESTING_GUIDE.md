@@ -172,17 +172,12 @@ arena/019f5692-apu-05
 
 ## 8. Archivos para pruebas
 
-Datos integrados:
+Catálogo de datos y benchmarks integrados:
 
 ```text
 assets/test_data/
 ```
-
-Datos adicionales del prototipo:
-
-```text
-uploads/
-```
+(Consulte `assets/test_data/README.md` para ver la descripción de cada subcarpeta: `benchmarks_v5/`, `provisional_v5/`, `transversal_simulated_v5/`, `apu04_inputs/`, `historicos_v4/` y `glosarios/`).
 
 No usar información clínica identificable real durante las primeras pruebas de desarrollo.
 

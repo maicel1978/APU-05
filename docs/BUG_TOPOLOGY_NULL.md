@@ -39,7 +39,7 @@ El 404 de `favicon.ico` es una incidencia cosmética distinta y no forma parte d
 ## Prueba manual requerida
 
 1. Seleccionar Individual.
-2. Cargar `assets/test_data/entrevista01.json`.
+2. Cargar `assets/test_data/benchmarks_v5/barreras/barreras_cleaned.json` (o históricamente `assets/test_data/historicos_v4/entrevista01.json`).
 3. Abrir Transcripción Original.
 4. Abrir Reporte.
 5. Confirmar que ambos muestran contenido y no aparece el error `toUpperCase`.

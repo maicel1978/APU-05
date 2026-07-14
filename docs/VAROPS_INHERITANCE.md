@@ -64,7 +64,7 @@ APU-05 debe:
 Maestro:
 
 ```text
-assets/test_data/qa-transversal.clinical
+assets/test_data/transversal_simulated_v5/qa-transversal.clinical
 ```
 
 Define `grupo_estudio` con categorías Control e Intervención. Los cuatro archivos APU-03 fueron normalizados con el cargador real de APU-03 y luego validados con APU-04.
