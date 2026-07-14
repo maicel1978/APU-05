@@ -108,17 +108,39 @@ export const ExploratoryModule = {
         Renderer.renderNarrativeRadiography(container, stats, state.speakerMap, "Radiografía de Cohorte");
     },
 
+    _getTopVocabularyTerms(stats, segments, limit = 15) {
+        const nerTerms = Object.values(stats?.entidades || {}).flat().map(e => e?.term).filter(Boolean);
+        const stopWords = new Set([
+            'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'y', 'o', 'que', 'en', 'de', 'del', 'a', 'con', 'por', 'para',
+            'si', 'no', 'es', 'son', 'su', 'sus', 'se', 'me', 'mi', 'al', 'lo', 'como', 'pero', 'más', 'fue', 'hay', 'muy', 'este',
+            'esta', 'estos', 'estas', 'entonces', 'cuando', 'sobre', 'todo', 'todos', 'porque', 'tiene', 'tienen', 'había', 'desde',
+            'está', 'están', 'puede', 'pueden', 'hacer', 'dice', 'ahora', 'bien', 'bueno', 'buenos', 'días', 'señor', 'señora', 'usted',
+            'siento', 'veces', 'tengo', 'entiendo', 'ella', 'ellos', 'sólo', 'solo', 'pues', 'cómo', 'cual', 'cuál', 'algo', 'nada'
+        ]);
+        const counts = new Map();
+        (segments || []).forEach(seg => {
+            const tokens = (seg?.cleanedText || '').toLowerCase().match(/[\p{L}\p{N}]+/gu) || [];
+            tokens.forEach(t => {
+                if (t.length > 3 && !stopWords.has(t) && !nerTerms.includes(t)) {
+                    counts.set(t, (counts.get(t) || 0) + 1);
+                }
+            });
+        });
+        const freqTerms = [...counts.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
+        return [...new Set([...nerTerms, ...freqTerms])].slice(0, limit);
+    },
+
     async _renderLinks(container, state) {
         Renderer.renderModuleTitle(container, "03. Vínculos Narrativos");
         const stats = await this.stats.getCorpusStats(state.segments);
-        const allTerms = Object.values(stats.entidades).flat().map(e => e.term).slice(0, 15);
+        const allTerms = this._getTopVocabularyTerms(stats, state.segments, 15);
 
         if (allTerms.length === 0) {
-            container.innerHTML += '<p class="empty-msg">Sin términos suficientes. Verifique su Glosario.</p>';
+            container.innerHTML += '<p class="empty-msg">Sin términos analizables en la cohorte seleccionada.</p>';
             return;
         }
 
-        const links = await this.stats.getAdjacencyMatrix(state.segments, allTerms);
+        const links = await this.stats.getAdjacencyMatrix(state.segments, allTerms, 1);
         if (links.length === 0) {
             container.innerHTML += '<p class="empty-msg">No se detectaron co-ocurrencias significativas entre los términos analizados.</p>';
             return;
@@ -135,7 +157,7 @@ export const ExploratoryModule = {
                 <h4 style="font-size:0.8rem; color:#666; margin-bottom:1rem; text-transform:uppercase;">Asociaciones Críticas Detalladas</h4>
                 <div style="display:flex; flex-direction:column; gap:10px;">
                     ${links.slice(0, 8).map(l => `
-                        <div class="link-row" data-a="${l.source}" data-b="${l.target}" style="padding:1rem; border:1px solid #000; background:#f9f9f9; display:flex; justify-content:space-between; align-items:center; cursor:pointer;">
+                        <div class="link-row" data-a="${Renderer.sanitize(l.source)}" data-b="${Renderer.sanitize(l.target)}" style="padding:1rem; border:1px solid #000; background:#f9f9f9; display:flex; justify-content:space-between; align-items:center; cursor:pointer;">
                             <div style="font-family:var(--font-mono); font-size:0.9rem;">
                                 <strong>${Renderer.sanitize(l.source.toUpperCase())}</strong> 🔗 <strong>${Renderer.sanitize(l.target.toUpperCase())}</strong>
                             </div>
@@ -274,8 +296,8 @@ export const ExploratoryModule = {
         Renderer.setLoading(true, "Generando líneas de investigación...");
         try {
             const stats = await this.stats.getCorpusStats(state.segments);
-            const topTerms = Object.values(stats.entidades).flat().map(e => e.term).slice(0, 10);
-            const links = await this.stats.getAdjacencyMatrix(state.segments, topTerms);
+            const topTerms = this._getTopVocabularyTerms(stats, state.segments, 10);
+            const links = await this.stats.getAdjacencyMatrix(state.segments, topTerms, 1);
             const outliers = await this.stats.getNarrativeOutliers(state.segments);
 
             const hypotheses = await this.stats.generateHypotheses(state.segments, links, outliers);
