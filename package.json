@@ -1,8 +1,15 @@
 {
   "name": "apu-05-analysis-protocol-utilities",
-  "version": "0.1.0-prototype",
+  "version": "0.9.5-rc.2",
+  "description": "Estación de trabajo analítica cualitativo-cuantitativa local-first para epidemiología y salud pública (Metodología PRISMA+ v5.3)",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "author": "APU Scientific Ecosystem Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maicel1978/APU-05.git"
+  },
   "scripts": {
     "test": "node --test tests/node/*.test.mjs"
   },

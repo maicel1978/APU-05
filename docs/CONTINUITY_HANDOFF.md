@@ -1,8 +1,8 @@
 # Continuidad de trabajo — leer primero
 
 **Proyecto:** APU-05  
-**Rama de trabajo:** `arena/019f5692-apu-05`  
-**Línea base:** commit `a2fb799`
+**Rama de trabajo actual:** `arena/019f5fbd-apu-05` (Pull Request #3)  
+**Línea base previa:** commit `99d84cd` -> **Punto estable actual:** commit `ccc5432`
 
 ## 1. Misión
 
@@ -39,6 +39,9 @@ Para cambios de ingesta, consultar también el repositorio productor APU-04:
 
 ## 3. Estado actual
 
+- **Fase de Continuidad 3 (D-044) aprobada y aceptada por el investigador (`6cd8e7a` / PR #3):** Implementado Motor Científico Longitudinal de Concept Drift (`LongitudinalEngine.js`) y Módulo Longitudinal Descriptivo (`LongitudinalModule.js` de 2 pasos `INGESTA` y `EVOLUCIÓN`), verificando las fórmulas matemáticas en tests antes de conectar la UI (`AUDIT_DOUBT_MANIFEST.md`) y adjuntando obligatoriamente la advertencia inmutable contra inferencia causal automática (PRISMA+ R7 / D-038). Pruebas incrementadas a **104 en verde (`100% PASS`)**.
+- **Fase de Continuidad 2 (D-043) aprobada y aceptada por el investigador (`31626ae` / PR #3):** Implementado Grafo de Red Exploratorio interactivo en SVG puro (`_drawNetworkSvg` y `_getTopVocabularyTerms` en `ExploratoryModule.js`) y virtualización progresiva con sentinela (`#virtual-scroll-sentinel`) en `Renderer.renderCorpus()` para cohortes masivas (Regla R14).
+- **Fase de Continuidad 1 (D-042) aprobada y aceptada por el investigador (`ccc5432` / PR #3):** Activado el Módulo de Auditoría e Integridad Forense (`IntegrityModule.js`) de dos pasos (`INGESTA` y `CALIDAD`), resuelto error de referencia en `AuditEngine.generateIndividualReport`, adjuntada sección forense y advertencias en reportes exportados (`ExportModule.js`).
 - **Fase 0 aceptada por el investigador.**
 - **Fase 1A aceptada por el investigador:** runner Node, caracterización del Parser y auditoría R10.
 - Prueba manual MT-001 aprobada: apertura con Live Server y carga de `entrevista01.json` en Individual.
@@ -120,19 +123,14 @@ No hacer sin autorización y pruebas:
 - afirmar causalidad o diagnóstico clínico;
 - activar UI estadística sin motor certificado.
 
-## 7. Próximo trabajo recomendado
+## 7. Próximos pasos e horizonte de testeo continuo (Iteración y Transición Beta)
 
-**Fase 1: QA confiable, sin cambiar comportamiento de producción.**
+**Fase de Uso Intensivo del Prototipo y Preparación para APU-06:**
 
-1. Crear un runner de pruebas reproducible para APU-05.
-2. Reparar las pruebas del Parser que se autoaprueban.
-3. Añadir auditoría automática de 350 líneas.
-4. Añadir pruebas de caracterización para entrada 4.0.0 y 5.0.0.
-5. Añadir caso `start === end` como no fatal.
-6. Añadir prueba nula para Sorpresa, inicialmente esperada como fallo conocido.
-7. Generar un ZIP estable para prueba manual.
-
-No corregir todavía Parser o StatsEngine en el mismo cambio que repara el arnés de QA.
+1. **Ampliación de Benchmarks Simulados (`assets/test_data/`)**: Crear e incorporar más casos cualitativos simulados con diversas topologías metodológicas y complejidades discursivas para someter a pruebas de regresión cada ajuste analítico.
+2. **Revisión y Auditoría Metodológica en Detalle (`src/science/`)**: Evaluar empíricamente con los datos reales del investigador cómo interactúan las técnicas implementadas ($G^2$, Frecuencia Normalizada PMW, Saliencia ENA leave-one-out, Matrices de Adyacencia del Grafo ENA y Deriva Léxica Longitudinal) para re-calibrar fórmulas, tokenización y criterios de exclusión.
+3. **Evolución de la Ayuda y los Reportes Académicos (`HelpModule.js` / `AuditEngine.js`)**: Mejorar explicaciones pedagógicas integradas y ampliar la estructura del informe descargable (`.md`) para publicaciones y auditorías.
+4. **Campo Abierto a Propuestas e Innovación Científica (Fase Beta)**: Valorar umbrales adaptativos configurables, afinamiento de IA semántica vectorial en hardware local (`Semantic.js`), análisis de sensibilidad forense al remover trazas de edición/IA, empaquetamiento local definitivo de dependencias CDN (`assets/vendor/`) y diseño del contrato de exportación estructurada hacia **APU-06**.
 
 ## 8. Protocolo con el investigador
 

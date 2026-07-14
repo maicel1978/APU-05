@@ -445,6 +445,42 @@ La rama se propondrá a `main` mediante PR, no push directo. CI, Deploy Preview 
 
 ---
 
+## D-042 — Activación del Módulo de Auditoría e Integridad Forense y Enriquecimiento de Reporte Final
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `ccc5432`
+**Fecha:** 2026-07-14
+
+1. **Módulo Auditoría e Integridad (`IntegrityModule.js`) operativo**: Se reemplazó el placeholder visual por una estación analítica y forense bajo estándar Workbench con dos pasos (`INGESTA` y `CALIDAD`). El paso de ingesta permite cargar en simultáneo el corpus `_cleaned.json` y `_trazabilidad.json`, mostrando tarjetas con el volumen, estado provisional/consolidado, porcentaje de edición humana (`editedByHuman`) y conteo de anomalías. El paso de calidad despliega una tabla forense con filtros interactivos (`🔘 Todos`, `✍️ Editados`, `🤖 Sugeridos IA`, `⚠️ Anomalías`) y visualiza el historial previo (`modificationsLog`).
+2. **Enriquecimiento del Reporte Descargable (`ExportModule.js` / `AuditEngine.js`)**: Se solucionó el error de referencia en `generateIndividualReport` y se mejoró `generateFullProjectReport` para adjuntar la sección `## ESTADO FORENSE Y TRAZABILIDAD (APU-04 → APU-05)` junto a las advertencias de calidad inmutables.
+3. **Suite de Pruebas Node**: Se añadieron 4 pruebas en `tests/node/integrity.test.mjs` y se integró `IntegrityModule.js` a la suite comunitaria, alcanzando **98 pruebas en verde (`100% PASS`)**.
+
+---
+
+## D-043 — Grafo de Red Exploratorio en SVG Puro y Virtualización de Rendimiento de Transcripción
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `31626ae`
+**Fecha:** 2026-07-14
+
+1. **Grafo de Red Léxica Interactivo (`ExploratoryModule.js`)**: Se reemplazó la lista estática de vínculos por un mapa SVG (`viewBox="0 0 650 360"`) con nodos (`.svg-node`) y aristas (`.svg-link`) interactivos. Se implementó `_getTopVocabularyTerms` para extraer dinámicamente el vocabulario distintivo real del corpus cuando el glosario clínico base (`NER`) no devuelve suficientes coincidencias, garantizando la generación de aristas y nodos con cualquier dataset 5.x.
+2. **Virtualización con Sentinela (`Renderer.renderCorpus()`)**: Se optimizó el visor sagrado (`ReaderModule`) implementando un `IntersectionObserver` acoplado a un sentinela (`#virtual-scroll-sentinel`) para inyección por bloques (*chunks* de 50 segmentos), evitando congelamientos en cohortes masivas (Regla R14) con degradación segura en entornos que no soporten la API.
+3. **Certificación**: Suite comunitaria y específica (`exploratory-graph.test.mjs`) aprobadas en **101 pruebas (`100% PASS`)**.
+
+---
+
+## D-044 — Motor Científico Longitudinal de Concept Drift y Módulo Longitudinal Descriptivo (R7 / D-038)
+
+**Estado:** implementada y aceptada por el investigador (PR #3)
+**Commit validado:** `6cd8e7a`
+**Fecha:** 2026-07-14
+
+1. **Motor Longitudinal (`LongitudinalEngine.js` - 106 líneas)**: Lógica científica pura para cuantificar trayectorias temporales y derivas discursivas (*Concept Drift*) entre dos o más cortes de una misma unidad analítica (`compareLexicalDrift`, `trackEntityEvolution`). Mide tasas exactas de persistencia léxica (`persistenceRate`), innovación discursiva (`innovationRate`), deltas de velocidad ($\Delta$ WPM) y términos emergentes/persistentes/ausentes.
+2. **Módulo Longitudinal Descriptivo (`LongitudinalModule.js` - 204 líneas)**: Reemplazo del placeholder visual por una interfaz bajo estándar Workbench de dos pasos (`INGESTA` y `EVOLUCIÓN`). El paso de ingesta permite apilar visitas en orden cronológico. El paso de evolución adjunta en primer plano la **Advertencia Metodológica Inmutable de la Regla R7** (prohibición estricta de inferencia causal automática), muestra el resumen ejecutivo de la trayectoria, las 4 tarjetas de deriva temporal y las listas categorizadas de términos ($T_1 \cap T_2$, $T_2 \setminus T_1$, $T_1 \setminus T_2$).
+3. **Certificación de Rigor Previo (`AUDIT_DOUBT_MANIFEST.md`)**: Se verificaron las fórmulas en `tests/node/longitudinal-engine.test.mjs` antes de conectar la UI y se integró a `provisional-output.test.mjs`, superando **104 pruebas en verde (`100% PASS`)**.
+
+---
+
 ## Decisiones pendientes
 
 1. ¿Cuál será la identidad canónica de proyecto y cohorte en IndexedDB?
